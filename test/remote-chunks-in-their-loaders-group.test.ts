@@ -217,6 +217,7 @@ const vendored = (): boolean => {
   return Object.values(sources).every(({ file }) => existsSync(`${corpus}vendor/${file}`))
 }
 
+// A CDN site's scan takes about 50 s on a fast laptop and over 2 minutes on a 2-vCPU CI runner, hence the 10-minute limits.
 describe.skipIf(!vendored())('the corpus CDN sites', () => {
   test("New Relic's four lazy chunks are fetched, SRI-checked against the loader's table and linked, their code `deferred`, with one `unresolved-reference` at the load site", async () => {
     const { report } = await scanCdnSite('newrelic-cdn')
@@ -246,7 +247,7 @@ describe.skipIf(!vendored())('the corpus CDN sites', () => {
       [recorder, 'a worker URL that is not a constant'],
     ])
     expect(report.completeness.level).toBe('complete-with-limitations')
-  }, 120_000)
+  }, 600_000)
 
   test("Datadog's recorder and profiler chunks are `module` references, fetched and linked into the loader's group", async () => {
     const { report } = await scanCdnSite('datadog-cdn')
@@ -267,5 +268,5 @@ describe.skipIf(!vendored())('the corpus CDN sites', () => {
       [loader, 'a worker URL that is not a constant'],
       [loader, 'a worker URL that is not a constant'],
     ])
-  }, 120_000)
+  }, 600_000)
 })

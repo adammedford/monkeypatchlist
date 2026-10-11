@@ -1,0 +1,776 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 15213,
+        "stepBudget": 75657216,
+        "budgetExhausted": 0,
+        "caps": {
+          "flagDepth": 1
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 1,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 1,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|Window.addEventListener|wrap|pkg:single-spa",
+      "targetKey": "window|Window.addEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.addEventListener",
+        "shadows": "EventTarget.prototype.addEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:single-spa",
+        "provenance": "bundled-dependency",
+        "package": "single-spa"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.7f69f6c0.js",
+            "hash": "sha256:3ed30a0d4d1f07a1bec6bdcadc788e749d6fd375eb05a58b3ac40ac0ad12fba9",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10559,
+            "end": 10704,
+            "line": 1,
+            "column": 10559
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+            "line": 2,
+            "column": 10470
+          },
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {
+            "version": {
+              "version": "6.0.3",
+              "versionSource": "banner"
+            }
+          },
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "Y",
+              "generated": {
+                "start": 17985,
+                "end": 17986,
+                "line": 1,
+                "column": 17985
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Y` at 1:17985 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "ut",
+              "generated": {
+                "start": 10295,
+                "end": 10297,
+                "line": 1,
+                "column": 10295
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `ut` at 1:10295 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "addEventListener",
+              "lookup": {
+                "start": 10566,
+                "end": 10582,
+                "line": 1,
+                "column": 10566
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+                "line": 2,
+                "column": 10470
+              },
+              "text": "`addEventListener` appears within one line of webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js:2:10470, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.removeEventListener|wrap|pkg:single-spa",
+      "targetKey": "window|Window.removeEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.removeEventListener",
+        "shadows": "EventTarget.prototype.removeEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:single-spa",
+        "provenance": "bundled-dependency",
+        "package": "single-spa"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.7f69f6c0.js",
+            "hash": "sha256:3ed30a0d4d1f07a1bec6bdcadc788e749d6fd375eb05a58b3ac40ac0ad12fba9",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10705,
+            "end": 10845,
+            "line": 1,
+            "column": 10705
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+            "line": 2,
+            "column": 10616
+          },
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {
+            "version": {
+              "version": "6.0.3",
+              "versionSource": "banner"
+            }
+          },
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "Y",
+              "generated": {
+                "start": 17985,
+                "end": 17986,
+                "line": 1,
+                "column": 17985
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Y` at 1:17985 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "ut",
+              "generated": {
+                "start": 10295,
+                "end": 10297,
+                "line": 1,
+                "column": 10295
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `ut` at 1:10295 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "removeEventListener",
+              "lookup": {
+                "start": 10712,
+                "end": 10731,
+                "line": 1,
+                "column": 10712
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+                "line": 2,
+                "column": 10616
+              },
+              "text": "`removeEventListener` appears within one line of webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js:2:10616, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.pushState|wrap|pkg:single-spa",
+      "targetKey": "window|history.pushState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.pushState",
+        "shadows": "History.prototype.pushState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:single-spa",
+        "provenance": "bundled-dependency",
+        "package": "single-spa"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.7f69f6c0.js",
+            "hash": "sha256:3ed30a0d4d1f07a1bec6bdcadc788e749d6fd375eb05a58b3ac40ac0ad12fba9",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10846,
+            "end": 10911,
+            "line": 1,
+            "column": 10846
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+            "line": 2,
+            "column": 10758
+          },
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {
+            "version": {
+              "version": "6.0.3",
+              "versionSource": "banner"
+            }
+          },
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "history",
+              "path": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.history` of that object is the platform singleton `history` (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "Y",
+              "generated": {
+                "start": 17985,
+                "end": 17986,
+                "line": 1,
+                "column": 17985
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Y` at 1:17985 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "ut",
+              "generated": {
+                "start": 10295,
+                "end": 10297,
+                "line": 1,
+                "column": 10295
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `ut` at 1:10295 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "pushState",
+              "lookup": {
+                "start": 10861,
+                "end": 10870,
+                "line": 1,
+                "column": 10861
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+                "line": 2,
+                "column": 10758
+              },
+              "text": "`pushState` appears within one line of webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js:2:10758, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.replaceState|wrap|pkg:single-spa",
+      "targetKey": "window|history.replaceState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.replaceState",
+        "shadows": "History.prototype.replaceState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:single-spa",
+        "provenance": "bundled-dependency",
+        "package": "single-spa"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.7f69f6c0.js",
+            "hash": "sha256:3ed30a0d4d1f07a1bec6bdcadc788e749d6fd375eb05a58b3ac40ac0ad12fba9",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10912,
+            "end": 10961,
+            "line": 1,
+            "column": 10912
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+            "line": 2,
+            "column": 10758
+          },
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {
+            "version": {
+              "version": "6.0.3",
+              "versionSource": "banner"
+            }
+          },
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "history",
+              "path": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.history` of that object is the platform singleton `history` (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "Y",
+              "generated": {
+                "start": 17985,
+                "end": 17986,
+                "line": 1,
+                "column": 17985
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Y` at 1:17985 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "ut",
+              "generated": {
+                "start": 10295,
+                "end": 10297,
+                "line": 1,
+                "column": 10295
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `ut` at 1:10295 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "replaceState",
+              "lookup": {
+                "start": 10927,
+                "end": 10939,
+                "line": 1,
+                "column": 10927
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js",
+                "line": 2,
+                "column": 10758
+              },
+              "text": "`replaceState` appears within one line of webpack://patchline-validation-corpus/./node_modules/single-spa/lib/es2015/esm/single-spa.min.js:2:10758, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main.7f69f6c0.js",
+      "path": "main.7f69f6c0.js",
+      "hash": "sha256:3ed30a0d4d1f07a1bec6bdcadc788e749d6fd375eb05a58b3ac40ac0ad12fba9",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "main.7f69f6c0.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main.7f69f6c0.js",
+        "finalUrl": "https://app.corpus.test/main.7f69f6c0.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

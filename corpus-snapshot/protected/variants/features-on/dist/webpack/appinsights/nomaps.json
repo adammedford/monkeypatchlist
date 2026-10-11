@@ -1,0 +1,2226 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 7975099,
+        "stepBudget": 766681088,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 634,
+          "contexts": 30025,
+          "flagDepth": 103,
+          "nesting": 17,
+          "recursion": 1514
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main.694ba075.js",
+          "path": "main.694ba075.js",
+          "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a"
+        },
+        "location": {
+          "start": 61024,
+          "end": 61040,
+          "line": 2,
+          "column": 60953
+        },
+        "detail": "the call `Kl(…)` at 2:60953 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 4
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.abort|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.abort|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.abort"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.694ba075.js",
+            "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 61465,
+            "end": 61471,
+            "line": 2,
+            "column": 61394
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "L",
+              "generated": {
+                "start": 158676,
+                "end": 158871,
+                "line": 2,
+                "column": 158605
+              },
+              "function": {
+                "start": 151089,
+                "end": 151165,
+                "line": 2,
+                "column": 151018
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"abort\""
+                },
+                {
+                  "parameter": "t",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `L(…)` at 2:158605 runs the function with its arguments bound as `n` = `XMLHttpRequest`, `e` = `\"abort\"`, `t` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 151109,
+                "end": 151163,
+                "line": 2,
+                "column": 151038
+              },
+              "function": {
+                "start": 151109,
+                "end": 151156,
+                "line": 2,
+                "column": 151038
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `…(…)` at 2:151038 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `t`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ar",
+              "expression": "Ar = \"prototype\"",
+              "generated": {
+                "start": 16366,
+                "end": 16380,
+                "line": 2,
+                "column": 16295
+              },
+              "text": "`Ar` is read from its definition `Ar = \"prototype\"` at 2:16295"
+            },
+            {
+              "kind": "call",
+              "callee": "Wl",
+              "generated": {
+                "start": 151134,
+                "end": 151150,
+                "line": 2,
+                "column": 151063
+              },
+              "function": {
+                "start": 61606,
+                "end": 61744,
+                "line": 2,
+                "column": 61535
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n[Ar]"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Wl(…)` at 2:151063 runs the function with its arguments bound as `n` = `n[Ar]`, `e` = `e`, `t` = `t`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Kl",
+              "generated": {
+                "start": 61666,
+                "end": 61677,
+                "line": 2,
+                "column": 61595
+              },
+              "function": {
+                "start": 60963,
+                "end": 61045,
+                "line": 2,
+                "column": 60892
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Kl(…)` at 2:61595 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = n",
+              "generated": {
+                "start": 61014,
+                "end": 61017,
+                "line": 2,
+                "column": 60943
+              },
+              "text": "`i` is read from its definition `i = n` at 2:60943"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Kl(n, e, r, i)",
+              "generated": {
+                "start": 61664,
+                "end": 61677,
+                "line": 2,
+                "column": 61593
+              },
+              "text": "`a` is read from its definition `a = Kl(n, e, r, i)` at 2:61593"
+            },
+            {
+              "kind": "call",
+              "callee": "Xl",
+              "generated": {
+                "start": 61719,
+                "end": 61730,
+                "line": 2,
+                "column": 61648
+              },
+              "function": {
+                "start": 61045,
+                "end": 61606,
+                "line": 2,
+                "column": 60974
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `Xl(…)` at 2:61648 runs the function with its arguments bound as `n` = `a`, `e` = `e`, `t` = `o`, `r` = `t`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 155907,
+                "end": 160502,
+                "line": 2,
+                "column": 155836
+              },
+              "generated": {
+                "start": 180114,
+                "end": 180120,
+                "line": 2,
+                "column": 180043
+              },
+              "this": "new by()",
+              "text": "no resolved call reaches the function at 2:155836 made at 2:180043, so it is judged from where it was made, with `this` = `new by()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "n.isInitialized()",
+              "generated": {
+                "start": 155931,
+                "end": 155948,
+                "line": 2,
+                "column": 155860
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `n.isInitialized()` at 2:155860 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(n, I)",
+              "generated": {
+                "start": 156396,
+                "end": 156780,
+                "line": 2,
+                "column": 156325
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `…(n, I)` at 2:156325 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!r.cfg",
+              "generated": {
+                "start": 31208,
+                "end": 31214,
+                "line": 2,
+                "column": 31137
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!r.cfg` at 2:31137 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg !== n",
+              "generated": {
+                "start": 31216,
+                "end": 31225,
+                "line": 2,
+                "column": 31145
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg !== n` at 2:31145 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ou] !== r",
+              "generated": {
+                "start": 31227,
+                "end": 31240,
+                "line": 2,
+                "column": 31156
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ou] !== r` at 2:31156 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "y",
+              "generated": {
+                "start": 156822,
+                "end": 156823,
+                "line": 2,
+                "column": 156751
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `y` at 2:156751 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r",
+              "generated": {
+                "start": 156825,
+                "end": 156826,
+                "line": 2,
+                "column": 156754
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `r` at 2:156754 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 158678,
+                "end": 158692,
+                "line": 2,
+                "column": 158607
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 2:158607 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n[Ar]",
+              "generated": {
+                "start": 151137,
+                "end": 151142,
+                "line": 2,
+                "column": 151066
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `n[Ar]` at 2:151066 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"abort\"",
+              "generated": {
+                "start": 158693,
+                "end": 158700,
+                "line": 2,
+                "column": 158622
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `\"abort\"` at 2:158622 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 158701,
+                "end": 158870,
+                "line": 2,
+                "column": 158630
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 2:158630 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 61681,
+                "end": 61682,
+                "line": 2,
+                "column": 61610
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:61610 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o === Dr",
+              "generated": {
+                "start": 61698,
+                "end": 61711,
+                "line": 2,
+                "column": 61627
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.abort",
+              "result": "unconditional",
+              "text": "the guard `typeof o === Dr` at 2:61627 is transparent on `XMLHttpRequest.prototype.abort`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 61084,
+                "end": 61086,
+                "line": 2,
+                "column": 61013
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:61013 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.open|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.open|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.open"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.694ba075.js",
+            "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 61465,
+            "end": 61471,
+            "line": 2,
+            "column": 61394
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "L",
+              "generated": {
+                "start": 156829,
+                "end": 158450,
+                "line": 2,
+                "column": 156758
+              },
+              "function": {
+                "start": 151089,
+                "end": 151165,
+                "line": 2,
+                "column": 151018
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"open\""
+                },
+                {
+                  "parameter": "t",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `L(…)` at 2:156758 runs the function with its arguments bound as `n` = `XMLHttpRequest`, `e` = `\"open\"`, `t` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 151109,
+                "end": 151163,
+                "line": 2,
+                "column": 151038
+              },
+              "function": {
+                "start": 151109,
+                "end": 151156,
+                "line": 2,
+                "column": 151038
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `…(…)` at 2:151038 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `t`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ar",
+              "expression": "Ar = \"prototype\"",
+              "generated": {
+                "start": 16366,
+                "end": 16380,
+                "line": 2,
+                "column": 16295
+              },
+              "text": "`Ar` is read from its definition `Ar = \"prototype\"` at 2:16295"
+            },
+            {
+              "kind": "call",
+              "callee": "Wl",
+              "generated": {
+                "start": 151134,
+                "end": 151150,
+                "line": 2,
+                "column": 151063
+              },
+              "function": {
+                "start": 61606,
+                "end": 61744,
+                "line": 2,
+                "column": 61535
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n[Ar]"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Wl(…)` at 2:151063 runs the function with its arguments bound as `n` = `n[Ar]`, `e` = `e`, `t` = `t`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Kl",
+              "generated": {
+                "start": 61666,
+                "end": 61677,
+                "line": 2,
+                "column": 61595
+              },
+              "function": {
+                "start": 60963,
+                "end": 61045,
+                "line": 2,
+                "column": 60892
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Kl(…)` at 2:61595 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = n",
+              "generated": {
+                "start": 61014,
+                "end": 61017,
+                "line": 2,
+                "column": 60943
+              },
+              "text": "`i` is read from its definition `i = n` at 2:60943"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Kl(n, e, r, i)",
+              "generated": {
+                "start": 61664,
+                "end": 61677,
+                "line": 2,
+                "column": 61593
+              },
+              "text": "`a` is read from its definition `a = Kl(n, e, r, i)` at 2:61593"
+            },
+            {
+              "kind": "call",
+              "callee": "Xl",
+              "generated": {
+                "start": 61719,
+                "end": 61730,
+                "line": 2,
+                "column": 61648
+              },
+              "function": {
+                "start": 61045,
+                "end": 61606,
+                "line": 2,
+                "column": 60974
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `Xl(…)` at 2:61648 runs the function with its arguments bound as `n` = `a`, `e` = `e`, `t` = `o`, `r` = `t`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 155907,
+                "end": 160502,
+                "line": 2,
+                "column": 155836
+              },
+              "generated": {
+                "start": 180114,
+                "end": 180120,
+                "line": 2,
+                "column": 180043
+              },
+              "this": "new by()",
+              "text": "no resolved call reaches the function at 2:155836 made at 2:180043, so it is judged from where it was made, with `this` = `new by()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "n.isInitialized()",
+              "generated": {
+                "start": 155931,
+                "end": 155948,
+                "line": 2,
+                "column": 155860
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `n.isInitialized()` at 2:155860 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(n, I)",
+              "generated": {
+                "start": 156396,
+                "end": 156780,
+                "line": 2,
+                "column": 156325
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `…(n, I)` at 2:156325 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!r.cfg",
+              "generated": {
+                "start": 31208,
+                "end": 31214,
+                "line": 2,
+                "column": 31137
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!r.cfg` at 2:31137 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg !== n",
+              "generated": {
+                "start": 31216,
+                "end": 31225,
+                "line": 2,
+                "column": 31145
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg !== n` at 2:31145 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ou] !== r",
+              "generated": {
+                "start": 31227,
+                "end": 31240,
+                "line": 2,
+                "column": 31156
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ou] !== r` at 2:31156 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "y",
+              "generated": {
+                "start": 156822,
+                "end": 156823,
+                "line": 2,
+                "column": 156751
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `y` at 2:156751 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r",
+              "generated": {
+                "start": 156825,
+                "end": 156826,
+                "line": 2,
+                "column": 156754
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `r` at 2:156754 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 156831,
+                "end": 156845,
+                "line": 2,
+                "column": 156760
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 2:156760 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n[Ar]",
+              "generated": {
+                "start": 151137,
+                "end": 151142,
+                "line": 2,
+                "column": 151066
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `n[Ar]` at 2:151066 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"open\"",
+              "generated": {
+                "start": 156846,
+                "end": 156852,
+                "line": 2,
+                "column": 156775
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `\"open\"` at 2:156775 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 156853,
+                "end": 158449,
+                "line": 2,
+                "column": 156782
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 2:156782 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 61681,
+                "end": 61682,
+                "line": 2,
+                "column": 61610
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:61610 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o === Dr",
+              "generated": {
+                "start": 61698,
+                "end": 61711,
+                "line": 2,
+                "column": 61627
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.open",
+              "result": "unconditional",
+              "text": "the guard `typeof o === Dr` at 2:61627 is transparent on `XMLHttpRequest.prototype.open`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 61084,
+                "end": 61086,
+                "line": 2,
+                "column": 61013
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:61013 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 156626,
+                "end": 156651,
+                "line": 2,
+                "column": 156555
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 2:156555 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.send|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.send|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.send"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.694ba075.js",
+            "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 61465,
+            "end": 61471,
+            "line": 2,
+            "column": 61394
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "L",
+              "generated": {
+                "start": 158451,
+                "end": 158675,
+                "line": 2,
+                "column": 158380
+              },
+              "function": {
+                "start": 151089,
+                "end": 151165,
+                "line": 2,
+                "column": 151018
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"send\""
+                },
+                {
+                  "parameter": "t",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `L(…)` at 2:158380 runs the function with its arguments bound as `n` = `XMLHttpRequest`, `e` = `\"send\"`, `t` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 151109,
+                "end": 151163,
+                "line": 2,
+                "column": 151038
+              },
+              "function": {
+                "start": 151109,
+                "end": 151156,
+                "line": 2,
+                "column": 151038
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `…(…)` at 2:151038 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `t`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ar",
+              "expression": "Ar = \"prototype\"",
+              "generated": {
+                "start": 16366,
+                "end": 16380,
+                "line": 2,
+                "column": 16295
+              },
+              "text": "`Ar` is read from its definition `Ar = \"prototype\"` at 2:16295"
+            },
+            {
+              "kind": "call",
+              "callee": "Wl",
+              "generated": {
+                "start": 151134,
+                "end": 151150,
+                "line": 2,
+                "column": 151063
+              },
+              "function": {
+                "start": 61606,
+                "end": 61744,
+                "line": 2,
+                "column": 61535
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n[Ar]"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Wl(…)` at 2:151063 runs the function with its arguments bound as `n` = `n[Ar]`, `e` = `e`, `t` = `t`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Kl",
+              "generated": {
+                "start": 61666,
+                "end": 61677,
+                "line": 2,
+                "column": 61595
+              },
+              "function": {
+                "start": 60963,
+                "end": 61045,
+                "line": 2,
+                "column": 60892
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Kl(…)` at 2:61595 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = n",
+              "generated": {
+                "start": 61014,
+                "end": 61017,
+                "line": 2,
+                "column": 60943
+              },
+              "text": "`i` is read from its definition `i = n` at 2:60943"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Kl(n, e, r, i)",
+              "generated": {
+                "start": 61664,
+                "end": 61677,
+                "line": 2,
+                "column": 61593
+              },
+              "text": "`a` is read from its definition `a = Kl(n, e, r, i)` at 2:61593"
+            },
+            {
+              "kind": "call",
+              "callee": "Xl",
+              "generated": {
+                "start": 61719,
+                "end": 61730,
+                "line": 2,
+                "column": 61648
+              },
+              "function": {
+                "start": 61045,
+                "end": 61606,
+                "line": 2,
+                "column": 60974
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `Xl(…)` at 2:61648 runs the function with its arguments bound as `n` = `a`, `e` = `e`, `t` = `o`, `r` = `t`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 155907,
+                "end": 160502,
+                "line": 2,
+                "column": 155836
+              },
+              "generated": {
+                "start": 180114,
+                "end": 180120,
+                "line": 2,
+                "column": 180043
+              },
+              "this": "new by()",
+              "text": "no resolved call reaches the function at 2:155836 made at 2:180043, so it is judged from where it was made, with `this` = `new by()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "n.isInitialized()",
+              "generated": {
+                "start": 155931,
+                "end": 155948,
+                "line": 2,
+                "column": 155860
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `n.isInitialized()` at 2:155860 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(n, I)",
+              "generated": {
+                "start": 156396,
+                "end": 156780,
+                "line": 2,
+                "column": 156325
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `…(n, I)` at 2:156325 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!r.cfg",
+              "generated": {
+                "start": 31208,
+                "end": 31214,
+                "line": 2,
+                "column": 31137
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!r.cfg` at 2:31137 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg !== n",
+              "generated": {
+                "start": 31216,
+                "end": 31225,
+                "line": 2,
+                "column": 31145
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg !== n` at 2:31145 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ou] !== r",
+              "generated": {
+                "start": 31227,
+                "end": 31240,
+                "line": 2,
+                "column": 31156
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ou] !== r` at 2:31156 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "y",
+              "generated": {
+                "start": 156822,
+                "end": 156823,
+                "line": 2,
+                "column": 156751
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `y` at 2:156751 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r",
+              "generated": {
+                "start": 156825,
+                "end": 156826,
+                "line": 2,
+                "column": 156754
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `r` at 2:156754 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 158453,
+                "end": 158467,
+                "line": 2,
+                "column": 158382
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 2:158382 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n[Ar]",
+              "generated": {
+                "start": 151137,
+                "end": 151142,
+                "line": 2,
+                "column": 151066
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `n[Ar]` at 2:151066 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"send\"",
+              "generated": {
+                "start": 158468,
+                "end": 158474,
+                "line": 2,
+                "column": 158397
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `\"send\"` at 2:158397 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 158475,
+                "end": 158674,
+                "line": 2,
+                "column": 158404
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 2:158404 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 61681,
+                "end": 61682,
+                "line": 2,
+                "column": 61610
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:61610 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o === Dr",
+              "generated": {
+                "start": 61698,
+                "end": 61711,
+                "line": 2,
+                "column": 61627
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `typeof o === Dr` at 2:61627 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 61084,
+                "end": 61086,
+                "line": 2,
+                "column": 61013
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:61013 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.setRequestHeader|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.setRequestHeader|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.setRequestHeader"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.694ba075.js",
+            "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 61465,
+            "end": 61471,
+            "line": 2,
+            "column": 61394
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "L",
+              "generated": {
+                "start": 158872,
+                "end": 159116,
+                "line": 2,
+                "column": 158801
+              },
+              "function": {
+                "start": 151089,
+                "end": 151165,
+                "line": 2,
+                "column": 151018
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"setRequestHeader\""
+                },
+                {
+                  "parameter": "t",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `L(…)` at 2:158801 runs the function with its arguments bound as `n` = `XMLHttpRequest`, `e` = `\"setRequestHeader\"`, `t` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 151109,
+                "end": 151163,
+                "line": 2,
+                "column": 151038
+              },
+              "function": {
+                "start": 151109,
+                "end": 151156,
+                "line": 2,
+                "column": 151038
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `…(…)` at 2:151038 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `t`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ar",
+              "expression": "Ar = \"prototype\"",
+              "generated": {
+                "start": 16366,
+                "end": 16380,
+                "line": 2,
+                "column": 16295
+              },
+              "text": "`Ar` is read from its definition `Ar = \"prototype\"` at 2:16295"
+            },
+            {
+              "kind": "call",
+              "callee": "Wl",
+              "generated": {
+                "start": 151134,
+                "end": 151150,
+                "line": 2,
+                "column": 151063
+              },
+              "function": {
+                "start": 61606,
+                "end": 61744,
+                "line": 2,
+                "column": 61535
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n[Ar]"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Wl(…)` at 2:151063 runs the function with its arguments bound as `n` = `n[Ar]`, `e` = `e`, `t` = `t`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Kl",
+              "generated": {
+                "start": 61666,
+                "end": 61677,
+                "line": 2,
+                "column": 61595
+              },
+              "function": {
+                "start": 60963,
+                "end": 61045,
+                "line": 2,
+                "column": 60892
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Kl(…)` at 2:61595 runs the function with its arguments bound as `n` = `n`, `e` = `e`, `t` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = n",
+              "generated": {
+                "start": 61014,
+                "end": 61017,
+                "line": 2,
+                "column": 60943
+              },
+              "text": "`i` is read from its definition `i = n` at 2:60943"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Kl(n, e, r, i)",
+              "generated": {
+                "start": 61664,
+                "end": 61677,
+                "line": 2,
+                "column": 61593
+              },
+              "text": "`a` is read from its definition `a = Kl(n, e, r, i)` at 2:61593"
+            },
+            {
+              "kind": "call",
+              "callee": "Xl",
+              "generated": {
+                "start": 61719,
+                "end": 61730,
+                "line": 2,
+                "column": 61648
+              },
+              "function": {
+                "start": 61045,
+                "end": 61606,
+                "line": 2,
+                "column": 60974
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "t"
+                }
+              ],
+              "text": "the call `Xl(…)` at 2:61648 runs the function with its arguments bound as `n` = `a`, `e` = `e`, `t` = `o`, `r` = `t`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 155907,
+                "end": 160502,
+                "line": 2,
+                "column": 155836
+              },
+              "generated": {
+                "start": 180114,
+                "end": 180120,
+                "line": 2,
+                "column": 180043
+              },
+              "this": "new by()",
+              "text": "no resolved call reaches the function at 2:155836 made at 2:180043, so it is judged from where it was made, with `this` = `new by()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "n.isInitialized()",
+              "generated": {
+                "start": 155931,
+                "end": 155948,
+                "line": 2,
+                "column": 155860
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `n.isInitialized()` at 2:155860 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(n, I)",
+              "generated": {
+                "start": 156396,
+                "end": 156780,
+                "line": 2,
+                "column": 156325
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `…(n, I)` at 2:156325 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!r.cfg",
+              "generated": {
+                "start": 31208,
+                "end": 31214,
+                "line": 2,
+                "column": 31137
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!r.cfg` at 2:31137 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg !== n",
+              "generated": {
+                "start": 31216,
+                "end": 31225,
+                "line": 2,
+                "column": 31145
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg !== n` at 2:31145 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ou] !== r",
+              "generated": {
+                "start": 31227,
+                "end": 31240,
+                "line": 2,
+                "column": 31156
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ou] !== r` at 2:31156 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "y",
+              "generated": {
+                "start": 156822,
+                "end": 156823,
+                "line": 2,
+                "column": 156751
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `y` at 2:156751 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r",
+              "generated": {
+                "start": 156825,
+                "end": 156826,
+                "line": 2,
+                "column": 156754
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `r` at 2:156754 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 158874,
+                "end": 158888,
+                "line": 2,
+                "column": 158803
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 2:158803 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n[Ar]",
+              "generated": {
+                "start": 151137,
+                "end": 151142,
+                "line": 2,
+                "column": 151066
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `n[Ar]` at 2:151066 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"setRequestHeader\"",
+              "generated": {
+                "start": 158889,
+                "end": 158907,
+                "line": 2,
+                "column": 158818
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `\"setRequestHeader\"` at 2:158818 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 158908,
+                "end": 159115,
+                "line": 2,
+                "column": 158837
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 2:158837 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 61681,
+                "end": 61682,
+                "line": 2,
+                "column": 61610
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:61610 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o === Dr",
+              "generated": {
+                "start": 61698,
+                "end": 61711,
+                "line": 2,
+                "column": 61627
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.setRequestHeader",
+              "result": "unconditional",
+              "text": "the guard `typeof o === Dr` at 2:61627 is transparent on `XMLHttpRequest.prototype.setRequestHeader`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 61084,
+                "end": 61086,
+                "line": 2,
+                "column": 61013
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:61013 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main.694ba075.js",
+      "path": "main.694ba075.js",
+      "hash": "sha256:cca01d0d9e12e01f835633c1f87cc50efe6bf84abab6776a1ed5f155138ba16a",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main.694ba075.js",
+        "finalUrl": "https://app.corpus.test/main.694ba075.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

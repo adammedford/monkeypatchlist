@@ -1,0 +1,466 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 51213,
+        "stepBudget": 31006720,
+        "budgetExhausted": 0,
+        "caps": {
+          "contexts": 467,
+          "flagDepth": 7,
+          "recursion": 10
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 1,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 1,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 1,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|Window.Promise|replace|pkg:es6-promise",
+      "targetKey": "window|Window.Promise|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Promise"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:es6-promise",
+        "provenance": "bundled-dependency",
+        "package": "es6-promise"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "medium",
+          "reasons": [
+            "prebundled-dist"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-BJRlOkrv.js",
+            "hash": "sha256:0f5609a5c49ac95a5a152faf4d664ab349c8cdf3d7dc30b427f774cfc3032593",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 7409,
+            "end": 7420,
+            "line": 1,
+            "column": 7409
+          },
+          "original": {
+            "source": "../../../../../node_modules/es6-promise/dist/es6-promise.js",
+            "line": 1161,
+            "column": 8
+          },
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "re",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "medium",
+              "reasons": [
+                "prebundled-dist"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "alias",
+              "form": "function-return-this",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, and `Function('return this')()` through it calls a new sloppy function without a `this`, which returns the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = self",
+              "generated": {
+                "start": 7139,
+                "end": 7145,
+                "line": 1,
+                "column": 7139
+              },
+              "text": "`e` is read from its definition `e = self` at 1:7139"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = Function(`return this`)()",
+              "generated": {
+                "start": 7155,
+                "end": 7182,
+                "line": 1,
+                "column": 7155
+              },
+              "text": "`e` is read from its definition `e = Function(`return this`)()` at 1:7155"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 7465,
+                "end": 7498,
+                "line": 1,
+                "column": 7465
+              },
+              "generated": {
+                "start": 7465,
+                "end": 7498,
+                "line": 1,
+                "column": 7465
+              },
+              "text": "no resolved call reaches the function at 1:7465 made at 1:7465, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "t",
+              "generated": {
+                "start": 18,
+                "end": 19,
+                "line": 1,
+                "column": 18
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `t` at 1:18 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof e == `object`",
+              "generated": {
+                "start": 1156,
+                "end": 1174,
+                "line": 1,
+                "column": 1156
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof e == `object`` at 1:1156 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n !== void 0",
+              "generated": {
+                "start": 1176,
+                "end": 1186,
+                "line": 1,
+                "column": 1176
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `n !== void 0` at 1:1176 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 7058,
+                "end": 7421,
+                "line": 1,
+                "column": 7058
+              },
+              "generated": {
+                "start": 7058,
+                "end": 7421,
+                "line": 1,
+                "column": 7058
+              },
+              "text": "no resolved call reaches the function at 1:7058 made at 1:7058, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "t",
+              "generated": {
+                "start": 7296,
+                "end": 7297,
+                "line": 1,
+                "column": 7296
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `t` at 1:7296 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n === `[object Promise]`",
+              "generated": {
+                "start": 7370,
+                "end": 7392,
+                "line": 1,
+                "column": 7370
+              },
+              "class": "broken-native",
+              "result": "conditional",
+              "text": "the guard `n === `[object Promise]`` at 1:7370 is a broken-native check, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!t.cast",
+              "generated": {
+                "start": 7394,
+                "end": 7401,
+                "line": 1,
+                "column": 7394
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!t.cast` at 1:7394 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "t",
+              "generated": {
+                "start": 7296,
+                "end": 7297,
+                "line": 1,
+                "column": 7296
+              },
+              "class": "absence",
+              "tested": "Window.Promise",
+              "result": "guarded-native-absence",
+              "text": "the guard `t` at 1:7296 is an absence test on `Window.Promise`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "Promise",
+              "lookup": {
+                "start": 7411,
+                "end": 7418,
+                "line": 1,
+                "column": 7411
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/es6-promise/dist/es6-promise.js",
+                "line": 1161,
+                "column": 8
+              },
+              "text": "`Promise` appears within one line of ../../../../../node_modules/es6-promise/dist/es6-promise.js:1161:8, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/assets/index-BJRlOkrv.js",
+      "path": "assets/index-BJRlOkrv.js",
+      "hash": "sha256:0f5609a5c49ac95a5a152faf4d664ab349c8cdf3d7dc30b427f774cfc3032593",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "assets/index-BJRlOkrv.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/assets/index-BJRlOkrv.js",
+        "finalUrl": "https://app.corpus.test/assets/index-BJRlOkrv.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "lazy-thunk"
+        ],
+        "modules": 1,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

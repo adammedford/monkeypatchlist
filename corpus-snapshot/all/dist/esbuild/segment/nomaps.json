@@ -1,0 +1,544 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 1,
+        "realmUncertain": 0,
+        "unresolvedHolder": 7
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 6519000,
+        "stepBudget": 612057088,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 1543,
+          "contexts": 1161,
+          "flagDepth": 2,
+          "nesting": 8,
+          "recursion": 17400
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 3171,
+          "end": 3178,
+          "line": 1,
+          "column": 3171
+        },
+        "detail": "the call `xr(…)` at 1:3171 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 11478,
+          "end": 11594,
+          "line": 1,
+          "column": 11478
+        },
+        "detail": "`e.prototype` at 1:11478 doesn't resolve, and the patch-shaped define-property there could write %TypedArray%.prototype.length, AnimationNodeList.prototype.length, AudioBuffer.prototype.length, AudioTrackList.prototype.length, CSSKeyframesRule.prototype.length, CSSNumericArray.prototype.length, CSSPerspective.prototype.length, CSSRuleList.prototype.length, CSSStyleDeclaration.prototype.length, CSSTransformValue.prototype.length, CSSUnparsedValue.prototype.length, CharacterData.prototype.length, DOMRectList.prototype.length, DOMStringList.prototype.length, DOMTokenList.prototype.length, DataTransferItemList.prototype.length, FileList.prototype.length, FontFacePalette.prototype.length, FontFacePalettes.prototype.length, GPUCompilationMessage.prototype.length, HTMLAllCollection.prototype.length, HTMLCollection.prototype.length, HTMLFormElement.prototype.length, HTMLOptionsCollection.prototype.length, HTMLSelectElement.prototype.length, History.prototype.length, ImageTrackList.prototype.length, MediaList.prototype.length, MimeTypeArray.prototype.length, NamedNodeMap.prototype.length, NodeList.prototype.length, OfflineAudioContext.prototype.length, Plugin.prototype.length, PluginArray.prototype.length, Rewriter.prototype.length, SVGLengthList.prototype.length, SVGNumberList.prototype.length, SVGPointList.prototype.length, SVGStringList.prototype.length, SVGTransformList.prototype.length, SourceBufferList.prototype.length, SpeechGrammarList.prototype.length, SpeechRecognitionResult.prototype.length, SpeechRecognitionResultList.prototype.length, Storage.prototype.length, StyleSheetList.prototype.length, Summarizer.prototype.length, TextTrackCueList.prototype.length, TextTrackList.prototype.length, TimeRanges.prototype.length, TouchList.prototype.length, VideoTrackList.prototype.length, WebAssembly.Table.prototype.length, Window.length, Writer.prototype.length, XRInputSourceArray.prototype.length"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 16088,
+          "end": 16259,
+          "line": 1,
+          "column": 16088
+        },
+        "detail": "the call `_(…)` at 1:16088 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 22864,
+          "end": 23224,
+          "line": 1,
+          "column": 22864
+        },
+        "detail": "the call `_(…)` at 1:22864 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 35391,
+          "end": 35403,
+          "line": 1,
+          "column": 35391
+        },
+        "detail": "`r` at 1:35391 doesn't resolve, and the patch-shaped assign there could write CSSNumericValue.prototype.type"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 35431,
+          "end": 35447,
+          "line": 1,
+          "column": 35431
+        },
+        "detail": "`r` at 1:35431 doesn't resolve, and the patch-shaped assign there could write CSSNumericValue.prototype.type"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 50634,
+          "end": 50917,
+          "line": 1,
+          "column": 50634
+        },
+        "detail": "the call `_(…)` at 1:50634 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 50941,
+          "end": 51198,
+          "line": 1,
+          "column": 50941
+        },
+        "detail": "the call `_(…)` at 1:50941 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-reference",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 54309,
+          "end": 54310,
+          "line": 1,
+          "column": 54309
+        },
+        "detail": "an injected script whose `src` is not a constant"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 75686,
+          "end": 76240,
+          "line": 1,
+          "column": 75686
+        },
+        "detail": "the call `_(…)` at 1:75686 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 77184,
+          "end": 77578,
+          "line": 1,
+          "column": 77184
+        },
+        "detail": "the call `_(…)` at 1:77184 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 77355,
+          "end": 77493,
+          "line": 1,
+          "column": 77355
+        },
+        "detail": "the call `_(…)` at 1:77355 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 123067,
+          "end": 123205,
+          "line": 1,
+          "column": 123067
+        },
+        "detail": "the call `_(…)` at 1:123067 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 123401,
+          "end": 123524,
+          "line": 1,
+          "column": 123401
+        },
+        "detail": "the call `_(…)` at 1:123401 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 123782,
+          "end": 123795,
+          "line": 1,
+          "column": 123782
+        },
+        "detail": "`e` at 1:123782 doesn't resolve, and the patch-shaped delete there could write %TypedArray%.from, Array.from, Iterator.from, NavigationActivation.prototype.from, NavigationCurrentEntryChangeEvent.prototype.from, NavigationTransition.prototype.from, Observable.from, Origin.from, ReadableStream.from, Temporal.Duration.from, Temporal.Instant.from, Temporal.PlainDate.from, Temporal.PlainDateTime.from, Temporal.PlainMonthDay.from, Temporal.PlainTime.from, Temporal.PlainYearMonth.from, Temporal.ZonedDateTime.from"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 123796,
+          "end": 123807,
+          "line": 1,
+          "column": 123796
+        },
+        "detail": "`e` at 1:123796 doesn't resolve, and the patch-shaped delete there could write CSSNumericValue.prototype.to, NavigationTransition.prototype.to"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 127812,
+          "end": 127934,
+          "line": 1,
+          "column": 127812
+        },
+        "detail": "`e.prototype` at 1:127812 doesn't resolve, and the patch-shaped define-property there could write Navigator.prototype.storage"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 135397,
+          "end": 135561,
+          "line": 1,
+          "column": 135397
+        },
+        "detail": "`e.prototype` at 1:135397 doesn't resolve, and the patch-shaped define-property there could write Document.prototype.plugins, Navigator.prototype.plugins"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 136388,
+          "end": 136538,
+          "line": 1,
+          "column": 136388
+        },
+        "detail": "the call `_(…)` at 1:136388 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 142887,
+          "end": 143954,
+          "line": 1,
+          "column": 142887
+        },
+        "detail": "the call `_(…)` at 1:142887 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 143162,
+          "end": 143883,
+          "line": 1,
+          "column": 143162
+        },
+        "detail": "the call `_(…)` at 1:143162 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 145413,
+          "end": 147514,
+          "line": 1,
+          "column": 145413
+        },
+        "detail": "the call `_(…)` at 1:145413 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+          "path": "main-S2ZCBD6O.js",
+          "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687"
+        },
+        "location": {
+          "start": 147244,
+          "end": 147415,
+          "line": 1,
+          "column": 147244
+        },
+        "detail": "the call `_(…)` at 1:147244 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main-S2ZCBD6O.js",
+      "path": "main-S2ZCBD6O.js",
+      "hash": "sha256:abb4c0647ba7ce53e3db10da7e6dbb61ba7694ae33d7aaf17c6d849eb6b53687",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main-S2ZCBD6O.js",
+        "finalUrl": "https://app.corpus.test/main-S2ZCBD6O.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "factory-table",
+          "getter-export",
+          "interop",
+          "lazy-thunk"
+        ],
+        "modules": 193,
+        "unlinked": 1,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

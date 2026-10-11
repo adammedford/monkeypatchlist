@@ -1,0 +1,546 @@
+import { createHash } from 'node:crypto'
+import {
+  ecmascriptSpecs,
+  realms,
+  type CatalogHolder,
+  type CatalogTarget,
+  type SerializedCatalog,
+} from '../../src/catalog.ts'
+
+/**
+ * A SES permit (`ses` `src/permits.js`), as the cross-check reads it: a function, an accessor, an object SES describes
+ * inline, a `typeof` name, the name of another intrinsic, or `false` (known, and removed).
+ */
+export type SesPermit = 'fn' | 'accessor' | 'record' | false | string
+
+/** An intrinsic SES describes property by property, with its `[[Proto]]` (another intrinsic's name, or null). */
+export interface SesRecord {
+  proto: string | null
+  properties: Record<string, SesPermit>
+}
+
+/** SES's `permits`: the global property names and the intrinsics they name, and each intrinsic's permits. */
+export interface SesPermits {
+  /** Each property of the start compartment's global object, with the intrinsic it holds. */
+  globals: Record<string, string>
+  /** Each intrinsic by SES's name (`%ArrayPrototype%`, `Array`): a record, a function, or a `typeof` name. */
+  intrinsics: Record<string, SesRecord | SesPermit>
+}
+
+/** A BCD support statement, as the cross-check reads it. */
+export interface BcdSupport {
+  version_added: string | boolean | null
+  version_removed?: string | boolean | null
+  prefix?: string
+  alternative_name?: string
+  flags?: unknown[]
+}
+
+/** A BCD feature: its compat data and its subfeatures, by key. */
+export interface BcdFeature {
+  __compat?: {
+    support: Record<string, BcdSupport | BcdSupport[]>
+    status?: { standard_track?: boolean; deprecated?: boolean }
+    source_file?: string
+  }
+  [key: string]: unknown
+}
+
+/**
+ * `@mdn/browser-compat-data`: the parts the cross-check walks, and every other category, which a drop may cite
+ * (`css.properties.color`, `javascript.statements.let`).
+ */
+export interface Bcd {
+  /** Each browser's releases by version, with BCD's status: `retired`, `current`, `esr`, `beta`, `nightly` or `planned`. */
+  browsers: Record<string, { releases: Record<string, { status: string }> }>
+  api: Record<string, BcdFeature>
+  javascript: { builtins: Record<string, BcdFeature> }
+  webassembly?: { api?: BcdFeature }
+  [category: string]: unknown
+}
+
+export interface CrossCheckSources {
+  ses: SesPermits
+  bcd: Bcd
+  /** The exact versions of `ses` and `@mdn/browser-compat-data` the report names. */
+  pins: { ses: string; bcd: string }
+}
+
+/**
+ * The engines whose support counts as shipping, as BCD names them: Chrome, Firefox and Safari, on desktop and on
+ * Android or iOS (§4 Catalog versions). Other browsers, WebView and server runtimes don't count.
+ */
+const engines = ['chrome', 'firefox', 'safari', 'chrome_android', 'firefox_android', 'safari_ios'] as const
+
+/**
+ * SES's names for intrinsics the catalog names by another path. SES's initial, shared, unique and inert variants of an
+ * intrinsic (`%InitialDate%`, `%SharedError%`, `%UniqueFunction%`, `%InertGeneratorFunction%`) are that intrinsic.
+ */
+const sesAliases: Record<string, string> = {
+  '%Generator%': '%GeneratorFunction%.prototype',
+  '%AsyncGenerator%': '%AsyncGeneratorFunction%.prototype',
+  '%AsyncFunctionPrototype%': '%AsyncFunction%.prototype',
+}
+
+/** BCD's names for the ECMAScript intrinsics the catalog names by their `%name%` (§4). */
+const bcdBuiltins: Record<string, string> = {
+  TypedArray: '%TypedArray%',
+  Generator: '%GeneratorPrototype%',
+  AsyncGenerator: '%AsyncGeneratorPrototype%',
+  GeneratorFunction: '%GeneratorFunction%',
+  AsyncGeneratorFunction: '%AsyncGeneratorFunction%',
+  AsyncFunction: '%AsyncFunction%',
+  AsyncIterator: '%AsyncIteratorPrototype%',
+  'Intl.Segments': '%IntlSegmentsPrototype%',
+}
+
+/** The Annex B properties BCD names without their surrounding underscores. */
+const annexB = new Set(['proto', 'defineGetter', 'defineSetter', 'lookupGetter', 'lookupSetter'])
+
+const typeofNames = new Set(['number', 'string', 'boolean', 'symbol', 'undefined', 'bigint', 'object', 'function'])
+
+/**
+ * Checks a catalog against SES `permits` and BCD (§4 Sources): they are checks, never sources, so this only reports.
+ * The report lists, one line each and sorted:
+ * - SES: what SES permits that the catalog lacks, the window realm's ECMAScript targets SES does not permit, and the
+ *   prototype links that differ. SES's intrinsics are named by their catalog path, found from the global's properties.
+ * - BCD: the features an engine ships that the catalog lacks (an interface it lacks whole, once), the catalog's
+ *   targets whose feature no engine ships, and the retained targets and the drops of targets and holders that BCD
+ *   contradicts. A contradicted drop also fails `catalog:check` (`crossCheckProblems`).
+ */
+export function crossCheck(catalogText: string, { ses, bcd, pins }: CrossCheckSources): string {
+  const catalog = JSON.parse(catalogText) as SerializedCatalog
+  const header = [
+    '# Catalog cross-check',
+    '',
+    'Generated by `npm run catalog`. Do not edit. It checks the catalog against SES `permits` and BCD, which are ' +
+      'checks, never sources (§4): a discrepancy is a review item, and nothing here changes the catalog. SES is ' +
+      "compared with the window realm's ECMAScript targets, and BCD with the targets of every realm. An engine ships a " +
+      'BCD feature when Chrome, Firefox, Safari, Chrome Android, Firefox Android or Safari iOS supports it in a ' +
+      'released version, even partly, without a prefix, flag or alternative name, and has not removed it in a released ' +
+      'version. A released version is one BCD marks current, ESR or retired: a preview, beta, nightly or planned ' +
+      'version does not count.',
+    '',
+    `- Catalog: catalog version ${catalog.metadata.catalogVersion} (catalog sha256 \`${sha256(catalogText)}\`)`,
+    `- SES: \`ses\` ${pins.ses} (\`src/permits.js\`)`,
+    `- BCD: \`@mdn/browser-compat-data\` ${pins.bcd}`,
+  ].join('\n')
+  const sesLines = againstSes(catalog, ses)
+  const bcdLines = againstBcd(catalog, bcd)
+  const sections = [
+    section('SES permits, the catalog lacks', sesLines.missing),
+    section('The catalog has, SES does not permit', sesLines.unpermitted),
+    section('Prototype links that differ from SES', sesLines.protos),
+    section('BCD shows an engine ships, the catalog lacks', bcdLines.missing),
+    section('The catalog has, BCD shows no engine ships', bcdLines.unshipped),
+    section('Retained, but BCD shows no engine ships', bcdLines.retained),
+    section('Dropped, but BCD shows an engine ships', bcdLines.dropped),
+  ]
+  return [header, ...sections].join('\n\n') + '\n'
+}
+
+function againstSes(catalog: SerializedCatalog, ses: SesPermits) {
+  const targets = catalog.targets.window
+  const holders = catalog.holders.window
+  const global = Object.keys(holders).find((name) => holders[name]?.kind === 'global') ?? 'Window'
+  const records = new Map(
+    Object.entries(ses.intrinsics).flatMap(([name, permit]) => (isRecord(permit) ? [[name, permit] as const] : [])),
+  )
+  const isIntrinsic = (permit: SesPermit) =>
+    typeof permit === 'string' && !typeofNames.has(permit) && Object.hasOwn(ses.intrinsics, permit)
+
+  // Each SES intrinsic's catalog path: its alias, or the intrinsic its variant names, when the catalog has that
+  // holder; then its path from the global's properties; and last its own name.
+  const canonical = (name: string): string | undefined => {
+    const variant = /^%(?:Initial|Shared|Unique|Inert)(\w+)%$/.exec(name)?.[1]
+    if (variant !== undefined) {
+      if (Object.hasOwn(holders, `%${variant}%`)) return `%${variant}%`
+      if (Object.hasOwn(holders, variant) || Object.hasOwn(ses.globals, variant)) return variant
+    }
+    return sesAliases[name]
+  }
+  const names = new Map<string, string>()
+  const queue: string[] = []
+  const reach = (name: string, path: string) => {
+    if (names.has(name)) return
+    names.set(name, path)
+    queue.push(name)
+  }
+  for (const name of sortedKeys(ses.intrinsics)) {
+    const path = canonical(name) ?? name
+    if (Object.hasOwn(holders, path)) reach(name, path)
+  }
+  for (const [property, intrinsic] of sortedEntries(ses.globals)) {
+    if (Object.hasOwn(ses.intrinsics, intrinsic)) reach(intrinsic, canonical(intrinsic) ?? property)
+  }
+  for (let index = 0; index < queue.length; index++) {
+    const name = queue[index]!
+    for (const [property, permit] of sortedEntries(records.get(name)?.properties ?? {})) {
+      if (isIntrinsic(permit)) reach(permit as string, canonical(permit as string) ?? `${names.get(name)}.${property}`)
+    }
+  }
+
+  const missing: string[] = []
+  for (const property of Object.keys(ses.globals)) {
+    if (!Object.hasOwn(targets, `${global}.${property}`)) missing.push(`\`${global}.${property}\``)
+  }
+  for (const name of Object.keys(ses.intrinsics)) {
+    const path = names.get(name)
+    if (path === undefined) {
+      if (ses.intrinsics[name] !== false) missing.push(`\`${canonical(name) ?? name}\` (no catalog holder)`)
+      continue
+    }
+    const record = records.get(name)
+    if (!record) continue
+    if (!Object.hasOwn(holders, path)) {
+      missing.push(`\`${path}\` (no catalog holder)`)
+      continue
+    }
+    for (const [property, permit] of Object.entries(record.properties)) {
+      if (permit === false) continue
+      if ((property === 'length' || property === 'name') && (permit === 'number' || permit === 'string')) continue
+      const member = property === '--proto--' ? '__proto__' : property
+      if (!Object.hasOwn(targets, `${path}.${member}`)) missing.push(`\`${path}.${member}\``)
+    }
+  }
+
+  const byPath = new Map<string, string>()
+  for (const [name, path] of [...names].sort(([a], [b]) => byCodeUnit(a, b))) if (!byPath.has(path)) byPath.set(path, name)
+  const specs = ecmascriptSpecs(catalog)
+  const unpermitted: string[] = []
+  const unrecorded = new Map<string, number>()
+  for (const [name, target] of Object.entries(targets)) {
+    if (!specs.has(target.spec)) continue
+    const on = holderOf(name, target)
+    if (on === global) {
+      if (!Object.hasOwn(ses.globals, target.member)) unpermitted.push(`\`${name}\``)
+      continue
+    }
+    const record = records.get(byPath.get(on) ?? '')
+    if (!record) {
+      unrecorded.set(on, (unrecorded.get(on) ?? 0) + 1)
+      continue
+    }
+    const permit = record.properties[target.member === '__proto__' ? '--proto--' : target.member]
+    if (permit === undefined || permit === false) unpermitted.push(`\`${name}\``)
+  }
+  for (const [on, count] of unrecorded) {
+    unpermitted.push(`\`${on}\` (no SES record; ${count} target${count === 1 ? '' : 's'})`)
+  }
+
+  const protos: string[] = []
+  for (const [name, record] of records) {
+    const path = names.get(name)
+    const holder = path === undefined ? undefined : holders[path]
+    if (!holder) continue
+    const sesProto = record.proto === null ? null : names.get(record.proto)
+    if (sesProto === undefined || sesProto === holder.proto) continue
+    protos.push(`\`${path}\`: catalog \`${holder.proto}\`, SES \`${sesProto}\``)
+  }
+  return { missing, unpermitted, protos }
+}
+
+/**
+ * A BCD feature found by the walk: its dotted path, its data, its members' count when it is an interface or object,
+ * and, for an object a property holds (`Intl.DateTimeFormat`), the key of that property.
+ */
+interface Found {
+  path: string
+  feature: BcdFeature
+  members?: number
+  property?: string
+}
+
+/**
+ * BCD's features by the key a catalog target maps to (`idl:<Interface>.<member>`, `idl:<Interface>`,
+ * `global:<member>`, `es:<intrinsic>.<member>` and `es:<intrinsic>`), and each catalog target's candidate keys.
+ */
+function bcdIndex(catalog: SerializedCatalog, bcd: Bcd) {
+  // BCD's features by the key a catalog target maps to: `idl:<Interface>.<member>`, `idl:<Interface>`,
+  // `global:<member>`, `es:<intrinsic>.<member>` and `es:<intrinsic>`.
+  const interfaces = new Map<string, Found>()
+  const members = new Map<string, Found>()
+  const add = (map: Map<string, Found>, key: string, found: Found) => {
+    if (!map.has(key)) map.set(key, found)
+  }
+  const idlMembers = (owner: string, path: string, feature: BcdFeature) => {
+    const keys = childKeys(feature).filter((key) => isMember(key) && key !== owner)
+    for (const key of keys) {
+      const found = { path: `${path}.${key}`, feature: child(feature, key) }
+      add(members, `idl:${owner}.${key.replace(/_static$/, '')}`, found)
+    }
+    return keys.length
+  }
+  for (const [name, feature] of sortedEntries(bcd.api)) {
+    const path = `api.${name}`
+    const fromGlobals = feature.__compat?.source_file?.startsWith('api/_globals/') ?? false
+    const global = /^[a-z]/.test(name) && (fromGlobals || !childKeys(feature).some(isMember))
+    if (global) add(members, `global:${name}`, { path, feature })
+    else add(interfaces, `idl:${name}`, { path, feature, members: idlMembers(name, path, feature) })
+  }
+  const wasm = bcd.webassembly?.api
+  if (wasm) {
+    add(interfaces, 'idl:WebAssembly', { path: 'webassembly.api', feature: wasm, members: 0 })
+    for (const key of childKeys(wasm)) {
+      const feature = child(wasm, key)
+      if (childKeys(feature).some(isMember)) {
+        const path = `webassembly.api.${key}`
+        add(interfaces, `idl:${key}`, { path, feature, members: idlMembers(key, path, feature) })
+      } else if (isMember(key)) {
+        add(members, `idl:WebAssembly.${key.replace(/_static$/, '')}`, { path: `webassembly.api.${key}`, feature })
+      }
+    }
+  }
+  // An ECMAScript builtin's subfeature named after it is its constructor, which is no property. A capitalized
+  // subfeature with members of its own is an object BCD describes (`Intl.DateTimeFormat`, `Temporal.Now`), and BCD
+  // names Annex B's `__proto__` and `__defineGetter__` without their underscores.
+  const builtins = (prefix: string, bcdPath: string, feature: BcdFeature, own: string) => {
+    const keys = childKeys(feature).filter((key) => isMember(key) && key !== own)
+    for (const key of keys) {
+      const sub = child(feature, key)
+      const path = `${bcdPath}.${key}`
+      const qualified = prefix === '' ? key : `${prefix}.${key}`
+      const intrinsic = bcdBuiltins[qualified] ?? qualified
+      const isObject = prefix === '' || (/^[A-Z]/.test(key) && childKeys(sub).some(isMember))
+      const member = annexB.has(key) ? `__${key}__` : key
+      if (prefix === '') add(interfaces, `es:${intrinsic}`, { path, feature: sub, members: 0 })
+      else if (!isObject) add(members, `es:${prefix}.${member}`, { path, feature: sub })
+      else {
+        const count = childKeys(sub).filter((name) => isMember(name) && name !== key).length
+        add(interfaces, `es:${intrinsic}`, { path, feature: sub, members: count, property: `es:${prefix}.${key}` })
+      }
+      if (isObject) builtins(intrinsic, path, sub, key)
+    }
+  }
+  builtins('', 'javascript.builtins', { ...bcd.javascript.builtins }, '')
+
+  const specs = ecmascriptSpecs(catalog)
+  const keysOf = (realm: (typeof realms)[number], name: string, target: CatalogTarget): string[] => {
+    const on = holderOf(name, target)
+    if (specs.has(target.spec)) {
+      if (catalog.holders[realm][on]?.kind === 'global') return [`es:${target.member}`]
+      return [`es:${on.replace(/\.prototype$/, '')}.${target.member}`]
+    }
+    if (target.kind === 'interface' || target.kind === 'namespace') return [`idl:${target.member}`]
+    const keys = [`idl:${target.owner}.${target.member}`]
+    if (target.holder === 'global' || target.mixin === 'WindowOrWorkerGlobalScope') keys.push(`global:${target.member}`)
+    return keys
+  }
+  const featureOf = (realm: (typeof realms)[number], name: string) => {
+    const target = catalog.targets[realm][name]
+    if (!target) return undefined
+    for (const key of keysOf(realm, name, target)) {
+      const found = members.get(key) ?? interfaces.get(key)
+      if (found) return found
+    }
+    return undefined
+  }
+  return { interfaces, members, keysOf, featureOf }
+}
+
+/**
+ * The engines that ship each catalog target, as BCD names them (§4 Catalog versions, Principle 4), from the BCD feature
+ * the cross-check maps it to; `undefined` when BCD has no feature for it.
+ */
+export function bcdShipping(catalog: SerializedCatalog, bcd: Bcd): (realm: (typeof realms)[number], name: string) => string[] | undefined {
+  const { featureOf } = bcdIndex(catalog, bcd)
+  return (realm, name) => {
+    const found = featureOf(realm, name)
+    return found === undefined ? undefined : shippedBy(bcd, found.feature)
+  }
+}
+
+function againstBcd(catalog: SerializedCatalog, bcd: Bcd) {
+  const { interfaces, members, keysOf, featureOf } = bcdIndex(catalog, bcd)
+
+  // The catalog's side: what the catalog has at all.
+  const present = new Set<string>()
+  for (const realm of realms) {
+    for (const [name, target] of Object.entries(catalog.targets[realm])) {
+      for (const key of keysOf(realm, name, target)) present.add(key)
+      present.add(`idl:${target.owner}`)
+    }
+    for (const [name, holder] of Object.entries(catalog.holders[realm]) as [string, CatalogHolder][]) {
+      present.add(`idl:${holder.owner}`)
+      present.add(`es:${name.replace(/\.prototype$/, '')}`)
+    }
+  }
+
+  const missing: string[] = []
+  const lacking = new Set<string>()
+  for (const [key, found] of interfaces) {
+    if (present.has(key) || (found.property !== undefined && present.has(found.property))) continue
+    lacking.add(key)
+    const shipping = shippedBy(bcd, found.feature)
+    if (!shipping.length) continue
+    const count = found.members ? ` and ${found.members} member${found.members === 1 ? '' : 's'}` : ''
+    missing.push(`\`${found.path}\`${count} (${described(found.feature, shipping)})`)
+  }
+  for (const [key, found] of members) {
+    const owner = key.startsWith('global:') ? undefined : key.slice(0, key.lastIndexOf('.'))
+    if (present.has(key) || (owner !== undefined && lacking.has(owner))) continue
+    const shipping = shippedBy(bcd, found.feature)
+    if (shipping.length) missing.push(`\`${found.path}\` (${described(found.feature, shipping)})`)
+  }
+
+  const unshipped = new Set<string>()
+  for (const realm of realms) {
+    for (const name of Object.keys(catalog.targets[realm])) {
+      const found = featureOf(realm, name)
+      if (found && !shippedBy(bcd, found.feature).length) unshipped.add(`\`${name}\`: \`${found.path}\``)
+    }
+  }
+  const retained: string[] = []
+  const dropped: string[] = []
+  for (const realm of realms) {
+    for (const name of Object.keys(catalog.retained?.targets[realm] ?? {})) {
+      const found = featureOf(realm, name)
+      if (!found) retained.push(`\`${name}\` (${realm}): no BCD feature`)
+      else if (!shippedBy(bcd, found.feature).length) retained.push(`\`${name}\` (${realm}): \`${found.path}\``)
+    }
+  }
+  for (const { holder, realm, name, bcd: path, shipping } of shippingDrops(catalog, bcd)) {
+    dropped.push(`\`${name}\` (${realm}${holder ? ', holder' : ''}): \`${path}\` (${shipping.join(', ')})`)
+  }
+  return { missing, unshipped: [...unshipped], retained, dropped }
+}
+
+/** A drop that BCD contradicts: the engines that ship the feature it cites. */
+interface ShippingDrop {
+  holder: boolean
+  realm: (typeof realms)[number]
+  name: string
+  bcd: string
+  shipping: string[]
+}
+
+/**
+ * The drops of targets and holders whose cited BCD feature an engine ships (§4 Catalog versions). A drop citing a path
+ * BCD has no feature at is not contradicted.
+ */
+function shippingDrops(catalog: SerializedCatalog, bcd: Bcd): ShippingDrop[] {
+  const found: ShippingDrop[] = []
+  for (const realm of realms) {
+    const drops = [
+      ...Object.entries(catalog.retained?.dropped[realm] ?? {}).map((entry) => [false, ...entry] as const),
+      ...Object.entries(catalog.retained?.droppedHolders?.[realm] ?? {}).map((entry) => [true, ...entry] as const),
+    ]
+    for (const [holder, name, drop] of drops) {
+      const feature = featureAt(bcd, drop.bcd)
+      const shipping = feature ? shippedBy(bcd, feature) : []
+      if (shipping.length) found.push({ holder, realm, name, bcd: drop.bcd, shipping })
+    }
+  }
+  return found
+}
+
+/**
+ * The engines that ship a feature (§4 Catalog versions, Principle 4): support in a released version, without a prefix,
+ * flag or alternative name, and not removed in a released version. A partial implementation counts. A version is
+ * released when BCD's `browsers` gives it the status `current`, `esr` or `retired` (a leading `≤` stripped), or when
+ * `version_added` is `true`: a `preview`, beta, nightly or planned version doesn't count, whether it adds or removes.
+ */
+function shippedBy(bcd: Bcd, feature: BcdFeature): string[] {
+  const support = feature.__compat?.support ?? {}
+  return engines.filter((engine) => {
+    const released = (version: string | boolean | null | undefined) =>
+      typeof version === 'string' && releasedStatuses.has(bcd.browsers[engine]?.releases[version.replace(/^≤/, '')]?.status ?? '')
+    const statements = support[engine]
+    return (Array.isArray(statements) ? statements : statements ? [statements] : []).some(
+      ({ version_added: added, version_removed: removed, prefix, alternative_name: alternative, flags }) =>
+        (added === true || released(added)) &&
+        !released(removed) &&
+        prefix === undefined &&
+        alternative === undefined &&
+        !flags?.length,
+    )
+  })
+}
+
+/** The BCD release statuses of a released browser version. */
+const releasedStatuses = new Set(['current', 'esr', 'retired'])
+
+function described(feature: BcdFeature, shipping: string[]): string {
+  const status = feature.__compat?.status
+  const tags = [status?.standard_track === false && 'non-standard', status?.deprecated === true && 'deprecated'].filter(
+    (tag) => tag !== false,
+  )
+  return tags.length ? `${shipping.join(', ')}; ${tags.join(', ')}` : shipping.join(', ')
+}
+
+/** The BCD feature at a dotted path, such as `api.Navigator.joinAdInterestGroup`. */
+function featureAt(bcd: Bcd, path: string): BcdFeature | undefined {
+  let node: unknown = bcd
+  for (const key of path.split('.')) {
+    if (typeof node !== 'object' || node === null || !Object.hasOwn(node, key)) return undefined
+    node = (node as Record<string, unknown>)[key]
+  }
+  return typeof node === 'object' && node !== null && '__compat' in node ? (node as BcdFeature) : undefined
+}
+
+/** Whether a BCD key names a property: an identifier (`_static` for a static one), a constant or a well-known symbol. */
+function isMember(key: string): boolean {
+  return /^[A-Za-z$][A-Za-z0-9$]*(_static)?$/.test(key) || /^[A-Z][A-Z0-9_]*$/.test(key) || /^@@[A-Za-z]+$/.test(key)
+}
+
+function childKeys(feature: BcdFeature): string[] {
+  return Object.keys(feature)
+    .filter((key) => key !== '__compat' && typeof feature[key] === 'object' && feature[key] !== null)
+    .sort(byCodeUnit)
+}
+
+function child(feature: BcdFeature, key: string): BcdFeature {
+  return feature[key] as BcdFeature
+}
+
+function isRecord(permit: SesRecord | SesPermit): permit is SesRecord {
+  return typeof permit === 'object' && permit !== null
+}
+
+function holderOf(name: string, target: CatalogTarget): string {
+  return name.slice(0, -(target.member.length + 1))
+}
+
+function section(heading: string, lines: string[]): string {
+  const sorted = [...new Set(lines)].sort(byCodeUnit)
+  return [`## ${heading} (${sorted.length})`, ...(sorted.length ? ['', ...sorted.map((line) => `- ${line}`)] : [])].join('\n')
+}
+
+function sortedKeys(record: object): string[] {
+  return Object.keys(record).sort(byCodeUnit)
+}
+
+function sortedEntries<T>(record: Record<string, T>): [string, T][] {
+  return Object.entries(record).sort(([a], [b]) => byCodeUnit(a, b))
+}
+
+function byCodeUnit(a: string, b: string): number {
+  return a < b ? -1 : a > b ? 1 : 0
+}
+
+function sha256(text: string): string {
+  return createHash('sha256').update(text).digest('hex')
+}
+
+/**
+ * The CI checks against SES and BCD: the committed report must be the cross-check of the committed catalog, and no
+ * drop may cite a BCD feature that Chrome, Firefox or Safari ships, on desktop or mobile (§4 Catalog versions).
+ */
+export function crossCheckProblems(catalogText: string, report: string | undefined, sources: CrossCheckSources): string[] {
+  const problems: string[] = []
+  if (report !== crossCheck(catalogText, sources)) {
+    problems.push(
+      'catalog/cross-check.md is not the cross-check of catalog/catalog.json against the pinned SES and BCD. Run ' +
+        '`npm run catalog` and commit the result.',
+    )
+  }
+  const catalog = JSON.parse(catalogText) as SerializedCatalog
+  for (const { holder, realm, name, bcd, shipping } of shippingDrops(catalog, sources.bcd)) {
+    problems.push(
+      `${holder ? 'The holder ' : ''}\`${name}\` (${realm}) is dropped, but BCD shows ${shipping.join(', ')} shipping ` +
+        `\`${bcd}\`. A drop needs BCD evidence that no current engine ships it (§4 Catalog versions): keep it in the ` +
+        'retained overlay instead.',
+    )
+  }
+  return problems
+}

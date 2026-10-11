@@ -1,0 +1,5765 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 21,
+      "ECMAScript": 1,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 1,
+        "realmUncertain": 0,
+        "unresolvedHolder": 3
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 835746,
+        "stepBudget": 1158418432,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 170,
+          "contexts": 201,
+          "flagDepth": 146,
+          "nesting": 4,
+          "recursion": 277
+        },
+        "pruned": 2,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+          "path": "assets/index-CCb1C7th.js",
+          "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc"
+        },
+        "location": {
+          "start": 8386,
+          "end": 8407,
+          "line": 5,
+          "column": 5339
+        },
+        "detail": "`r` at 5:5339 doesn't resolve, and the patch-shaped assign there could write Array.prototype.values, Headers.prototype.values, Map.prototype.values, Object.values, Set.prototype.values"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+          "path": "assets/index-CCb1C7th.js",
+          "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc"
+        },
+        "location": {
+          "start": 87173,
+          "end": 87246,
+          "line": 17,
+          "column": 1038
+        },
+        "detail": "`i.exception` at 17:1038 doesn't resolve, and the patch-shaped assign there could write Array.prototype.values, Headers.prototype.values, Map.prototype.values, Object.values, Set.prototype.values"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+          "path": "assets/index-CCb1C7th.js",
+          "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc"
+        },
+        "location": {
+          "start": 143907,
+          "end": 143928,
+          "line": 21,
+          "column": 14001
+        },
+        "detail": "`i` at 21:14001 doesn't resolve, and the patch-shaped assign there could write Array.prototype.values, Headers.prototype.values, Map.prototype.values, Object.values, Set.prototype.values"
+      },
+      {
+        "kind": "unresolved-reference",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+          "path": "assets/index-CCb1C7th.js",
+          "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc"
+        },
+        "location": {
+          "start": 234266,
+          "end": 234267,
+          "line": 23,
+          "column": 67403
+        },
+        "detail": "a worker URL that is not a constant"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 22
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|Array.from|replace|unknown",
+      "targetKey": "window|Array.from|replace",
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "Array.from"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 202109,
+            "end": 202159,
+            "line": 23,
+            "column": 35246
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Array",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Array",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Array` resolves to no declaration, so it is the global property Window.Array, which holds the native `Array` (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "Array.from([1], …)[0] !== 2",
+              "generated": {
+                "start": 202010,
+                "end": 202039,
+                "line": 23,
+                "column": 35147
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `Array.from([1], …)[0] !== 2` at 23:35147 is a guard that cannot be decided statically, so it gives conditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|EventTarget.prototype.addEventListener|wrap|unknown",
+      "targetKey": "window|EventTarget.prototype.addEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "EventTarget.prototype.addEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "B",
+              "expression": "B = t",
+              "generated": {
+                "start": 106403,
+                "end": 106406,
+                "line": 20,
+                "column": 1076
+              },
+              "text": "`B` is read from its definition `B = t` at 20:1076"
+            },
+            {
+              "kind": "call",
+              "callee": "[`EventTarget`, `Node`].forEach",
+              "generated": {
+                "start": 125484,
+                "end": 126259,
+                "line": 20,
+                "column": 20157
+              },
+              "function": {
+                "start": 125515,
+                "end": 126258,
+                "line": 20,
+                "column": 20188
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "[`EventTarget`, `Node`][0]"
+                }
+              ],
+              "text": "the call `[`EventTarget`, `Node`].forEach(…)` at 20:20157 runs the function with its arguments bound as `t` = `[`EventTarget`, `Node`][0]`"
+            },
+            {
+              "kind": "alias",
+              "name": "n",
+              "expression": "n = B[t]?.prototype",
+              "generated": {
+                "start": 125523,
+                "end": 125540,
+                "line": 20,
+                "column": 20196
+              },
+              "text": "`n` is read from its definition `n = B[t]?.prototype` at 20:20196"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 125583,
+                "end": 125900,
+                "line": 20,
+                "column": 20256
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`addEventListener`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 20:20256 runs the function with its arguments bound as `t` = `n`, `n` = ``addEventListener``, `r` = `…`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.dom",
+              "generated": {
+                "start": 137144,
+                "end": 137149,
+                "line": 21,
+                "column": 7238
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.dom` at 21:7238 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!B.document",
+              "generated": {
+                "start": 125342,
+                "end": 125353,
+                "line": 20,
+                "column": 20015
+              },
+              "class": "other-target",
+              "tested": "Window.document",
+              "result": "conditional",
+              "text": "the guard `!B.document` at 20:20015 is a presence test of another native on `Window.document`, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n?.hasOwnProperty(`addEventListener`)",
+              "generated": {
+                "start": 125541,
+                "end": 125580,
+                "line": 20,
+                "column": 20214
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `n?.hasOwnProperty(`addEventListener`)` at 20:20214 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "prune",
+              "count": 2,
+              "expression": "n?.hasOwnProperty(`addEventListener`)",
+              "generated": {
+                "start": 125541,
+                "end": 125580,
+                "line": 20,
+                "column": 20214
+              },
+              "text": "the guard `n?.hasOwnProperty(`addEventListener`)` at 20:20214 is statically false against the catalog, so 2 finding occurrences it alone reaches were pruned"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|EventTarget.prototype.removeEventListener|wrap|unknown",
+      "targetKey": "window|EventTarget.prototype.removeEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "EventTarget.prototype.removeEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "B",
+              "expression": "B = t",
+              "generated": {
+                "start": 106403,
+                "end": 106406,
+                "line": 20,
+                "column": 1076
+              },
+              "text": "`B` is read from its definition `B = t` at 20:1076"
+            },
+            {
+              "kind": "call",
+              "callee": "[`EventTarget`, `Node`].forEach",
+              "generated": {
+                "start": 125484,
+                "end": 126259,
+                "line": 20,
+                "column": 20157
+              },
+              "function": {
+                "start": 125515,
+                "end": 126258,
+                "line": 20,
+                "column": 20188
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "[`EventTarget`, `Node`][0]"
+                }
+              ],
+              "text": "the call `[`EventTarget`, `Node`].forEach(…)` at 20:20157 runs the function with its arguments bound as `t` = `[`EventTarget`, `Node`][0]`"
+            },
+            {
+              "kind": "alias",
+              "name": "n",
+              "expression": "n = B[t]?.prototype",
+              "generated": {
+                "start": 125523,
+                "end": 125540,
+                "line": 20,
+                "column": 20196
+              },
+              "text": "`n` is read from its definition `n = B[t]?.prototype` at 20:20196"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 125901,
+                "end": 126256,
+                "line": 20,
+                "column": 20574
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`removeEventListener`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 20:20574 runs the function with its arguments bound as `t` = `n`, `n` = ``removeEventListener``, `r` = `…`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.dom",
+              "generated": {
+                "start": 137144,
+                "end": 137149,
+                "line": 21,
+                "column": 7238
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.dom` at 21:7238 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!B.document",
+              "generated": {
+                "start": 125342,
+                "end": 125353,
+                "line": 20,
+                "column": 20015
+              },
+              "class": "other-target",
+              "tested": "Window.document",
+              "result": "conditional",
+              "text": "the guard `!B.document` at 20:20015 is a presence test of another native on `Window.document`, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n?.hasOwnProperty(`addEventListener`)",
+              "generated": {
+                "start": 125541,
+                "end": 125580,
+                "line": 20,
+                "column": 20214
+              },
+              "class": "other-target",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "conditional",
+              "text": "the guard `n?.hasOwnProperty(`addEventListener`)` at 20:20214 is a presence test of another native on `EventTarget.prototype.addEventListener`, so it gives conditional"
+            },
+            {
+              "kind": "prune",
+              "count": 2,
+              "expression": "n?.hasOwnProperty(`addEventListener`)",
+              "generated": {
+                "start": 125541,
+                "end": 125580,
+                "line": 20,
+                "column": 20214
+              },
+              "text": "the guard `n?.hasOwnProperty(`addEventListener`)` at 20:20214 is statically false against the catalog, so 2 finding occurrences it alone reaches were pruned"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Function.prototype.toString|wrap|unknown",
+      "targetKey": "window|Function.prototype.toString|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Function.prototype.toString"
+      },
+      "surface": "ECMAScript",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 84271,
+            "end": 84399,
+            "line": 10,
+            "column": 7074
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setupOnce",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Function",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, so it is the global property Window.Function, which holds the native `Function` (window realm, current instance)"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 84230,
+                "end": 84408,
+                "line": 10,
+                "column": 7033
+              },
+              "generated": {
+                "start": 84230,
+                "end": 84408,
+                "line": 10,
+                "column": 7033
+              },
+              "text": "no resolved call reaches the function at 10:7033 made at 10:7033, so it is judged from where it was made"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Request|wrap|unknown",
+      "targetKey": "window|Window.Request|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Request"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 267839,
+            "end": 267850,
+            "line": 24,
+            "column": 16001
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "afterAllSetup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 270003,
+                "end": 270117,
+                "line": 24,
+                "column": 18165
+              },
+              "generated": {
+                "start": 267876,
+                "end": 267885,
+                "line": 24,
+                "column": 16038
+              },
+              "this": "new tS(e)",
+              "text": "no resolved call reaches the function at 24:18165 made at 24:16038, so it is judged from where it was made, with `this` = `new tS(e)`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "ya()",
+              "generated": {
+                "start": 270007,
+                "end": 270011,
+                "line": 24,
+                "column": 18169
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `ya()` at 24:18169 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!this._replay",
+              "generated": {
+                "start": 270013,
+                "end": 270026,
+                "line": 24,
+                "column": 18175
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!this._replay` at 24:18175 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._initialOptions.attachRawBodyFromRequest",
+              "generated": {
+                "start": 270029,
+                "end": 270074,
+                "line": 24,
+                "column": 18191
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._initialOptions.attachRawBodyFromRequest` at 24:18191 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof Request > `u`",
+              "generated": {
+                "start": 267690,
+                "end": 267708,
+                "line": 24,
+                "column": 15852
+              },
+              "class": "transparent",
+              "tested": "Window.Request",
+              "result": "unconditional",
+              "text": "the guard `typeof Request > `u`` at 24:15852 is transparent on `Window.Request`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Qx",
+              "generated": {
+                "start": 267710,
+                "end": 267712,
+                "line": 24,
+                "column": 15872
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Qx` at 24:15872 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.fetch|wrap|unknown",
+      "targetKey": "window|Window.fetch|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.fetch"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 94022,
+                "end": 94809,
+                "line": 17,
+                "column": 7887
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`fetch`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:7887 runs the function with its arguments bound as `t` = `t`, `n` = ``fetch``, `r` = `…`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.fetch",
+              "generated": {
+                "start": 137184,
+                "end": 137191,
+                "line": 21,
+                "column": 7278
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.fetch` at 21:7278 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!ya()",
+              "generated": {
+                "start": 94008,
+                "end": 94013,
+                "line": 17,
+                "column": 7873
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!ya()` at 17:7873 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "cu()",
+              "generated": {
+                "start": 94015,
+                "end": 94019,
+                "line": 17,
+                "column": 7880
+              },
+              "class": "transparent",
+              "tested": "Window.fetch",
+              "result": "unconditional",
+              "text": "the guard `cu()` at 17:7880 is transparent on `Window.fetch`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "Window.fetch",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `Window.fetch`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "Window.fetch",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `Window.fetch`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.open|wrap|unknown",
+      "targetKey": "window|Window.open|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.open"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "start",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "W",
+              "expression": "W = t",
+              "generated": {
+                "start": 146479,
+                "end": 146482,
+                "line": 21,
+                "column": 16573
+              },
+              "text": "`W` is read from its definition `W = t` at 21:16573"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 210271,
+                "end": 210375,
+                "line": 23,
+                "column": 43408
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "W"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`open`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 23:43408 runs the function with its arguments bound as `t` = `W`, `n` = ``open``, `r` = `…`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 270003,
+                "end": 270117,
+                "line": 24,
+                "column": 18165
+              },
+              "generated": {
+                "start": 267876,
+                "end": 267885,
+                "line": 24,
+                "column": 16038
+              },
+              "this": "new tS(e)",
+              "text": "no resolved call reaches the function at 24:18165 made at 24:16038, so it is judged from where it was made, with `this` = `new tS(e)`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "ya()",
+              "generated": {
+                "start": 270007,
+                "end": 270011,
+                "line": 24,
+                "column": 18169
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `ya()` at 24:18169 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!this._replay",
+              "generated": {
+                "start": 270013,
+                "end": 270026,
+                "line": 24,
+                "column": 18175
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!this._replay` at 24:18175 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 256548,
+                "end": 257127,
+                "line": 24,
+                "column": 4710
+              },
+              "generated": {
+                "start": 271010,
+                "end": 271069,
+                "line": 24,
+                "column": 19172
+              },
+              "this": "new Wx({…})",
+              "text": "no resolved call reaches the function at 24:4710 made at 24:19172, so it is judged from where it was made, with `this` = `new Wx({…})`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 256554,
+                "end": 256569,
+                "line": 24,
+                "column": 4716
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 24:4716 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this.recordingMode === `session`",
+              "generated": {
+                "start": 256571,
+                "end": 256601,
+                "line": 24,
+                "column": 4733
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this.recordingMode === `session`` at 24:4733 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 256658,
+                "end": 256673,
+                "line": 24,
+                "column": 4820
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 24:4820 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this.recordingMode === `buffer`",
+              "generated": {
+                "start": 256675,
+                "end": 256704,
+                "line": 24,
+                "column": 4837
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this.recordingMode === `buffer`` at 24:4837 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this.clickDetector",
+              "generated": {
+                "start": 262235,
+                "end": 262253,
+                "line": 24,
+                "column": 10397
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this.clickDetector` at 24:10397 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Kv",
+              "generated": {
+                "start": 210176,
+                "end": 210178,
+                "line": 23,
+                "column": 43313
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Kv` at 23:43313 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "Window.open",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `Window.open`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "Window.open",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `Window.open`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.requestAnimationFrame|wrap|unknown",
+      "targetKey": "window|Window.requestAnimationFrame|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.requestAnimationFrame"
+      },
+      "surface": "scheduling",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setupOnce",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "U",
+              "expression": "U = t",
+              "generated": {
+                "start": 130088,
+                "end": 130091,
+                "line": 21,
+                "column": 182
+              },
+              "text": "`U` is read from its definition `U = t` at 21:182"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 140099,
+                "end": 140131,
+                "line": 21,
+                "column": 10193
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "U"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`requestAnimationFrame`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "Jm"
+                }
+              ],
+              "text": "the call `Te(…)` at 21:10193 runs the function with its arguments bound as `t` = `U`, `n` = ``requestAnimationFrame``, `r` = `Jm`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 139997,
+                "end": 140278,
+                "line": 21,
+                "column": 10091
+              },
+              "generated": {
+                "start": 139979,
+                "end": 140279,
+                "line": 21,
+                "column": 10073
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:10091 made at 21:10073, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.requestAnimationFrame",
+              "generated": {
+                "start": 140074,
+                "end": 140097,
+                "line": 21,
+                "column": 10168
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.requestAnimationFrame` at 21:10168 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "Window.requestAnimationFrame",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `Window.requestAnimationFrame`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "Window.requestAnimationFrame",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `Window.requestAnimationFrame`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.setInterval|wrap|unknown",
+      "targetKey": "window|Window.setInterval|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.setInterval"
+      },
+      "surface": "scheduling",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setupOnce",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "U",
+              "expression": "U = t",
+              "generated": {
+                "start": 130088,
+                "end": 130091,
+                "line": 21,
+                "column": 182
+              },
+              "text": "`U` is read from its definition `U = t` at 21:182"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 140051,
+                "end": 140073,
+                "line": 21,
+                "column": 10145
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "U"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`setInterval`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "qm"
+                }
+              ],
+              "text": "the call `Te(…)` at 21:10145 runs the function with its arguments bound as `t` = `U`, `n` = ``setInterval``, `r` = `qm`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 139997,
+                "end": 140278,
+                "line": 21,
+                "column": 10091
+              },
+              "generated": {
+                "start": 139979,
+                "end": 140279,
+                "line": 21,
+                "column": 10073
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:10091 made at 21:10073, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.setInterval",
+              "generated": {
+                "start": 140036,
+                "end": 140049,
+                "line": 21,
+                "column": 10130
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.setInterval` at 21:10130 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "Window.setInterval",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `Window.setInterval`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "other-target",
+              "tested": "setInterval",
+              "result": "conditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is a presence test of another native on `setInterval`, so it gives conditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.setTimeout|wrap|unknown",
+      "targetKey": "window|Window.setTimeout|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.setTimeout"
+      },
+      "surface": "scheduling",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setupOnce",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "U",
+              "expression": "U = t",
+              "generated": {
+                "start": 130088,
+                "end": 130091,
+                "line": 21,
+                "column": 182
+              },
+              "text": "`U` is read from its definition `U = t` at 21:182"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 140014,
+                "end": 140035,
+                "line": 21,
+                "column": 10108
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "U"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`setTimeout`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "qm"
+                }
+              ],
+              "text": "the call `Te(…)` at 21:10108 runs the function with its arguments bound as `t` = `U`, `n` = ``setTimeout``, `r` = `qm`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 139997,
+                "end": 140278,
+                "line": 21,
+                "column": 10091
+              },
+              "generated": {
+                "start": 139979,
+                "end": 140279,
+                "line": 21,
+                "column": 10073
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:10091 made at 21:10073, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.setTimeout",
+              "generated": {
+                "start": 140000,
+                "end": 140012,
+                "line": 21,
+                "column": 10094
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.setTimeout` at 21:10094 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "Window.setTimeout",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `Window.setTimeout`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "other-target",
+              "tested": "setTimeout",
+              "result": "conditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is a presence test of another native on `setTimeout`, so it gives conditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.open|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.open|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.open"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 128064,
+            "end": 128898,
+            "line": 20,
+            "column": 22737
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = XMLHttpRequest.prototype",
+              "generated": {
+                "start": 128037,
+                "end": 128063,
+                "line": 20,
+                "column": 22710
+              },
+              "text": "`e` is read from its definition `e = XMLHttpRequest.prototype` at 20:22710"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.xhr",
+              "generated": {
+                "start": 137167,
+                "end": 137172,
+                "line": 21,
+                "column": 7261
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.xhr` at 21:7261 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!B.XMLHttpRequest",
+              "generated": {
+                "start": 128008,
+                "end": 128025,
+                "line": 20,
+                "column": 22681
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `!B.XMLHttpRequest` at 20:22681 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.send|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.send|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.send"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setupOnce",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 140172,
+                "end": 140210,
+                "line": 21,
+                "column": 10266
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "XMLHttpRequest.prototype"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`send`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "Ym"
+                }
+              ],
+              "text": "the call `Te(…)` at 21:10266 runs the function with its arguments bound as `t` = `XMLHttpRequest.prototype`, `n` = ``send``, `r` = `Ym`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 139997,
+                "end": 140278,
+                "line": 21,
+                "column": 10091
+              },
+              "generated": {
+                "start": 139979,
+                "end": 140279,
+                "line": 21,
+                "column": 10073
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:10091 made at 21:10073, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.XMLHttpRequest",
+              "generated": {
+                "start": 140132,
+                "end": 140148,
+                "line": 21,
+                "column": 10226
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.XMLHttpRequest` at 21:10226 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`XMLHttpRequest` in U",
+              "generated": {
+                "start": 140150,
+                "end": 140170,
+                "line": 21,
+                "column": 10244
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard ``XMLHttpRequest` in U` at 21:10244 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            }
+          ]
+        },
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 128899,
+            "end": 129057,
+            "line": 20,
+            "column": 23572
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = XMLHttpRequest.prototype",
+              "generated": {
+                "start": 128037,
+                "end": 128063,
+                "line": 20,
+                "column": 22710
+              },
+              "text": "`e` is read from its definition `e = XMLHttpRequest.prototype` at 20:22710"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.xhr",
+              "generated": {
+                "start": 137167,
+                "end": 137172,
+                "line": 21,
+                "column": 7261
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.xhr` at 21:7261 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!B.XMLHttpRequest",
+              "generated": {
+                "start": 128008,
+                "end": 128025,
+                "line": 20,
+                "column": 22681
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `!B.XMLHttpRequest` at 20:22681 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.*|replace|unknown",
+      "targetKey": "window|console.*|replace",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.*"
+      },
+      "surface": "diagnostics",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "medium",
+          "reasons": [
+            "wildcard-outcome-mixed"
+          ]
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 1187,
+            "end": 1193,
+            "line": 1,
+            "column": 1187
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "medium",
+              "reasons": [
+                "wildcard-outcome-mixed"
+              ]
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "n",
+              "expression": "n = t.console",
+              "generated": {
+                "start": 1118,
+                "end": 1129,
+                "line": 1,
+                "column": 1118
+              },
+              "text": "`n` is read from its definition `n = t.console` at 1:1118"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.stack",
+              "generated": {
+                "start": 17655,
+                "end": 17662,
+                "line": 5,
+                "column": 14608
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e.stack` at 5:14608 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "o[e]",
+              "generated": {
+                "start": 967,
+                "end": 971,
+                "line": 1,
+                "column": 967
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `o[e]` at 1:967 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 4809,
+                "end": 4810,
+                "line": 5,
+                "column": 1762
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 5:1762 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 1449,
+                "end": 1450,
+                "line": 1,
+                "column": 1449
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:1449 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "f()",
+              "generated": {
+                "start": 1452,
+                "end": 1455,
+                "line": 1,
+                "column": 1452
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `f()` at 1:1452 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(`console` in t)",
+              "generated": {
+                "start": 1086,
+                "end": 1102,
+                "line": 1,
+                "column": 1086
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard `!(`console` in t)` at 1:1086 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "confidence-reason",
+              "dimension": "mutation",
+              "reason": "wildcard-outcome-mixed",
+              "level": "medium",
+              "sites": [
+                {
+                  "start": 1187,
+                  "end": 1193,
+                  "line": 1,
+                  "column": 1187
+                }
+              ],
+              "text": "the members `console.*` matches are partly ones the write changes and partly ones it can't change"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.assert|wrap|unknown",
+      "targetKey": "window|console.assert|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.assert"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[5]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[5]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.assert",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.assert`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.assert",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.assert`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.assert",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.assert`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.debug|wrap|unknown",
+      "targetKey": "window|console.debug|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.debug"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[0]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[0]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.debug",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.debug`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.debug",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.debug`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.debug",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.debug`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.error|wrap|unknown",
+      "targetKey": "window|console.error|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.error"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[3]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[3]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.error",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.error`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.error",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.error`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.error",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.error`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.info|wrap|unknown",
+      "targetKey": "window|console.info|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.info"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[1]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[1]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.info",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.info`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.info",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.info`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.info",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.info`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.log|wrap|unknown",
+      "targetKey": "window|console.log|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.log"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[4]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[4]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.log",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.log`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.log",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.log`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.log",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.log`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.trace|wrap|unknown",
+      "targetKey": "window|console.trace|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.trace"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[6]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[6]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.trace",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.trace`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.trace",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.trace`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.trace",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.trace`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|console.warn|wrap|unknown",
+      "targetKey": "window|console.warn|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "namespace",
+        "name": "console.warn"
+      },
+      "surface": "diagnostics",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "console",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "console",
+              "path": "console",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.console` of that object is the platform singleton `console` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 88303,
+                "end": 88498,
+                "line": 17,
+                "column": 2168
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "t.console"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "…"
+                }
+              ],
+              "text": "the call `Te(…)` at 17:2168 runs the function with its arguments bound as `t` = `t.console`, `n` = `n`, `r` = `…`"
+            },
+            {
+              "kind": "alias",
+              "name": "o",
+              "expression": "o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]",
+              "generated": {
+                "start": 988,
+                "end": 1044,
+                "line": 1,
+                "column": 988
+              },
+              "text": "`o` is read from its definition `o = [`debug`, `info`, `warn`, `error`, `log`, `assert`, `trace`]` at 1:988"
+            },
+            {
+              "kind": "call",
+              "callee": "o.forEach",
+              "generated": {
+                "start": 88242,
+                "end": 88501,
+                "line": 17,
+                "column": 2107
+              },
+              "function": {
+                "start": 88252,
+                "end": 88500,
+                "line": 17,
+                "column": 2117
+              },
+              "bindings": [
+                {
+                  "parameter": "n",
+                  "argument": "o[2]"
+                }
+              ],
+              "text": "the call `o.forEach(…)` at 17:2107 runs the function with its arguments bound as `n` = `o[2]`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "generated": {
+                "start": 89592,
+                "end": 89730,
+                "line": 17,
+                "column": 3457
+              },
+              "text": "no resolved call reaches the function at 17:3457 made at 17:3457, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`console` in t",
+              "generated": {
+                "start": 88227,
+                "end": 88240,
+                "line": 17,
+                "column": 2092
+              },
+              "class": "transparent",
+              "tested": "Window.console",
+              "result": "unconditional",
+              "text": "the guard ``console` in t` at 17:2092 is transparent on `Window.console`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Nl.has(n)",
+              "generated": {
+                "start": 88264,
+                "end": 88274,
+                "line": 17,
+                "column": 2129
+              },
+              "class": "undecided",
+              "result": "conditional",
+              "text": "the guard `!Nl.has(n)` at 17:2129 is a guard that cannot be decided statically, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "n in t.console",
+              "generated": {
+                "start": 88276,
+                "end": 88290,
+                "line": 17,
+                "column": 2141
+              },
+              "class": "transparent",
+              "tested": "console.warn",
+              "result": "unconditional",
+              "text": "the guard `n in t.console` at 17:2141 is transparent on `console.warn`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "console.warn",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `console.warn`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "console.warn",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `console.warn`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.pushState|wrap|unknown",
+      "targetKey": "window|history.pushState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.pushState",
+        "shadows": "History.prototype.pushState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "history",
+              "path": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.history` of that object is the platform singleton `history` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "B",
+              "expression": "B = t",
+              "generated": {
+                "start": 106403,
+                "end": 106406,
+                "line": 20,
+                "column": 1076
+              },
+              "text": "`B` is read from its definition `B = t` at 20:1076"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 127300,
+                "end": 127327,
+                "line": 20,
+                "column": 21973
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "B.history"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`pushState`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "e"
+                }
+              ],
+              "text": "the call `Te(…)` at 20:21973 runs the function with its arguments bound as `t` = `B.history`, `n` = ``pushState``, `r` = `e`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.history",
+              "generated": {
+                "start": 137203,
+                "end": 137212,
+                "line": 21,
+                "column": 7297
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.history` at 21:7297 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(B.addEventListener(`popstate`, …), !Ap())",
+              "generated": {
+                "start": 127000,
+                "end": 127108,
+                "line": 20,
+                "column": 21673
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(B.addEventListener(`popstate`, …), !Ap())` at 20:21673 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "history.pushState",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `history.pushState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "History.prototype.pushState",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `History.prototype.pushState`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.replaceState|wrap|unknown",
+      "targetKey": "window|history.replaceState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.replaceState",
+        "shadows": "History.prototype.replaceState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+            "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4646,
+            "end": 4652,
+            "line": 5,
+            "column": 1599
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "setup",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "alias",
+              "form": "singleton",
+              "aliasOf": "history",
+              "path": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`.history` of that object is the platform singleton `history` (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "t",
+              "expression": "t = globalThis",
+              "generated": {
+                "start": 722,
+                "end": 734,
+                "line": 1,
+                "column": 722
+              },
+              "text": "`t` is read from its definition `t = globalThis` at 1:722"
+            },
+            {
+              "kind": "alias",
+              "name": "B",
+              "expression": "B = t",
+              "generated": {
+                "start": 106403,
+                "end": 106406,
+                "line": 20,
+                "column": 1076
+              },
+              "text": "`B` is read from its definition `B = t` at 20:1076"
+            },
+            {
+              "kind": "call",
+              "callee": "Te",
+              "generated": {
+                "start": 127328,
+                "end": 127358,
+                "line": 20,
+                "column": 22001
+              },
+              "function": {
+                "start": 4520,
+                "end": 4716,
+                "line": 5,
+                "column": 1473
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "B.history"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "`replaceState`"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "e"
+                }
+              ],
+              "text": "the call `Te(…)` at 20:22001 runs the function with its arguments bound as `t` = `B.history`, `n` = ``replaceState``, `r` = `e`"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.defaultIntegrations == null",
+              "generated": {
+                "start": 146234,
+                "end": 146261,
+                "line": 21,
+                "column": 16328
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e.defaultIntegrations == null` at 21:16328 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 137140,
+                "end": 137264,
+                "line": 21,
+                "column": 7234
+              },
+              "generated": {
+                "start": 137126,
+                "end": 137265,
+                "line": 21,
+                "column": 7220
+              },
+              "this": "{…}",
+              "text": "no resolved call reaches the function at 21:7234 made at 21:7220, so it is judged from where it was made, with `this` = `{…}`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.history",
+              "generated": {
+                "start": 137203,
+                "end": 137212,
+                "line": 21,
+                "column": 7297
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.history` at 21:7297 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!re[t]",
+              "generated": {
+                "start": 2810,
+                "end": 2816,
+                "line": 2,
+                "column": 1014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!re[t]` at 2:1014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(B.addEventListener(`popstate`, …), !Ap())",
+              "generated": {
+                "start": 127000,
+                "end": 127108,
+                "line": 20,
+                "column": 21673
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(B.addEventListener(`popstate`, …), !Ap())` at 20:21673 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!(n in t)",
+              "generated": {
+                "start": 4542,
+                "end": 4551,
+                "line": 5,
+                "column": 1495
+              },
+              "class": "transparent",
+              "tested": "history.replaceState",
+              "result": "unconditional",
+              "text": "the guard `!(n in t)` at 5:1495 is transparent on `history.replaceState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof i != `function`",
+              "generated": {
+                "start": 4573,
+                "end": 4593,
+                "line": 5,
+                "column": 1526
+              },
+              "class": "transparent",
+              "tested": "History.prototype.replaceState",
+              "result": "unconditional",
+              "text": "the guard `typeof i != `function`` at 5:1526 is transparent on `History.prototype.replaceState`, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/assets/index-CCb1C7th.js",
+      "path": "assets/index-CCb1C7th.js",
+      "hash": "sha256:3624b2280ee2a2905ff3a8aa365f5fa3fda4e3d0a00bb7e85953461eededc6bc",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/assets/index-CCb1C7th.js",
+        "finalUrl": "https://app.corpus.test/assets/index-CCb1C7th.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

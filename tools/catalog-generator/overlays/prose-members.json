@@ -1,0 +1,16 @@
+{
+  "Location": {
+    "@@toPrimitive": {
+      "spec": "html",
+      "source": "HTML, The Location interface, Location object setup steps (https://html.spec.whatwg.org/multipage/nav-history-apis.html#location-object-setup-steps): location.[[DefineOwnProperty]](%Symbol.toPrimitive%, { [[Value]]: undefined, [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false })",
+      "kind": "value",
+      "descriptor": { "type": "data", "writable": false, "enumerable": false, "configurable": false }
+    },
+    "valueOf": {
+      "spec": "html",
+      "source": "HTML, The Location interface, Location object setup steps (https://html.spec.whatwg.org/multipage/nav-history-apis.html#location-object-setup-steps): location.[[DefineOwnProperty]](\"valueOf\", { [[Value]]: %Object.prototype.valueOf%, [[Writable]]: false, [[Enumerable]]: false, [[Configurable]]: false })",
+      "kind": "function",
+      "descriptor": { "type": "data", "writable": false, "enumerable": false, "configurable": false }
+    }
+  }
+}

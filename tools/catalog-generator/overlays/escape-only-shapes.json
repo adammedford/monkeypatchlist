@@ -1,0 +1,28 @@
+{
+  "angular-fesm-packages": {
+    "source": "@angular/* 13.0.0 through 19.2.10 ship fesm2022 maps whose sources are ../../../../../../packages/<pkg>/src/…, with no Bazel directory (19.2.11 and later name the Bazel directory, which the angular-bazel rule names); composed by a bundler, they climb two or more ../ into packages/<pkg>/ (spec §10).",
+    "up": 2,
+    "segments": ["packages", "<pkg>"],
+    "captures": {
+      "pkg": ["core", "common", "compiler", "router", "forms", "platform-browser", "platform-browser-dynamic", "platform-server", "animations", "elements", "service-worker", "localize", "upgrade"]
+    }
+  },
+  "next-webpack-build": {
+    "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/build/…, which no framework path rule names (spec §10).",
+    "namespace": "webpack:_N_E",
+    "up": 2,
+    "segments": ["src", "build"]
+  },
+  "next-webpack-lib": {
+    "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/lib/…, which no framework path rule names (spec §10).",
+    "namespace": "webpack:_N_E",
+    "up": 2,
+    "segments": ["src", "lib"]
+  },
+  "next-webpack-shared": {
+    "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/shared/…, which no framework path rule names (spec §10).",
+    "namespace": "webpack:_N_E",
+    "up": 2,
+    "segments": ["src", "shared"]
+  }
+}

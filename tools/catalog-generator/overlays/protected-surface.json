@@ -1,0 +1,59 @@
+{
+  "networking": [
+    { "interface": "WindowOrWorkerGlobalScope", "member": "fetch" },
+    { "interface": "XMLHttpRequest" },
+    { "interface": "WebSocket" },
+    { "interface": "EventSource" },
+    { "interface": "Request" },
+    { "interface": "Response" },
+    { "interface": "Headers" },
+    { "interface": "Navigator", "member": "sendBeacon" }
+  ],
+  "events": [
+    { "interface": "EventTarget", "member": "addEventListener" },
+    { "interface": "EventTarget", "member": "removeEventListener" },
+    { "interface": "EventTarget", "member": "dispatchEvent" }
+  ],
+  "scheduling": [
+    { "interface": "WindowOrWorkerGlobalScope", "member": "setTimeout" },
+    { "interface": "WindowOrWorkerGlobalScope", "member": "setInterval" },
+    { "interface": "WindowOrWorkerGlobalScope", "member": "clearTimeout" },
+    { "interface": "WindowOrWorkerGlobalScope", "member": "clearInterval" },
+    { "interface": "AnimationFrameProvider", "member": "requestAnimationFrame" },
+    { "interface": "AnimationFrameProvider", "member": "cancelAnimationFrame" },
+    { "interface": "Window", "member": "requestIdleCallback" },
+    { "interface": "Window", "member": "cancelIdleCallback" },
+    { "interface": "WindowOrWorkerGlobalScope", "member": "queueMicrotask" }
+  ],
+  "navigation": [
+    { "interface": "History" },
+    { "interface": "Window", "member": "open" }
+  ],
+  "storage": [
+    { "interface": "Storage" },
+    { "interface": "Window", "member": "localStorage" },
+    { "interface": "Window", "member": "sessionStorage" }
+  ],
+  "crypto": [
+    { "interface": "Crypto" },
+    { "interface": "SubtleCrypto" }
+  ],
+  "ECMAScript": [
+    { "interface": "Promise" },
+    { "interface": "Function" },
+    { "interface": "Object" },
+    { "interface": "Array" },
+    { "interface": "Map" },
+    { "interface": "Set" },
+    { "interface": "JSON" }
+  ],
+  "diagnostics": [
+    { "interface": "console" }
+  ],
+  "workers": [
+    { "interface": "Worker" },
+    { "interface": "SharedWorker" },
+    { "interface": "ServiceWorkerContainer" },
+    { "interface": "Navigator", "member": "serviceWorker", "workerEquivalent": "WorkerNavigator" }
+  ]
+}

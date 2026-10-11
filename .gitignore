@@ -1,0 +1,12 @@
+.claude/
+**/.claude/
+node_modules/
+# The validation corpus, which `npm run corpus:fetch` checks out at the commit corpus.lock.json pins.
+/corpus/
+# The package build, at the root only: corpus-snapshot/ commits reports for the corpus's dist/ sites.
+/dist/
+*.tgz
+# The accuracy scoring harness writes here by default (npm run score).
+/scores/
+# The cost benchmark writes here by default (npm run benchmark).
+/benchmarks/

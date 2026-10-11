@@ -1,0 +1,29 @@
+{
+  "globalNames": ["globalThis", "self", "window"],
+  "singletons": [
+    "console",
+    "crypto",
+    "crypto.subtle",
+    "customElements",
+    "document",
+    "document.fonts",
+    "history",
+    "localStorage",
+    "location",
+    "navigator",
+    "navigator.clipboard",
+    "navigator.geolocation",
+    "navigator.locks",
+    "navigator.mediaDevices",
+    "navigator.permissions",
+    "navigator.serviceWorker",
+    "navigator.storage",
+    "navigator.userActivation",
+    "performance",
+    "sessionStorage"
+  ],
+  "aliases": {
+    "clientInformation": "navigator",
+    "document.location": "location"
+  }
+}

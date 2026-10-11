@@ -1,0 +1,70 @@
+name: False positive or missed mutation
+description: A finding for code that doesn't change the native platform, a wrong target, effect or attribution, or a platform change monkeypatchlist missed.
+labels: [accuracy]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check [docs/limitations.md](../blob/HEAD/docs/limitations.md) first: some kinds of native work are known to be missed or reported only as a limitation in this release.
+        Don't attach code or reports you aren't allowed to share.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - False positive (a finding for something that isn't a native platform change)
+        - Wrong target, effect or confidence
+        - Wrong attribution (package, version or introducer)
+        - Missed mutation (no finding for a native platform change)
+        - Unexpected completeness limitation
+    validations:
+      required: true
+  - type: input
+    id: monkeypatchlist-version
+    attributes:
+      label: monkeypatchlist version
+      description: "`tool.monkeypatchlistVersion` in the report."
+    validations:
+      required: true
+  - type: input
+    id: catalog-version
+    attributes:
+      label: Catalog version
+      description: "`tool.catalogVersion` in the report."
+    validations:
+      required: true
+  - type: input
+    id: surface
+    attributes:
+      label: Surface
+      description: "`protected` (the default) or `all`."
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: The finding, or the mutation that was missed
+      description: "For a finding: its fingerprint and the output of `monkeypatchlist explain <fingerprint> --report report.json`. For a missed mutation: the native target (for example `Window.fetch`) and what the code does to it."
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: The code
+      description: "The smallest snippet that shows it, with the package and version it comes from (for example `zone.js@0.15.0`, `dist/zone.js`). Say which bundler built it, if any."
+      render: js
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why the result is wrong
+      description: What the code does in the browser, and what you expected monkeypatchlist to report.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Report JSON
+      description: "Attach the `--json` report, or paste the finding and the `completeness` block."

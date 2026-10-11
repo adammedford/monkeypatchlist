@@ -1,0 +1,60 @@
+name: Bug report
+description: monkeypatchlist crashed, gave a wrong exit code, wrote a wrong report or baseline, or otherwise misbehaved.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a finding monkeypatchlist shouldn't give, or a mutation it missed, use **False positive or missed mutation** instead.
+        Report security vulnerabilities privately, as [SECURITY.md](../blob/HEAD/SECURITY.md) describes, never in an issue.
+        Don't attach code or reports you aren't allowed to share: the report JSON names your files, URLs and packages.
+  - type: input
+    id: monkeypatchlist-version
+    attributes:
+      label: monkeypatchlist version
+      description: "`tool.monkeypatchlistVersion` in the report, or `npm ls monkeypatchlist`."
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: catalog-version
+    attributes:
+      label: Catalog version
+      description: "`tool.catalogVersion` in the report."
+      placeholder: "1"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node version and OS
+      placeholder: "Node 24.x, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and configuration
+      description: The exact command you ran, and your `monkeypatchlist.config.json` if you use one.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+      description: Include the terminal output and the exit code.
+    validations:
+      required: true
+  - type: textarea
+    id: report
+    attributes:
+      label: Report JSON
+      description: "The report from `monkeypatchlist scan --json report.json` (or `baseline init|update --json`). Attach the file, or paste the relevant parts. If the scan crashed before writing it, say so."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: A minimal build directory, or a public site's built output, that shows the problem, if you can share one.

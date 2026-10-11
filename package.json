@@ -1,0 +1,97 @@
+{
+  "name": "monkeypatchlist",
+  "version": "0.0.0",
+  "description": "Finds where your build mutates native browser and ECMAScript APIs.",
+  "keywords": [
+    "security",
+    "supply-chain",
+    "static-analysis",
+    "monkey-patching",
+    "native-apis",
+    "web-platform",
+    "third-party-scripts",
+    "javascript",
+    "ci"
+  ],
+  "homepage": "https://github.com/adammedford/monkeypatchlist#readme",
+  "bugs": {
+    "url": "https://github.com/adammedford/monkeypatchlist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adammedford/monkeypatchlist.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Adam Medford",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./catalog.json": "./catalog/catalog.json",
+    "./catalog.schema.json": "./catalog/catalog.schema.json",
+    "./changelog.json": "./catalog/changelog.json",
+    "./report.schema.json": "./schema/report.schema.json",
+    "./config.schema.json": "./schema/config.schema.json"
+  },
+  "bin": {
+    "monkeypatchlist": "dist/bin/monkeypatchlist.js"
+  },
+  "files": [
+    "dist",
+    "catalog/catalog.json",
+    "catalog/catalog.schema.json",
+    "catalog/changelog.json",
+    "schema/report.schema.json",
+    "schema/config.schema.json",
+    "NOTICE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint .",
+    "lint:boundaries": "depcruise src test tools",
+    "test": "vitest run",
+    "catalog": "node tools/catalog-generator/cli.ts",
+    "catalog:check": "node tools/catalog-generator/cli.ts --check",
+    "spec": "node tools/spec-generator/cli.ts",
+    "spec:check": "node tools/spec-generator/cli.ts --check",
+    "score": "node tools/scoring/cli.ts",
+    "corpus:fetch": "node tools/corpus-fetch/cli.ts",
+    "corpus:check": "node tools/corpus-snapshot/cli.ts",
+    "corpus:snapshot": "node tools/corpus-snapshot/cli.ts --update",
+    "fixtures:check": "node tools/fixture-pages/cli.ts",
+    "benchmark": "node tools/cost-benchmark/cli.ts",
+    "licenses:check": "node tools/license-check/cli.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@mdn/browser-compat-data": "8.1.3",
+    "@tc39/ecma262-biblio": "2.2.3180",
+    "@tc39/ecma402-biblio": "2.1.1253",
+    "@types/node": "24.19.0",
+    "@types/webidl2": "24.4.4",
+    "@typescript-eslint/scope-manager": "8.70.1",
+    "@webref/idl": "3.84.0",
+    "dependency-cruiser": "18.4.0",
+    "eslint": "10.11.0",
+    "globals": "17.12.0",
+    "ses": "2.3.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.1",
+    "vitest": "5.0.2",
+    "webidl2": "24.5.0"
+  },
+  "dependencies": {
+    "@jridgewell/trace-mapping": "0.3.31",
+    "ajv": "8.20.0",
+    "eslint-scope": "9.1.2",
+    "oxc-parser": "0.151.0",
+    "parse5": "8.0.1"
+  }
+}

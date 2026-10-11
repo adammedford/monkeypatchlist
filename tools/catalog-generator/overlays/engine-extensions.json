@@ -1,0 +1,14 @@
+{
+  "Error.captureStackTrace": {
+    "engine": "v8",
+    "source": "V8 14.6.202.34 (Node 26.8.1): the own property V8 gives Error in a fresh context; documented at https://v8.dev/docs/stack-trace-api",
+    "kind": "function",
+    "descriptor": { "type": "data", "writable": true, "enumerable": false, "configurable": true }
+  },
+  "Error.stackTraceLimit": {
+    "engine": "v8",
+    "source": "V8 14.6.202.34 (Node 26.8.1): the own property V8 gives Error in a fresh context; documented at https://v8.dev/docs/stack-trace-api",
+    "kind": "value",
+    "descriptor": { "type": "data", "writable": true, "enumerable": true, "configurable": true }
+  }
+}

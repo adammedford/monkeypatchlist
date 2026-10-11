@@ -1,0 +1,37 @@
+{
+  "scheme": { "from": ["http:"], "to": "https:" },
+  "host": "lowercase",
+  "drop": ["default-port", "query", "fragment"],
+  "path": [
+    {
+      "id": "package-version",
+      "step": 3,
+      "pattern": "(?<=[^/]@)v?\\d+(?:\\.\\d+)*(?:[-+][0-9A-Za-z]+(?:\\.\\d+)*)?(?=$|[/._@-])",
+      "replacement": "*"
+    },
+    {
+      "id": "semver-segment",
+      "step": 3,
+      "pattern": "(?<=/)v?\\d+\\.\\d+(?:\\.\\d+)?(?:[-+][0-9A-Za-z]+(?:\\.\\d+)*)?(?=/|$)",
+      "replacement": "*"
+    },
+    {
+      "id": "filename-version-run",
+      "step": 3,
+      "pattern": "(?<=[._@-])v?\\d+(?:\\.\\d+)+(?:[-+][0-9A-Za-z]+(?:\\.\\d+)*)?(?=(?:[._@-][^/]*)?$)",
+      "replacement": "*"
+    },
+    {
+      "id": "v-number",
+      "step": 3,
+      "pattern": "(?<=^|[/._@-])v\\d+(?=$|[/._@-])",
+      "replacement": "*"
+    },
+    {
+      "id": "hex-run",
+      "step": 4,
+      "pattern": "(?<=^|[/._@-])[0-9A-Fa-f]{8,}(?=$|[/._@-])",
+      "replacement": "#"
+    }
+  ]
+}

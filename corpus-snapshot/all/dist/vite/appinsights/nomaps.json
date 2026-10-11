@@ -1,0 +1,2301 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 5
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 5651367,
+        "stepBudget": 789790720,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 419,
+          "contexts": 17751,
+          "flagDepth": 109,
+          "nesting": 25,
+          "recursion": 944
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 61483,
+          "end": 61493,
+          "line": 2,
+          "column": 41333
+        },
+        "detail": "`t` at 2:41333 doesn't resolve, and the patch-shaped delete there could write CSSHWB.prototype.w, DOMPoint.prototype.w, DOMPointReadOnly.prototype.w"
+      },
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 80527,
+          "end": 80543,
+          "line": 2,
+          "column": 60377
+        },
+        "detail": "the call `Sm(…)` at 2:60377 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 138929,
+          "end": 138945,
+          "line": 7,
+          "column": 13571
+        },
+        "detail": "`i[wS]` at 7:13571 doesn't resolve, and the patch-shaped delete there could write AnimationTimeline.prototype.duration, AudioBuffer.prototype.duration, AudioData.prototype.duration, EncodedAudioChunk.prototype.duration, EncodedVideoChunk.prototype.duration, HTMLMediaElement.prototype.duration, MediaSource.prototype.duration, PerformanceEntry.prototype.duration, PerformanceLongAnimationFrameTiming.prototype.duration, PerformanceLongTaskTiming.prototype.duration, PerformanceScriptTiming.prototype.duration, PerformanceServerTiming.prototype.duration, TaskAttributionTiming.prototype.duration, VideoFrame.prototype.duration, VisibilityStateEntry.prototype.duration"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 138993,
+          "end": 139009,
+          "line": 7,
+          "column": 13635
+        },
+        "detail": "`t[jx]` at 7:13635 doesn't resolve, and the patch-shaped delete there could write AnimationTimeline.prototype.duration, AudioBuffer.prototype.duration, AudioData.prototype.duration, EncodedAudioChunk.prototype.duration, EncodedVideoChunk.prototype.duration, HTMLMediaElement.prototype.duration, MediaSource.prototype.duration, PerformanceEntry.prototype.duration, PerformanceLongAnimationFrameTiming.prototype.duration, PerformanceLongTaskTiming.prototype.duration, PerformanceScriptTiming.prototype.duration, PerformanceServerTiming.prototype.duration, TaskAttributionTiming.prototype.duration, VideoFrame.prototype.duration, VisibilityStateEntry.prototype.duration"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 186122,
+          "end": 186129,
+          "line": 9,
+          "column": 42159
+        },
+        "detail": "`n` at 9:42159 doesn't resolve, and the patch-shaped assign there could write CSSNumericValue.prototype.type"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+          "path": "assets/index-CUHnmtAp.js",
+          "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b"
+        },
+        "location": {
+          "start": 190117,
+          "end": 190137,
+          "line": 9,
+          "column": 46154
+        },
+        "detail": "`e.snippet` at 9:46154 doesn't resolve, and the patch-shaped delete there could write GPUDevice.prototype.queue"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 4
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.abort|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.abort|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.abort"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+            "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 80682,
+            "end": 80688,
+            "line": 2,
+            "column": 60532
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "A",
+              "generated": {
+                "start": 168312,
+                "end": 168508,
+                "line": 9,
+                "column": 24349
+              },
+              "function": {
+                "start": 167782,
+                "end": 167813,
+                "line": 9,
+                "column": 23819
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`abort`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `A(…)` at 9:24349 runs the function with its arguments bound as `e` = `XMLHttpRequest`, `t` = ``abort``, `n` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "Cm",
+              "generated": {
+                "start": 167802,
+                "end": 167811,
+                "line": 9,
+                "column": 23839
+              },
+              "function": {
+                "start": 80548,
+                "end": 80598,
+                "line": 2,
+                "column": 60398
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `Cm(…)` at 9:23839 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `n`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ei",
+              "expression": "Ei = `prototype`",
+              "generated": {
+                "start": 17606,
+                "end": 17620,
+                "line": 1,
+                "column": 17606
+              },
+              "text": "`Ei` is read from its definition `Ei = `prototype`` at 1:17606"
+            },
+            {
+              "kind": "call",
+              "callee": "Tm",
+              "generated": {
+                "start": 80576,
+                "end": 80592,
+                "line": 2,
+                "column": 60426
+              },
+              "function": {
+                "start": 80822,
+                "end": 80967,
+                "line": 2,
+                "column": 60672
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e[Ei]"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Tm(…)` at 2:60426 runs the function with its arguments bound as `e` = `e[Ei]`, `t` = `t`, `n` = `n`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Sm",
+              "generated": {
+                "start": 80882,
+                "end": 80893,
+                "line": 2,
+                "column": 60732
+              },
+              "function": {
+                "start": 80466,
+                "end": 80548,
+                "line": 2,
+                "column": 60316
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Sm(…)` at 2:60732 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = e",
+              "generated": {
+                "start": 80517,
+                "end": 80520,
+                "line": 2,
+                "column": 60367
+              },
+              "text": "`i` is read from its definition `i = e` at 2:60367"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Sm(e, t, r, i)",
+              "generated": {
+                "start": 80880,
+                "end": 80893,
+                "line": 2,
+                "column": 60730
+              },
+              "text": "`a` is read from its definition `a = Sm(e, t, r, i)` at 2:60730"
+            },
+            {
+              "kind": "call",
+              "callee": "wm",
+              "generated": {
+                "start": 80942,
+                "end": 80953,
+                "line": 2,
+                "column": 60792
+              },
+              "function": {
+                "start": 80598,
+                "end": 80822,
+                "line": 2,
+                "column": 60448
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `wm(…)` at 2:60792 runs the function with its arguments bound as `e` = `a`, `t` = `t`, `n` = `o`, `r` = `n`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 164027,
+                "end": 164162,
+                "line": 9,
+                "column": 20064
+              },
+              "generated": {
+                "start": 187625,
+                "end": 187631,
+                "line": 9,
+                "column": 43662
+              },
+              "this": "new Rw()",
+              "text": "no resolved call reaches the function at 9:20064 made at 9:43662, so it is judged from where it was made, with `this` = `new Rw()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.isInitialized()",
+              "generated": {
+                "start": 164045,
+                "end": 164062,
+                "line": 9,
+                "column": 20082
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e.isInitialized()` at 9:20082 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Sw(e, w)",
+              "generated": {
+                "start": 167827,
+                "end": 167834,
+                "line": 9,
+                "column": 23864
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Sw(e, w)` at 9:23864 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg",
+              "generated": {
+                "start": 37606,
+                "end": 37611,
+                "line": 2,
+                "column": 17456
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg` at 2:17456 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg === e",
+              "generated": {
+                "start": 37614,
+                "end": 37623,
+                "line": 2,
+                "column": 17464
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg === e` at 2:17464 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ll] === r",
+              "generated": {
+                "start": 37625,
+                "end": 37638,
+                "line": 2,
+                "column": 17475
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ll] === r` at 2:17475 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!y",
+              "generated": {
+                "start": 167876,
+                "end": 167878,
+                "line": 9,
+                "column": 23913
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!y` at 9:23913 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 167880,
+                "end": 167882,
+                "line": 9,
+                "column": 23917
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 9:23917 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 168314,
+                "end": 168328,
+                "line": 9,
+                "column": 24351
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 9:24351 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e[Ei]",
+              "generated": {
+                "start": 80579,
+                "end": 80584,
+                "line": 2,
+                "column": 60429
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `e[Ei]` at 2:60429 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`abort`",
+              "generated": {
+                "start": 168329,
+                "end": 168336,
+                "line": 9,
+                "column": 24366
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard ``abort`` at 9:24366 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 168337,
+                "end": 168507,
+                "line": 9,
+                "column": 24374
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 9:24374 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 80897,
+                "end": 80898,
+                "line": 2,
+                "column": 60747
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:60747 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o == `function`",
+              "generated": {
+                "start": 80914,
+                "end": 80934,
+                "line": 2,
+                "column": 60764
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.abort",
+              "result": "unconditional",
+              "text": "the guard `typeof o == `function`` at 2:60764 is transparent on `XMLHttpRequest.prototype.abort`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 80637,
+                "end": 80639,
+                "line": 2,
+                "column": 60487
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:60487 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.open|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.open|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.open"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+            "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 80682,
+            "end": 80688,
+            "line": 2,
+            "column": 60532
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "A",
+              "generated": {
+                "start": 167885,
+                "end": 168084,
+                "line": 9,
+                "column": 23922
+              },
+              "function": {
+                "start": 167782,
+                "end": 167813,
+                "line": 9,
+                "column": 23819
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`open`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `A(…)` at 9:23922 runs the function with its arguments bound as `e` = `XMLHttpRequest`, `t` = ``open``, `n` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "Cm",
+              "generated": {
+                "start": 167802,
+                "end": 167811,
+                "line": 9,
+                "column": 23839
+              },
+              "function": {
+                "start": 80548,
+                "end": 80598,
+                "line": 2,
+                "column": 60398
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `Cm(…)` at 9:23839 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `n`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ei",
+              "expression": "Ei = `prototype`",
+              "generated": {
+                "start": 17606,
+                "end": 17620,
+                "line": 1,
+                "column": 17606
+              },
+              "text": "`Ei` is read from its definition `Ei = `prototype`` at 1:17606"
+            },
+            {
+              "kind": "call",
+              "callee": "Tm",
+              "generated": {
+                "start": 80576,
+                "end": 80592,
+                "line": 2,
+                "column": 60426
+              },
+              "function": {
+                "start": 80822,
+                "end": 80967,
+                "line": 2,
+                "column": 60672
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e[Ei]"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Tm(…)` at 2:60426 runs the function with its arguments bound as `e` = `e[Ei]`, `t` = `t`, `n` = `n`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Sm",
+              "generated": {
+                "start": 80882,
+                "end": 80893,
+                "line": 2,
+                "column": 60732
+              },
+              "function": {
+                "start": 80466,
+                "end": 80548,
+                "line": 2,
+                "column": 60316
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Sm(…)` at 2:60732 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = e",
+              "generated": {
+                "start": 80517,
+                "end": 80520,
+                "line": 2,
+                "column": 60367
+              },
+              "text": "`i` is read from its definition `i = e` at 2:60367"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Sm(e, t, r, i)",
+              "generated": {
+                "start": 80880,
+                "end": 80893,
+                "line": 2,
+                "column": 60730
+              },
+              "text": "`a` is read from its definition `a = Sm(e, t, r, i)` at 2:60730"
+            },
+            {
+              "kind": "call",
+              "callee": "wm",
+              "generated": {
+                "start": 80942,
+                "end": 80953,
+                "line": 2,
+                "column": 60792
+              },
+              "function": {
+                "start": 80598,
+                "end": 80822,
+                "line": 2,
+                "column": 60448
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `wm(…)` at 2:60792 runs the function with its arguments bound as `e` = `a`, `t` = `t`, `n` = `o`, `r` = `n`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 164027,
+                "end": 164162,
+                "line": 9,
+                "column": 20064
+              },
+              "generated": {
+                "start": 187625,
+                "end": 187631,
+                "line": 9,
+                "column": 43662
+              },
+              "this": "new Rw()",
+              "text": "no resolved call reaches the function at 9:20064 made at 9:43662, so it is judged from where it was made, with `this` = `new Rw()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.isInitialized()",
+              "generated": {
+                "start": 164045,
+                "end": 164062,
+                "line": 9,
+                "column": 20082
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e.isInitialized()` at 9:20082 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Sw(e, w)",
+              "generated": {
+                "start": 167827,
+                "end": 167834,
+                "line": 9,
+                "column": 23864
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Sw(e, w)` at 9:23864 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg",
+              "generated": {
+                "start": 37606,
+                "end": 37611,
+                "line": 2,
+                "column": 17456
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg` at 2:17456 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg === e",
+              "generated": {
+                "start": 37614,
+                "end": 37623,
+                "line": 2,
+                "column": 17464
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg === e` at 2:17464 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ll] === r",
+              "generated": {
+                "start": 37625,
+                "end": 37638,
+                "line": 2,
+                "column": 17475
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ll] === r` at 2:17475 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!y",
+              "generated": {
+                "start": 167876,
+                "end": 167878,
+                "line": 9,
+                "column": 23913
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!y` at 9:23913 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 167880,
+                "end": 167882,
+                "line": 9,
+                "column": 23917
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 9:23917 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 167887,
+                "end": 167901,
+                "line": 9,
+                "column": 23924
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 9:23924 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e[Ei]",
+              "generated": {
+                "start": 80579,
+                "end": 80584,
+                "line": 2,
+                "column": 60429
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `e[Ei]` at 2:60429 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`open`",
+              "generated": {
+                "start": 167902,
+                "end": 167908,
+                "line": 9,
+                "column": 23939
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard ``open`` at 9:23939 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 167909,
+                "end": 168083,
+                "line": 9,
+                "column": 23946
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 9:23946 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 80897,
+                "end": 80898,
+                "line": 2,
+                "column": 60747
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:60747 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o == `function`",
+              "generated": {
+                "start": 80914,
+                "end": 80934,
+                "line": 2,
+                "column": 60764
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.open",
+              "result": "unconditional",
+              "text": "the guard `typeof o == `function`` at 2:60764 is transparent on `XMLHttpRequest.prototype.open`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 80637,
+                "end": 80639,
+                "line": 2,
+                "column": 60487
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:60487 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 161580,
+                "end": 161605,
+                "line": 9,
+                "column": 17617
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 9:17617 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.send|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.send|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.send"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+            "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 80682,
+            "end": 80688,
+            "line": 2,
+            "column": 60532
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "A",
+              "generated": {
+                "start": 168085,
+                "end": 168311,
+                "line": 9,
+                "column": 24122
+              },
+              "function": {
+                "start": 167782,
+                "end": 167813,
+                "line": 9,
+                "column": 23819
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`send`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `A(…)` at 9:24122 runs the function with its arguments bound as `e` = `XMLHttpRequest`, `t` = ``send``, `n` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "Cm",
+              "generated": {
+                "start": 167802,
+                "end": 167811,
+                "line": 9,
+                "column": 23839
+              },
+              "function": {
+                "start": 80548,
+                "end": 80598,
+                "line": 2,
+                "column": 60398
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `Cm(…)` at 9:23839 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `n`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ei",
+              "expression": "Ei = `prototype`",
+              "generated": {
+                "start": 17606,
+                "end": 17620,
+                "line": 1,
+                "column": 17606
+              },
+              "text": "`Ei` is read from its definition `Ei = `prototype`` at 1:17606"
+            },
+            {
+              "kind": "call",
+              "callee": "Tm",
+              "generated": {
+                "start": 80576,
+                "end": 80592,
+                "line": 2,
+                "column": 60426
+              },
+              "function": {
+                "start": 80822,
+                "end": 80967,
+                "line": 2,
+                "column": 60672
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e[Ei]"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Tm(…)` at 2:60426 runs the function with its arguments bound as `e` = `e[Ei]`, `t` = `t`, `n` = `n`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Sm",
+              "generated": {
+                "start": 80882,
+                "end": 80893,
+                "line": 2,
+                "column": 60732
+              },
+              "function": {
+                "start": 80466,
+                "end": 80548,
+                "line": 2,
+                "column": 60316
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Sm(…)` at 2:60732 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = e",
+              "generated": {
+                "start": 80517,
+                "end": 80520,
+                "line": 2,
+                "column": 60367
+              },
+              "text": "`i` is read from its definition `i = e` at 2:60367"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Sm(e, t, r, i)",
+              "generated": {
+                "start": 80880,
+                "end": 80893,
+                "line": 2,
+                "column": 60730
+              },
+              "text": "`a` is read from its definition `a = Sm(e, t, r, i)` at 2:60730"
+            },
+            {
+              "kind": "call",
+              "callee": "wm",
+              "generated": {
+                "start": 80942,
+                "end": 80953,
+                "line": 2,
+                "column": 60792
+              },
+              "function": {
+                "start": 80598,
+                "end": 80822,
+                "line": 2,
+                "column": 60448
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `wm(…)` at 2:60792 runs the function with its arguments bound as `e` = `a`, `t` = `t`, `n` = `o`, `r` = `n`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 164027,
+                "end": 164162,
+                "line": 9,
+                "column": 20064
+              },
+              "generated": {
+                "start": 187625,
+                "end": 187631,
+                "line": 9,
+                "column": 43662
+              },
+              "this": "new Rw()",
+              "text": "no resolved call reaches the function at 9:20064 made at 9:43662, so it is judged from where it was made, with `this` = `new Rw()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.isInitialized()",
+              "generated": {
+                "start": 164045,
+                "end": 164062,
+                "line": 9,
+                "column": 20082
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e.isInitialized()` at 9:20082 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Sw(e, w)",
+              "generated": {
+                "start": 167827,
+                "end": 167834,
+                "line": 9,
+                "column": 23864
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Sw(e, w)` at 9:23864 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg",
+              "generated": {
+                "start": 37606,
+                "end": 37611,
+                "line": 2,
+                "column": 17456
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg` at 2:17456 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg === e",
+              "generated": {
+                "start": 37614,
+                "end": 37623,
+                "line": 2,
+                "column": 17464
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg === e` at 2:17464 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ll] === r",
+              "generated": {
+                "start": 37625,
+                "end": 37638,
+                "line": 2,
+                "column": 17475
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ll] === r` at 2:17475 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!y",
+              "generated": {
+                "start": 167876,
+                "end": 167878,
+                "line": 9,
+                "column": 23913
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!y` at 9:23913 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 167880,
+                "end": 167882,
+                "line": 9,
+                "column": 23917
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 9:23917 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 168087,
+                "end": 168101,
+                "line": 9,
+                "column": 24124
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 9:24124 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e[Ei]",
+              "generated": {
+                "start": 80579,
+                "end": 80584,
+                "line": 2,
+                "column": 60429
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `e[Ei]` at 2:60429 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`send`",
+              "generated": {
+                "start": 168102,
+                "end": 168108,
+                "line": 9,
+                "column": 24139
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard ``send`` at 9:24139 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 168109,
+                "end": 168310,
+                "line": 9,
+                "column": 24146
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 9:24146 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 80897,
+                "end": 80898,
+                "line": 2,
+                "column": 60747
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:60747 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o == `function`",
+              "generated": {
+                "start": 80914,
+                "end": 80934,
+                "line": 2,
+                "column": 60764
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `typeof o == `function`` at 2:60764 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 80637,
+                "end": 80639,
+                "line": 2,
+                "column": 60487
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:60487 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.setRequestHeader|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.setRequestHeader|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.setRequestHeader"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+            "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 80682,
+            "end": 80688,
+            "line": 2,
+            "column": 60532
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "initialize",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "A",
+              "generated": {
+                "start": 168509,
+                "end": 168692,
+                "line": 9,
+                "column": 24546
+              },
+              "function": {
+                "start": 167782,
+                "end": 167813,
+                "line": 9,
+                "column": 23819
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`setRequestHeader`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "{…}"
+                }
+              ],
+              "text": "the call `A(…)` at 9:24546 runs the function with its arguments bound as `e` = `XMLHttpRequest`, `t` = ``setRequestHeader``, `n` = `{…}`"
+            },
+            {
+              "kind": "call",
+              "callee": "Cm",
+              "generated": {
+                "start": 167802,
+                "end": 167811,
+                "line": 9,
+                "column": 23839
+              },
+              "function": {
+                "start": 80548,
+                "end": 80598,
+                "line": 2,
+                "column": 60398
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `Cm(…)` at 9:23839 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `n`"
+            },
+            {
+              "kind": "alias",
+              "name": "Ei",
+              "expression": "Ei = `prototype`",
+              "generated": {
+                "start": 17606,
+                "end": 17620,
+                "line": 1,
+                "column": 17606
+              },
+              "text": "`Ei` is read from its definition `Ei = `prototype`` at 1:17606"
+            },
+            {
+              "kind": "call",
+              "callee": "Tm",
+              "generated": {
+                "start": 80576,
+                "end": 80592,
+                "line": 2,
+                "column": 60426
+              },
+              "function": {
+                "start": 80822,
+                "end": 80967,
+                "line": 2,
+                "column": 60672
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e[Ei]"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "n"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "!1"
+                },
+                {
+                  "parameter": "i",
+                  "argument": null
+                }
+              ],
+              "text": "the call `Tm(…)` at 2:60426 runs the function with its arguments bound as `e` = `e[Ei]`, `t` = `t`, `n` = `n`, `r` = `!1`, `i` = nothing"
+            },
+            {
+              "kind": "call",
+              "callee": "Sm",
+              "generated": {
+                "start": 80882,
+                "end": 80893,
+                "line": 2,
+                "column": 60732
+              },
+              "function": {
+                "start": 80466,
+                "end": 80548,
+                "line": 2,
+                "column": 60316
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "r"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Sm(…)` at 2:60732 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `r`, `r` = `i`"
+            },
+            {
+              "kind": "alias",
+              "name": "i",
+              "expression": "i = e",
+              "generated": {
+                "start": 80517,
+                "end": 80520,
+                "line": 2,
+                "column": 60367
+              },
+              "text": "`i` is read from its definition `i = e` at 2:60367"
+            },
+            {
+              "kind": "alias",
+              "name": "a",
+              "expression": "a = Sm(e, t, r, i)",
+              "generated": {
+                "start": 80880,
+                "end": 80893,
+                "line": 2,
+                "column": 60730
+              },
+              "text": "`a` is read from its definition `a = Sm(e, t, r, i)` at 2:60730"
+            },
+            {
+              "kind": "call",
+              "callee": "wm",
+              "generated": {
+                "start": 80942,
+                "end": 80953,
+                "line": 2,
+                "column": 60792
+              },
+              "function": {
+                "start": 80598,
+                "end": 80822,
+                "line": 2,
+                "column": 60448
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "a"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "o"
+                },
+                {
+                  "parameter": "r",
+                  "argument": "n"
+                }
+              ],
+              "text": "the call `wm(…)` at 2:60792 runs the function with its arguments bound as `e` = `a`, `t` = `t`, `n` = `o`, `r` = `n`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 164027,
+                "end": 164162,
+                "line": 9,
+                "column": 20064
+              },
+              "generated": {
+                "start": 187625,
+                "end": 187631,
+                "line": 9,
+                "column": 43662
+              },
+              "this": "new Rw()",
+              "text": "no resolved call reaches the function at 9:20064 made at 9:43662, so it is judged from where it was made, with `this` = `new Rw()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.isInitialized()",
+              "generated": {
+                "start": 164045,
+                "end": 164062,
+                "line": 9,
+                "column": 20082
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e.isInitialized()` at 9:20082 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "Sw(e, w)",
+              "generated": {
+                "start": 167827,
+                "end": 167834,
+                "line": 9,
+                "column": 23864
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `Sw(e, w)` at 9:23864 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg",
+              "generated": {
+                "start": 37606,
+                "end": 37611,
+                "line": 2,
+                "column": 17456
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg` at 2:17456 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg === e",
+              "generated": {
+                "start": 37614,
+                "end": 37623,
+                "line": 2,
+                "column": 17464
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg === e` at 2:17464 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "r.cfg[Ll] === r",
+              "generated": {
+                "start": 37625,
+                "end": 37638,
+                "line": 2,
+                "column": 17475
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `r.cfg[Ll] === r` at 2:17475 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!y",
+              "generated": {
+                "start": 167876,
+                "end": 167878,
+                "line": 9,
+                "column": 23913
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!y` at 9:23913 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 167880,
+                "end": 167882,
+                "line": 9,
+                "column": 23917
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 9:23917 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest",
+              "generated": {
+                "start": 168511,
+                "end": 168525,
+                "line": 9,
+                "column": 24548
+              },
+              "class": "transparent",
+              "tested": "Window.XMLHttpRequest",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest` at 9:24548 is transparent on `Window.XMLHttpRequest`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e[Ei]",
+              "generated": {
+                "start": 80579,
+                "end": 80584,
+                "line": 2,
+                "column": 60429
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `e[Ei]` at 2:60429 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "`setRequestHeader`",
+              "generated": {
+                "start": 168526,
+                "end": 168544,
+                "line": 9,
+                "column": 24563
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard ``setRequestHeader`` at 9:24563 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "{…}",
+              "generated": {
+                "start": 168545,
+                "end": 168691,
+                "line": 9,
+                "column": 24582
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `{…}` at 9:24582 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "a",
+              "generated": {
+                "start": 80897,
+                "end": 80898,
+                "line": 2,
+                "column": 60747
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `a` at 2:60747 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof o == `function`",
+              "generated": {
+                "start": 80914,
+                "end": 80934,
+                "line": 2,
+                "column": 60764
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.setRequestHeader",
+              "result": "unconditional",
+              "text": "the guard `typeof o == `function`` at 2:60764 is transparent on `XMLHttpRequest.prototype.setRequestHeader`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!i",
+              "generated": {
+                "start": 80637,
+                "end": 80639,
+                "line": 2,
+                "column": 60487
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `!i` at 2:60487 is transparent, so it gives unconditional"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+      "path": "assets/index-CUHnmtAp.js",
+      "hash": "sha256:5b692bdd49b9b5048922343f6b94c7aba1625a9e11577584d9f490bba35b2b2b",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+        "finalUrl": "https://app.corpus.test/assets/index-CUHnmtAp.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

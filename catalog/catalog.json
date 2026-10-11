@@ -346,6 +346,9 @@
   "enginePrototypes": {
     "HTMLDocument.prototype": {
       "engine": "blink",
+      "interfaceObject": {
+        "proto": "Document"
+      },
       "owner": "HTMLDocument",
       "proto": "Document.prototype",
       "prototypeOf": [
@@ -354,7 +357,7 @@
       "realms": [
         "window"
       ],
-      "source": "Chromium: Object.getPrototypeOf(document) is HTMLDocument.prototype, whose prototype is Document.prototype. @webref/idl has no HTMLDocument (HTML makes window.HTMLDocument an alias of Document). Its own constructor and @@toStringTag are left out, to be decided with Window.HTMLDocument (spec §4, ticket 130)."
+      "source": "Chromium, as every engine ships it: Object.getPrototypeOf(document) is HTMLDocument.prototype, whose prototype is Document.prototype; window.HTMLDocument is its own interface object, whose prototype is Document; HTMLDocument.prototype has its own constructor (HTMLDocument) and @@toStringTag (\"HTMLDocument\", non-writable, configurable). @webref/idl has no HTMLDocument (HTML makes window.HTMLDocument an alias of Document). Spec §4."
     }
   },
   "esAdditions": {
@@ -695,7 +698,7 @@
         "packages",
         "<pkg>"
       ],
-      "source": "@angular/* 13.0.0 through 19.2.10 ship fesm2022 maps whose sources are ../../../../../../packages/<pkg>/src/…, with no Bazel directory (19.2.11 and later name the Bazel directory, which the angular-bazel rule names); composed by a bundler, they climb two or more ../ into packages/<pkg>/ (spec §10; human, live, 2026-09-29, X29, and 2026-09-30, ticket 80, option A).",
+      "source": "@angular/* 13.0.0 through 19.2.10 ship fesm2022 maps whose sources are ../../../../../../packages/<pkg>/src/…, with no Bazel directory (19.2.11 and later name the Bazel directory, which the angular-bazel rule names); composed by a bundler, they climb two or more ../ into packages/<pkg>/ (spec §10).",
       "up": 2
     },
     "next-webpack-build": {
@@ -704,7 +707,7 @@
         "src",
         "build"
       ],
-      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/build/…, which no framework path rule names (spec §10; human, live, 2026-09-28, P44, and 2026-09-29, X29).",
+      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/build/…, which no framework path rule names (spec §10).",
       "up": 2
     },
     "next-webpack-lib": {
@@ -713,7 +716,7 @@
         "src",
         "lib"
       ],
-      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/lib/…, which no framework path rule names (spec §10; human, live, 2026-09-28, P44, and 2026-09-29, X29).",
+      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/lib/…, which no framework path rule names (spec §10).",
       "up": 2
     },
     "next-webpack-shared": {
@@ -722,7 +725,7 @@
         "src",
         "shared"
       ],
-      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/shared/…, which no framework path rule names (spec §10; human, live, 2026-09-28, P44, and 2026-09-29, X29).",
+      "source": "Next webpack builds compose next's shipped maps to webpack://_N_E/../../src/shared/…, which no framework path rule names (spec §10).",
       "up": 2
     }
   },
@@ -736,7 +739,7 @@
         "packages",
         "<pkg>"
       ],
-      "source": "@angular/* packages built with Bazel ship maps into their Bazel output, <platform>-fastbuild-ST-<hash>/bin/packages/<pkg>/… (k8, darwin_arm64, …), which composes anywhere in a build's paths (research/package-identity.md; spec §10; human, live, 2026-09-28, P45, and 2026-09-29, X30)."
+      "source": "@angular/* packages built with Bazel ship maps into their Bazel output, <platform>-fastbuild-ST-<hash>/bin/packages/<pkg>/… (k8, darwin_arm64, …), which composes anywhere in a build's paths (spec §10)."
     },
     "next-webpack-client": {
       "namespace": "webpack:_N_E",
@@ -745,7 +748,7 @@
         "src",
         "client"
       ],
-      "source": "Next 16.3.6 webpack builds compose next's shipped maps to webpack://_N_E/../../src/client/…, 231 of 426 sources (research/package-identity.md; spec §10; human, live, 2026-09-28, P44).",
+      "source": "Next 16.3.6 webpack builds compose next's shipped maps to webpack://_N_E/../../src/client/…, 231 of 426 sources (spec §10).",
       "up": 2
     }
   },
@@ -17373,6 +17376,11 @@
         "owner": "HTMLDivElement",
         "proto": "HTMLElement.prototype"
       },
+      "HTMLDocument": {
+        "kind": "constructor",
+        "owner": "HTMLDocument",
+        "proto": "Document"
+      },
       "HTMLDocument.prototype": {
         "kind": "prototype",
         "owner": "HTMLDocument",
@@ -25234,18 +25242,18 @@
     "catalogVersion": 1,
     "overlays": {
       "engine-extensions.json": "0964d4fab7bb8a26f6a99780ae93cad32ff8a914a2e8694afe4dbed0543130b7",
-      "engine-prototypes.json": "2fb3f5e9aa76eb647a5ec65294e2d2a61bc827bb952514dc1f1470ed8000ee76",
+      "engine-prototypes.json": "1a38adbcdba06e9363c61c923262879a25cb48066e7487412b9577b83d55f3cc",
       "es-additions.json": "f378d173bd72cb86ea577a6bb4e85a6ec5c7ee7e31fa141fca433675a2143e6f",
       "es-prose-properties.json": "95a85f1e08553140e88fbc54738c8e6483af90509fcc5fb323959b5897a294e0",
-      "escape-only-shapes.json": "0b855b95ef3361f105bd166ad36cfa5e61f50e367007d4727eb66c3c0cdc0099",
+      "escape-only-shapes.json": "3c76feb50dfad2915ed4d12c38ec410f197f762d9fa1cebc8c2666fe82a6f8b9",
       "exclusions.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
-      "framework-path-rules.json": "d000d8f3d2ec8aba56d4f2afa9025c94101f0040d0c58b3c6a25a702319c8b90",
+      "framework-path-rules.json": "56605be577fd23ec0bb2883d16bed7da5b7a1ebb8b6b56c80b12b7f963ea7470",
       "prose-members.json": "248e1b81de3c85de6b41ac361952b010c5e6a4862cd06a71a303d3de8c5a1939",
       "protected-surface.json": "f5b626a9839189d0ed9ff8a1d7552291e4b8e4ebf5e6111ac6bd640c74cc5a65",
       "remote-url-normalization.json": "ec818e1d30d18fb8804ce303e544471b3ff36c643890ad065bfbd6bf5820d441",
       "retained.json": "00e51b4597877dbb0032fd501407daaffdcadc9742d22b76faecaa04bb1900cd",
       "singletons.json": "c20dc1c3047c643ee2f8444702c3614598a081c3422a7b98ea47e574a49926b6",
-      "surfaces.json": "dd1903c54ff9e5e2e9b1317bb28f1289eee2a5ba460d7a7cc8c1733f7fa7fce5"
+      "surfaces.json": "0cbbc3c5cc57daa7e9fe7bec109708e25bd6f25c617e1b86dcfa79042c9ac823"
     },
     "upstream": {
       "@tc39/ecma262-biblio": "2.2.3180",
@@ -27956,6 +27964,7 @@
       "HTMLDialogElement": "DOM",
       "HTMLDirectoryElement": "DOM",
       "HTMLDivElement": "DOM",
+      "HTMLDocument": "DOM",
       "HTMLElement": "DOM",
       "HTMLEmbedElement": "DOM",
       "HTMLFieldSetElement": "DOM",
@@ -383348,6 +383357,50 @@
         "spec": "html",
         "surface": "DOM"
       },
+      "HTMLDocument.prototype": {
+        "descriptor": {
+          "configurable": false,
+          "enumerable": false,
+          "type": "data",
+          "writable": false
+        },
+        "holder": "constructor",
+        "holds": "HTMLDocument.prototype",
+        "kind": "value",
+        "member": "prototype",
+        "owner": "HTMLDocument",
+        "spec": "blink",
+        "surface": "DOM"
+      },
+      "HTMLDocument.prototype.@@toStringTag": {
+        "descriptor": {
+          "configurable": true,
+          "enumerable": false,
+          "type": "data",
+          "writable": false
+        },
+        "holder": "prototype",
+        "kind": "value",
+        "member": "@@toStringTag",
+        "owner": "HTMLDocument",
+        "spec": "blink",
+        "surface": "DOM"
+      },
+      "HTMLDocument.prototype.constructor": {
+        "descriptor": {
+          "configurable": true,
+          "enumerable": false,
+          "type": "data",
+          "writable": true
+        },
+        "holder": "prototype",
+        "holds": "HTMLDocument",
+        "kind": "function",
+        "member": "constructor",
+        "owner": "HTMLDocument",
+        "spec": "blink",
+        "surface": "DOM"
+      },
       "HTMLElement.prototype": {
         "descriptor": {
           "configurable": false,
@@ -527696,6 +527749,21 @@
         "member": "HTMLDivElement",
         "owner": "Window",
         "spec": "html",
+        "surface": "DOM"
+      },
+      "Window.HTMLDocument": {
+        "descriptor": {
+          "configurable": true,
+          "enumerable": false,
+          "type": "data",
+          "writable": true
+        },
+        "holder": "global",
+        "holds": "HTMLDocument",
+        "kind": "interface",
+        "member": "HTMLDocument",
+        "owner": "Window",
+        "spec": "blink",
         "surface": "DOM"
       },
       "Window.HTMLElement": {

@@ -1,0 +1,8 @@
+# Effect follows the member's new value, not the attributes that change with it
+
+A platform mutation's effect is decided by what the member holds afterwards. A new data value that isn't the native's is `replace` or `wrap`, whatever attributes change along with it. `descriptor-change` means a new getter/setter pair, or changed attributes with the same value. So `function fetch(){}` (which also makes `Window.fetch` non-configurable), `[Replaceable]` `window.length = 5` (accessor to data) and a polyfill's `window.Promise = P` over a deleted native (enumerable where the native wasn't) are all `replace`. The Chromium ground-truth harness labelled them `descriptor-change`, because any attribute difference counted as one. Effect is part of the fingerprint, so the choice is expensive to change later. The attribute-based alternative would make the effect depend on things the scanner can't see or shouldn't care about: whether the native existed at load, and which of `=` or `defineProperty` the library used. The finding model already rules that switching mechanism must not churn the fingerprint (spec §8). A write that leaves the member non-configurable or non-writable is still visible, as a **locking mutation** (`locks`), not as a second effect.
+
+## Consequences
+
+- The harness's rule for own properties changes to match the rule it already uses for shadowing writes. Only native-absent and fixture ground truth changes (42 records); the base corpus and the features-on and lazy-chunks variants have no affected records.
+- Accessor rewrites (zone.js `on*`, descriptor setter hooks) stay `descriptor-change`.

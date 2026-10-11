@@ -1,0 +1,1 @@
+import{n as e,t}from"./index.js";var n=e(t(),1);function r(){(0,n.default)(History.prototype,`pushState`,function(e,t){return e.apply(this,t)})}export{r as patchHistory};

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Patchline native catalog",
+  "title": "monkeypatchlist native catalog",
   "description": "The runtime catalog, generated from pinned upstreams by the catalog generator and committed as catalog/catalog.json (spec §4, §19). Each top-level property is a named section.",
   "type": "object",
   "required": [
@@ -33,7 +33,7 @@
       "additionalProperties": false,
       "properties": {
         "catalogVersion": {
-          "description": "The catalog version (spec §4 Catalog versions): one version for all of Patchline's curated data, separate from the Patchline version. It only ever grows, one bump per Patchline minor release.",
+          "description": "The catalog version (spec §4 Catalog versions): one version for all of monkeypatchlist's curated data, separate from the monkeypatchlist version. It only ever grows, one bump per monkeypatchlist minor release.",
           "type": "integer",
           "minimum": 1
         },
@@ -150,7 +150,7 @@
       "additionalProperties": { "$ref": "#/$defs/esProseProperty" }
     },
     "enginePrototypes": {
-      "description": "The curated overlay of engine prototypes (spec §4 Sources): prototype holders an engine puts on a platform singleton's chain where Web IDL has none, by holder name. `HTMLDocument.prototype` sits between `document` and `Document.prototype`, as Chromium has it. Each is a memberless prototype holder in the realms it lists.",
+      "description": "The curated overlay of engine prototypes (spec §4 Sources): prototype holders an engine puts on a platform singleton's chain where Web IDL has none, by holder name. `HTMLDocument.prototype` sits between `document` and `Document.prototype`, as every engine has it. Each is a prototype holder in the realms it lists whose only own members are `constructor` and `@@toStringTag`, and its interface object is a constructor holder named by its owner, held by a global target (`Window.HTMLDocument`) and with a `prototype` target.",
       "type": "object",
       "additionalProperties": { "$ref": "#/$defs/enginePrototype" }
     },
@@ -622,7 +622,7 @@
     },
     "enginePrototype": {
       "type": "object",
-      "required": ["engine", "source", "realms", "owner", "proto", "prototypeOf"],
+      "required": ["engine", "source", "realms", "owner", "proto", "prototypeOf", "interfaceObject"],
       "additionalProperties": false,
       "properties": {
         "engine": { "description": "The engine whose chain it follows: `blink`.", "type": "string", "minLength": 1 },
@@ -640,6 +640,15 @@
           "type": "array",
           "minItems": 1,
           "items": { "type": "string", "minLength": 1 }
+        },
+        "interfaceObject": {
+          "description": "Its interface object, the constructor holder named by `owner` that the global target `<global>.<owner>` holds (`Window.HTMLDocument`).",
+          "type": "object",
+          "required": ["proto"],
+          "additionalProperties": false,
+          "properties": {
+            "proto": { "description": "The holder the interface object inherits from: `Document`.", "type": "string", "minLength": 1 }
+          }
         }
       }
     },

@@ -1,0 +1,7 @@
+{
+  "name": "storefront",
+  "private": true,
+  "dependencies": {
+    "@example/telemetry": "^1.4.0"
+  }
+}

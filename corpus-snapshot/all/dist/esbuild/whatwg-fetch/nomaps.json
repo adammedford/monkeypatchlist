@@ -1,0 +1,893 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 1
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 35418,
+        "stepBudget": 40886272,
+        "budgetExhausted": 0,
+        "caps": {
+          "recursion": 3
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 5
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|DOMException.prototype.constructor|replace|unknown",
+      "targetKey": "window|DOMException.prototype.constructor|replace",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "DOMException.prototype.constructor"
+      },
+      "surface": "other",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 8206,
+            "end": 8231,
+            "line": 2,
+            "column": 1356
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "alias",
+              "name": "c",
+              "expression": "c = f.DOMException",
+              "generated": {
+                "start": 8052,
+                "end": 8068,
+                "line": 2,
+                "column": 1202
+              },
+              "text": "`c` is read from its definition `c = f.DOMException` at 2:1202"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Headers|replace|unknown",
+      "targetKey": "window|Window.Headers|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Headers"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 9915,
+            "end": 9926,
+            "line": 2,
+            "column": 3065
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "guard",
+              "expression": "f.fetch",
+              "generated": {
+                "start": 9895,
+                "end": 9902,
+                "line": 2,
+                "column": 3045
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `f.fetch` at 2:3045 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Request|replace|unknown",
+      "targetKey": "window|Window.Request|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Request"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 9927,
+            "end": 9938,
+            "line": 2,
+            "column": 3077
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "guard",
+              "expression": "f.fetch",
+              "generated": {
+                "start": 9895,
+                "end": 9902,
+                "line": 2,
+                "column": 3045
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `f.fetch` at 2:3045 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Response|replace|unknown",
+      "targetKey": "window|Window.Response|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Response"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 9939,
+            "end": 9951,
+            "line": 2,
+            "column": 3089
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "guard",
+              "expression": "f.fetch",
+              "generated": {
+                "start": 9895,
+                "end": 9902,
+                "line": 2,
+                "column": 3045
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `f.fetch` at 2:3045 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.fetch|replace|unknown",
+      "targetKey": "window|Window.fetch|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.fetch"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 9905,
+            "end": 9914,
+            "line": 2,
+            "column": 3055
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "guard",
+              "expression": "f.fetch",
+              "generated": {
+                "start": 9895,
+                "end": 9902,
+                "line": 2,
+                "column": 3045
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `f.fetch` at 2:3045 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [
+    {
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "DOMException.prototype"
+      },
+      "surface": "other",
+      "reason": "non-writable",
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-3YTSG3RC.js",
+            "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 8163,
+            "end": 8205,
+            "line": 2,
+            "column": 1313
+          },
+          "original": null,
+          "effect": "replace",
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "strictness": "sloppy",
+          "throws": "strict-only",
+          "realmInstance": "current",
+          "attribution": {
+            "key": "unknown",
+            "provenance": "unknown"
+          },
+          "evidence": {},
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 12,
+                "end": 99,
+                "line": 1,
+                "column": 12
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:12 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "f",
+              "expression": "f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …",
+              "generated": {
+                "start": 10,
+                "end": 99,
+                "line": 1,
+                "column": 10
+              },
+              "text": "`f` is read from its definition `f = ((typeof globalThis < \"u\") && globalThis) || ((typeof self < \"u\") && self) || ((typeof global < \"u\") && global) || …` at 1:10"
+            },
+            {
+              "kind": "alias",
+              "name": "c",
+              "expression": "c = f.DOMException",
+              "generated": {
+                "start": 8052,
+                "end": 8068,
+                "line": 2,
+                "column": 1202
+              },
+              "text": "`c` is read from its definition `c = f.DOMException` at 2:1202"
+            },
+            {
+              "kind": "outcome",
+              "result": "ineffective",
+              "reason": "non-writable",
+              "throws": "strict-only",
+              "mayChangeNothing": false,
+              "text": "the write can't change DOMException.prototype, a non-writable data property: an ineffective write, which throws only in strict code"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main-3YTSG3RC.js",
+      "path": "main-3YTSG3RC.js",
+      "hash": "sha256:677fbdaba39a8c8454d7866ffd278e3c5b136897a943b11ea4f0b722528b5db2",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main-3YTSG3RC.js",
+        "finalUrl": "https://app.corpus.test/main-3YTSG3RC.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

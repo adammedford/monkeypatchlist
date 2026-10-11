@@ -1,0 +1,1005 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 1
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 20837,
+        "stepBudget": 43319296,
+        "budgetExhausted": 0,
+        "caps": {
+          "recursion": 3
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 1,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 1,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|DOMException.prototype.constructor|replace|pkg:whatwg-fetch",
+      "targetKey": "window|DOMException.prototype.constructor|replace",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "DOMException.prototype.constructor"
+      },
+      "surface": "other",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:whatwg-fetch",
+        "provenance": "bundled-dependency",
+        "package": "whatwg-fetch"
+      },
+      "reachability": "unconditional",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 8781,
+            "end": 8806,
+            "line": 2,
+            "column": 1341
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 523,
+            "column": 25
+          },
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "alias",
+              "name": "C",
+              "expression": "C = e.DOMException",
+              "generated": {
+                "start": 8627,
+                "end": 8643,
+                "line": 2,
+                "column": 1187
+              },
+              "text": "`C` is read from its definition `C = e.DOMException` at 2:1187"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "constructor",
+              "lookup": {
+                "start": 8793,
+                "end": 8804,
+                "line": 2,
+                "column": 1353
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 523,
+                "column": 25
+              },
+              "text": "`constructor` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:523:25, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Headers|replace|pkg:whatwg-fetch",
+      "targetKey": "window|Window.Headers|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Headers"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:whatwg-fetch",
+        "provenance": "bundled-dependency",
+        "package": "whatwg-fetch"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10471,
+            "end": 10482,
+            "line": 2,
+            "column": 3031
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 639,
+            "column": 4
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.fetch",
+              "generated": {
+                "start": 10451,
+                "end": 10458,
+                "line": 2,
+                "column": 3011
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `e.fetch` at 2:3011 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "Headers",
+              "lookup": {
+                "start": 10473,
+                "end": 10480,
+                "line": 2,
+                "column": 3033
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 639,
+                "column": 4
+              },
+              "text": "`Headers` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:639:4, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Request|replace|pkg:whatwg-fetch",
+      "targetKey": "window|Window.Request|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Request"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:whatwg-fetch",
+        "provenance": "bundled-dependency",
+        "package": "whatwg-fetch"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10483,
+            "end": 10494,
+            "line": 2,
+            "column": 3043
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 640,
+            "column": 4
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.fetch",
+              "generated": {
+                "start": 10451,
+                "end": 10458,
+                "line": 2,
+                "column": 3011
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `e.fetch` at 2:3011 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "Request",
+              "lookup": {
+                "start": 10485,
+                "end": 10492,
+                "line": 2,
+                "column": 3045
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 640,
+                "column": 4
+              },
+              "text": "`Request` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:640:4, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Response|replace|pkg:whatwg-fetch",
+      "targetKey": "window|Window.Response|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Response"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:whatwg-fetch",
+        "provenance": "bundled-dependency",
+        "package": "whatwg-fetch"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10495,
+            "end": 10507,
+            "line": 2,
+            "column": 3055
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 641,
+            "column": 4
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.fetch",
+              "generated": {
+                "start": 10451,
+                "end": 10458,
+                "line": 2,
+                "column": 3011
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `e.fetch` at 2:3011 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "Response",
+              "lookup": {
+                "start": 10497,
+                "end": 10505,
+                "line": 2,
+                "column": 3057
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 641,
+                "column": 4
+              },
+              "text": "`Response` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:641:4, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.fetch|replace|pkg:whatwg-fetch",
+      "targetKey": "window|Window.fetch|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.fetch"
+      },
+      "surface": "networking",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:whatwg-fetch",
+        "provenance": "bundled-dependency",
+        "package": "whatwg-fetch"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 10461,
+            "end": 10470,
+            "line": 2,
+            "column": 3021
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 638,
+            "column": 4
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "guard",
+              "expression": "e.fetch",
+              "generated": {
+                "start": 10451,
+                "end": 10458,
+                "line": 2,
+                "column": 3011
+              },
+              "class": "absence",
+              "tested": "Window.fetch",
+              "result": "guarded-native-absence",
+              "text": "the guard `e.fetch` at 2:3011 is an absence test on `Window.fetch`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "fetch",
+              "lookup": {
+                "start": 10463,
+                "end": 10468,
+                "line": 2,
+                "column": 3023
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 638,
+                "column": 4
+              },
+              "text": "`fetch` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:638:4, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [
+    {
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "DOMException.prototype"
+      },
+      "surface": "other",
+      "reason": "non-writable",
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+            "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 8738,
+            "end": 8780,
+            "line": 2,
+            "column": 1298
+          },
+          "original": {
+            "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+            "line": 522,
+            "column": 15
+          },
+          "effect": "replace",
+          "mechanism": "assign",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "strictness": "strict",
+          "throws": "strict-only",
+          "realmInstance": "current",
+          "attribution": {
+            "key": "pkg:whatwg-fetch",
+            "provenance": "bundled-dependency",
+            "package": "whatwg-fetch"
+          },
+          "evidence": {},
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 676,
+                "end": 763,
+                "line": 1,
+                "column": 676
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window, selected through the `||` chain at 1:676 (window realm, current instance)"
+            },
+            {
+              "kind": "alias",
+              "name": "e",
+              "expression": "e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …",
+              "generated": {
+                "start": 674,
+                "end": 763,
+                "line": 1,
+                "column": 674
+              },
+              "text": "`e` is read from its definition `e = ((typeof globalThis < `u`) && globalThis) || ((typeof self < `u`) && self) || ((typeof global < `u`) && global) || …` at 1:674"
+            },
+            {
+              "kind": "alias",
+              "name": "C",
+              "expression": "C = e.DOMException",
+              "generated": {
+                "start": 8627,
+                "end": 8643,
+                "line": 2,
+                "column": 1187
+              },
+              "text": "`C` is read from its definition `C = e.DOMException` at 2:1187"
+            },
+            {
+              "kind": "outcome",
+              "result": "ineffective",
+              "reason": "non-writable",
+              "throws": "strict-only",
+              "mayChangeNothing": false,
+              "text": "the write can't change DOMException.prototype, a non-writable data property: an ineffective write, which throws only in strict code"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "prototype",
+              "lookup": {
+                "start": 8740,
+                "end": 8749,
+                "line": 2,
+                "column": 1300
+              },
+              "candidate": {
+                "source": "../../../../../node_modules/whatwg-fetch/fetch.js",
+                "line": 522,
+                "column": 15
+              },
+              "text": "`prototype` appears within one line of ../../../../../node_modules/whatwg-fetch/fetch.js:522:15, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/assets/index-9dL12JRx.js",
+      "path": "assets/index-9dL12JRx.js",
+      "hash": "sha256:78f28cef60fca6901a4ec1e80ebb1400b80289c45bf4f6d8722c791ac485bb8e",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "assets/index-9dL12JRx.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/assets/index-9dL12JRx.js",
+        "finalUrl": "https://app.corpus.test/assets/index-9dL12JRx.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

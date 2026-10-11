@@ -1,0 +1,476 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "ineffective-non-writable-declare"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 3
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 4,
+        "analyzed": 4,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 25,
+        "stepBudget": 331776,
+        "budgetExhausted": 0,
+        "caps": {},
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 4,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [],
+  "ineffectiveWrites": [
+    {
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Infinity"
+      },
+      "surface": "ECMAScript",
+      "reason": "non-writable",
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/#inline-3",
+            "hash": "sha256:627c1442a5a62eae7c9952a32eaa922018f9464444975a28a71a91f8910e9558",
+            "origin": "inline"
+          },
+          "generated": {
+            "start": 5,
+            "end": 13,
+            "line": 2,
+            "column": 4
+          },
+          "original": null,
+          "effect": "replace",
+          "mechanism": "declare",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "strictness": "sloppy",
+          "throws": "strict-only",
+          "realmInstance": "current",
+          "attribution": {
+            "key": "inline",
+            "provenance": "inline"
+          },
+          "evidence": {},
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Infinity",
+              "resolution": "declaration",
+              "form": "global-property",
+              "declaration": {
+                "kind": "var",
+                "generated": {
+                  "start": 1,
+                  "end": 18,
+                  "line": 2,
+                  "column": 0
+                }
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Infinity` resolves to the classic script's top-level `var` at 2:0, which binds the global object's property, so it is the global property Window.Infinity (window realm, current instance)"
+            },
+            {
+              "kind": "outcome",
+              "result": "ineffective",
+              "reason": "non-writable",
+              "throws": "strict-only",
+              "mayChangeNothing": false,
+              "text": "the write can't change Window.Infinity, a non-writable data property: an ineffective write, which throws only in strict code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.NaN"
+      },
+      "surface": "ECMAScript",
+      "reason": "non-writable",
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/#inline-1",
+            "hash": "sha256:4ed2e8b4768cfda7ee4c48aacdda38da1eec2071243b3a9ddd9675e4f0e495f7",
+            "origin": "inline"
+          },
+          "generated": {
+            "start": 5,
+            "end": 8,
+            "line": 2,
+            "column": 4
+          },
+          "original": null,
+          "effect": "replace",
+          "mechanism": "declare",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "strictness": "sloppy",
+          "throws": "strict-only",
+          "realmInstance": "current",
+          "attribution": {
+            "key": "inline",
+            "provenance": "inline"
+          },
+          "evidence": {},
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "NaN",
+              "resolution": "declaration",
+              "form": "global-property",
+              "declaration": {
+                "kind": "var",
+                "generated": {
+                  "start": 1,
+                  "end": 13,
+                  "line": 2,
+                  "column": 0
+                }
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`NaN` resolves to the classic script's top-level `var` at 2:0, which binds the global object's property, so it is the global property Window.NaN (window realm, current instance)"
+            },
+            {
+              "kind": "outcome",
+              "result": "ineffective",
+              "reason": "non-writable",
+              "throws": "strict-only",
+              "mayChangeNothing": false,
+              "text": "the write can't change Window.NaN, a non-writable data property: an ineffective write, which throws only in strict code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.undefined"
+      },
+      "surface": "ECMAScript",
+      "reason": "non-writable",
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/#inline-2",
+            "hash": "sha256:d339e8b8946557562e752e9fe420920bc326ab524e3b5fded639abb3e994cabf",
+            "origin": "inline"
+          },
+          "generated": {
+            "start": 5,
+            "end": 14,
+            "line": 2,
+            "column": 4
+          },
+          "original": null,
+          "effect": "replace",
+          "mechanism": "declare",
+          "reachability": "unconditional",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "strictness": "sloppy",
+          "throws": "strict-only",
+          "realmInstance": "current",
+          "attribution": {
+            "key": "inline",
+            "provenance": "inline"
+          },
+          "evidence": {},
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "undefined",
+              "resolution": "declaration",
+              "form": "global-property",
+              "declaration": {
+                "kind": "var",
+                "generated": {
+                  "start": 1,
+                  "end": 19,
+                  "line": 2,
+                  "column": 0
+                }
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`undefined` resolves to the classic script's top-level `var` at 2:0, which binds the global object's property, so it is the global property Window.undefined (window realm, current instance)"
+            },
+            {
+              "kind": "outcome",
+              "result": "ineffective",
+              "reason": "non-writable",
+              "throws": "strict-only",
+              "mayChangeNothing": false,
+              "text": "the write can't change Window.undefined, a non-writable data property: an ineffective write, which throws only in strict code"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/#inline-1",
+      "path": null,
+      "hash": "sha256:4ed2e8b4768cfda7ee4c48aacdda38da1eec2071243b3a9ddd9675e4f0e495f7",
+      "origin": "inline",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": null,
+        "finalUrl": null,
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/#inline-2",
+      "path": null,
+      "hash": "sha256:d339e8b8946557562e752e9fe420920bc326ab524e3b5fded639abb3e994cabf",
+      "origin": "inline",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": null,
+        "finalUrl": null,
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/#inline-3",
+      "path": null,
+      "hash": "sha256:627c1442a5a62eae7c9952a32eaa922018f9464444975a28a71a91f8910e9558",
+      "origin": "inline",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": null,
+        "finalUrl": null,
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/#inline-4",
+      "path": null,
+      "hash": "sha256:3e7a0cc51fe79132f53d99930a570bc57eb082b783171ba2c3e3f10ea9956056",
+      "origin": "inline",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": null,
+        "finalUrl": null,
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

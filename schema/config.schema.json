@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monkeypatchlist configuration",
+  "description": "monkeypatchlist.config.json (spec §16). Every setting but `name` has a flag, and a flag overrides its key field by field. Paths are relative to this file's directory, except entry files and mapping directories, which are relative to the build directory.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "description": "The JSON Schema this file follows, for editors. monkeypatchlist ignores it.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The application name, shown in the report header and the terminal title. It is not identity. Defaults to the build directory's basename. It has no flag.",
+      "type": "string",
+      "minLength": 1
+    },
+    "entries": {
+      "description": "The HTML entry documents (--entry <file>[@<url>]). Defaults to index.html in the build directory.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["file"],
+        "additionalProperties": false,
+        "properties": {
+          "file": { "description": "The document, relative to the build directory.", "type": "string", "minLength": 1 },
+          "url": {
+            "description": "The document's absolute http: or https: URL. Defaults to the first mapping's URL.",
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "mappings": {
+      "description": "The URL→path mappings (--map <urlPrefix>=<dir>). The longest matching prefix wins.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "dir"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "description": "An absolute http: or https: URL prefix.", "type": "string", "minLength": 1 },
+          "dir": {
+            "description": "The directory its URLs are files under, relative to the build directory.",
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "sourceMaps": {
+      "description": "Directories of source maps kept outside the build directory (--source-maps <dir>).",
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "surface": {
+      "description": "The surface that is reported, baselined and gated (--surface). Defaults to protected.",
+      "enum": ["protected", "all"]
+    },
+    "mode": {
+      "description": "The remote retrieval mode (--mode). Defaults to offline.",
+      "enum": ["offline", "resolve"]
+    },
+    "lockfile": {
+      "description": "The lockfile that finds introducing dependencies. --lockfile <path> sets `path`.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": { "description": "The lockfile.", "type": "string", "minLength": 1 },
+        "importer": {
+          "description": "The lockfile importer (workspace) of the scanned application, when the first-party source paths don't pick it.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "baseline": {
+      "description": "The baseline file, or a full JSON scan report read as the baseline baseline update would write from its scan (--baseline). Defaults to monkeypatchlist.baseline.json when failOn is given and that file exists.",
+      "type": "string",
+      "minLength": 1
+    },
+    "previous": {
+      "description": "A previous JSON scan report, for the reachability and install-context notes (--previous). It overrides a full report given as baseline as the source of the previous values, needs a baseline (without one it gives no notes and a warning), and must share the scan-config id. Only scan reads it.",
+      "type": "string",
+      "minLength": 1
+    },
+    "failOn": {
+      "description": "The baseline states that fail the gate (--fail-on). removed and unconfirmed can't gate.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["added", "changed"] }
+    },
+    "allowIncomplete": {
+      "description": "Downgrades exit code 3 to a warning, lets baseline init and baseline update write, and lets scan read an incomplete report as its baseline (--allow-incomplete). After a fired crash guard, baseline init still refuses and baseline update leaves the baseline unchanged.",
+      "type": "boolean"
+    },
+    "allowDowngrade": {
+      "description": "Lets baseline init replace, and baseline update rewrite, a baseline written by a newer catalog or monkeypatchlist version (--allow-downgrade). Only the baseline commands read it.",
+      "type": "boolean"
+    },
+    "json": {
+      "description": "A path to also write the JSON report to, or - to write it to stdout instead of the terminal report (--json).",
+      "type": "string",
+      "minLength": 1
+    },
+    "out": {
+      "description": "The baseline file that baseline init writes and baseline update rewrites (--out). Defaults to monkeypatchlist.baseline.json.",
+      "type": "string",
+      "minLength": 1
+    },
+    "report": {
+      "description": "The saved JSON report that monkeypatchlist explain reads (--report). Only explain reads it.",
+      "type": "string",
+      "minLength": 1
+    },
+    "verbose": {
+      "description": "Lists existing findings in the terminal report (--verbose). Only scan reads it.",
+      "type": "boolean"
+    },
+    "listIneffective": {
+      "description": "Lists the ineffective writes in the terminal report, instead of only counting them (--list-ineffective). Only scan reads it.",
+      "type": "boolean"
+    },
+    "noColor": {
+      "description": "Never colors the terminal report (--no-color). Color is used only on a TTY, and never under NO_COLOR.",
+      "type": "boolean"
+    }
+  }
+}

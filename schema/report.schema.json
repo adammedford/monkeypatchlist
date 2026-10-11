@@ -1,0 +1,1905 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "monkeypatchlist scan report",
+  "description": "The JSON report of `monkeypatchlist scan --json` (spec §15). Adding a field doesn't bump reportVersion; removing, renaming or changing the meaning of one does.",
+  "type": "object",
+  "required": ["reportVersion", "tool", "application", "config", "summary", "gate", "completeness", "baseline", "packages", "findings", "ineffectiveWrites", "artifacts", "run"],
+  "additionalProperties": false,
+  "properties": {
+    "reportVersion": { "const": 1 },
+    "tool": {
+      "type": "object",
+      "required": ["monkeypatchlistVersion", "catalogVersion", "analyzerVersion", "fingerprintScheme"],
+      "additionalProperties": false,
+      "properties": {
+        "monkeypatchlistVersion": { "type": "string" },
+        "catalogVersion": { "type": "integer", "minimum": 1 },
+        "analyzerVersion": { "type": "string" },
+        "fingerprintScheme": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "application": {
+      "description": "The scanned application (§16 Application name). It is not identity.",
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "The config file's `name`, or else the build directory's basename.",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "required": ["scanConfigId", "surface", "mode", "entries", "mappings", "sourceMaps", "failOn"],
+      "additionalProperties": false,
+      "properties": {
+        "scanConfigId": {
+          "description": "The scan-config id (§16): one part per field that decides which findings can exist (entries, mappings, surface, realms). A baseline is compared only with a scan of the same id.",
+          "type": "string"
+        },
+        "surface": { "description": "The surface reported, baselined and gated (§12).", "enum": ["protected", "all"] },
+        "mode": { "enum": ["offline", "resolve"] },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["file", "url"],
+            "additionalProperties": false,
+            "properties": { "file": { "type": "string" }, "url": { "type": "string" } }
+          }
+        },
+        "mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "dir"],
+            "additionalProperties": false,
+            "properties": { "url": { "type": "string" }, "dir": { "type": "string" } }
+          }
+        },
+        "sourceMaps": {
+          "description": "The source-map directories (§2 Source maps), as declared, in the order they were searched.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "lockfile": {
+          "description": "The lockfile as given (--lockfile, config lockfile.path) and the lockfile.importer setting, or null when none was given (§10 Introducing dependencies). It isn't in the scan-config id.",
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["path", "importer"],
+              "additionalProperties": false,
+              "properties": { "path": { "type": "string" }, "importer": { "type": ["string", "null"] } }
+            }
+          ]
+        },
+        "failOn": { "$ref": "#/$defs/failOn" }
+      }
+    },
+    "summary": {
+      "description": "How many findings are in each baseline state (§11), all 0 without a baseline, how many findings a protected scan left out, per surface (§12), and how many ineffective-write records the scan has (§3 Record).",
+      "type": "object",
+      "required": ["added", "changed", "existing", "removed", "unconfirmed", "outOfScopeBySurface", "ineffectiveWrites"],
+      "additionalProperties": false,
+      "properties": {
+        "added": { "$ref": "#/$defs/count" },
+        "changed": { "$ref": "#/$defs/count" },
+        "existing": { "$ref": "#/$defs/count" },
+        "removed": { "$ref": "#/$defs/count" },
+        "unconfirmed": { "$ref": "#/$defs/count" },
+        "outOfScopeBySurface": {
+          "description": "The findings outside the protected surface that a protected scan leaves out of the finding list and the baseline, per surface (§12). Every surface is listed; all are 0 under --surface all.",
+          "type": "object",
+          "required": ["networking", "events", "scheduling", "navigation", "storage", "crypto", "DOM", "ECMAScript", "diagnostics", "workers", "other"],
+          "additionalProperties": false,
+          "properties": {
+            "networking": { "$ref": "#/$defs/count" },
+            "events": { "$ref": "#/$defs/count" },
+            "scheduling": { "$ref": "#/$defs/count" },
+            "navigation": { "$ref": "#/$defs/count" },
+            "storage": { "$ref": "#/$defs/count" },
+            "crypto": { "$ref": "#/$defs/count" },
+            "DOM": { "$ref": "#/$defs/count" },
+            "ECMAScript": { "$ref": "#/$defs/count" },
+            "diagnostics": { "$ref": "#/$defs/count" },
+            "workers": { "$ref": "#/$defs/count" },
+            "other": { "$ref": "#/$defs/count" }
+          }
+        },
+        "ineffectiveWrites": { "$ref": "#/$defs/count" }
+      }
+    },
+    "gate": {
+      "description": "The gate (§11 The gate, §16 Exit codes): the baseline states it fails on, its result, and the exit code it gives. It does not run without --fail-on. The result is the findings' alone; an incomplete scan makes the exit code 3 whether the gate passed or failed, unless --allow-incomplete downgrades that to a warning.",
+      "type": "object",
+      "required": ["failOn", "result", "exitCode"],
+      "additionalProperties": false,
+      "properties": {
+        "failOn": { "$ref": "#/$defs/failOn" },
+        "result": { "enum": ["pass", "fail", "not-run"] },
+        "exitCode": { "enum": [0, 1, 3] }
+      }
+    },
+    "completeness": {
+      "description": "What the scan did not analyze (§13): its level, counters and limitation records, the build files the sweep excluded, and the attribution block.",
+      "type": "object",
+      "required": ["level", "counters", "limitations", "excluded", "attribution"],
+      "additionalProperties": false,
+      "properties": {
+        "level": { "enum": ["complete", "complete-with-limitations", "incomplete"] },
+        "counters": {
+          "type": "object",
+          "required": ["artifacts", "blindSpots", "html", "statistics"],
+          "additionalProperties": false,
+          "properties": {
+            "artifacts": {
+              "description": "`known` is the denominator: every artifact is analyzed, failed or skipped.",
+              "type": "object",
+              "required": ["known", "analyzed", "failed", "skipped", "sweepOnly", "otherFiles"],
+              "additionalProperties": false,
+              "properties": {
+                "known": { "$ref": "#/$defs/count" },
+                "analyzed": { "$ref": "#/$defs/count" },
+                "failed": {
+                  "description": "Artifacts whose code was never analyzed, by the limitation kind that names them, or `crash-guard` when the wall-clock crash guard fired before the link group that would have analyzed them ran.",
+                  "type": "object",
+                  "required": ["parse-failure", "unreadable", "fetch-failed", "sri-mismatch", "crash-guard"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "parse-failure": { "$ref": "#/$defs/count" },
+                    "unreadable": { "$ref": "#/$defs/count" },
+                    "fetch-failed": { "$ref": "#/$defs/count" },
+                    "sri-mismatch": { "$ref": "#/$defs/count" },
+                    "crash-guard": { "$ref": "#/$defs/count" }
+                  }
+                },
+                "skipped": {
+                  "description": "Artifacts whose code was never analyzed, and that don't make the scan incomplete: skipped in offline mode (`offline`), refused by the safety floor in resolve mode (`refused`, §17), excluded outside a mapping (`excluded`) or not JavaScript (`nonJs`).",
+                  "type": "object",
+                  "required": ["offline", "refused", "excluded", "nonJs"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "offline": { "$ref": "#/$defs/count" },
+                    "refused": { "$ref": "#/$defs/count" },
+                    "excluded": { "$ref": "#/$defs/count" },
+                    "nonJs": { "$ref": "#/$defs/count" }
+                  }
+                },
+                "sweepOnly": {
+                  "description": "The artifacts only the build-directory sweep found (§2 Sweep), which the counts above already include.",
+                  "$ref": "#/$defs/count"
+                },
+                "otherFiles": {
+                  "description": "The files a URL mapping serves that no reference found, and that the sweep takes for neither JavaScript (`.js`, `.mjs`, `.cjs`) nor WebAssembly (`.wasm`) (§2 Sweep): entry documents, stylesheets, images, source maps, and code under another extension. Informational: they are not artifacts, so not in `known`, and never change the level.",
+                  "$ref": "#/$defs/count"
+                }
+              }
+            },
+            "blindSpots": {
+              "type": "object",
+              "required": ["dynamicCode", "unresolvedReference", "realmUncertain", "unresolvedHolder"],
+              "additionalProperties": false,
+              "properties": {
+                "dynamicCode": { "$ref": "#/$defs/count" },
+                "unresolvedReference": { "$ref": "#/$defs/count" },
+                "realmUncertain": { "$ref": "#/$defs/count" },
+                "unresolvedHolder": { "$ref": "#/$defs/count" }
+              }
+            },
+            "html": {
+              "description": "HTML content that is not analyzed (§19 HTML rules). Informational: it never changes the level.",
+              "type": "object",
+              "required": ["nomodule", "inlineHandlers"],
+              "additionalProperties": false,
+              "properties": {
+                "nomodule": { "description": "Classic `<script nomodule>` elements, and injected scripts whose `noModule` is, or may be, set.", "$ref": "#/$defs/count" },
+                "inlineHandlers": {
+                  "description": "Inline event-handler attributes and `javascript:` URLs.",
+                  "$ref": "#/$defs/count"
+                }
+              }
+            },
+            "statistics": {
+              "description": "Scan statistics (§13, §18): the steps of every link group analyzed, their step budgets and how many ran out, each cap's hits summed over them, and the budget and caps the scan ran with. Budgets and caps are deterministic, so these are too.",
+              "type": "object",
+              "required": ["steps", "stepBudget", "budgetExhausted", "caps", "pruned", "limits", "crashGuard"],
+              "additionalProperties": false,
+              "properties": {
+                "steps": { "$ref": "#/$defs/count" },
+                "stepBudget": {
+                  "description": "The step budgets of the link groups analyzed, summed: each group's is its members' source bytes times `limits.stepsPerByte`, rounded down (§18).",
+                  "$ref": "#/$defs/count"
+                },
+                "budgetExhausted": {
+                  "description": "How many link groups exhausted their step budget. Each raised `analysis-budget`; any makes a missing baseline entry `unconfirmed` (§11, §13).",
+                  "$ref": "#/$defs/count"
+                },
+                "caps": {
+                  "description": "Each cap's hits, summed over the link groups.",
+                  "type": "object",
+                  "additionalProperties": { "$ref": "#/$defs/count" }
+                },
+                "pruned": {
+                  "description": "How many finding occurrences statically false catalog checks pruned (§7 Checking guards against the catalog), plus how many writes `catch` arms whose `try` can't throw dropped (§5 Resolver capabilities 9), summed over the link groups. Each surviving occurrence a pruning check is on, or in such a `try` block, carries a `prune` trace step.",
+                  "$ref": "#/$defs/count"
+                },
+                "limits": {
+                  "description": "The step budget per source byte and the caps the scan ran with (§18). They are implementation detail, never a user flag.",
+                  "type": "object",
+                  "required": ["stepsPerByte", "caps"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "stepsPerByte": { "type": "number", "minimum": 0 },
+                    "caps": { "type": "object", "additionalProperties": { "$ref": "#/$defs/count" } }
+                  }
+                },
+                "crashGuard": {
+                  "description": "Whether the wall-clock crash guard fired (§13, §18). When it fires, no further link group runs and the scan is `incomplete`, with no limitation record; the groups that ran are reported as they would be without it. Only a guard that fires lets wall-clock time reach the report outside `run`.",
+                  "enum": ["not-fired", "fired"]
+                }
+              }
+            }
+          }
+        },
+        "limitations": {
+          "description": "Sorted by artifact, location, kind and detail.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/limitation" }
+        },
+        "excluded": {
+          "description": "The JavaScript and WebAssembly files of the build directory that no URL mapping serves, which the sweep excluded (§2 Sweep): build-relative POSIX paths, sorted.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "attribution": {
+          "description": "The attribution block (§13): missing source maps are not a coverage limitation, so they are counted here.",
+          "type": "object",
+          "required": ["artifacts", "pairings", "staleCandidates", "unreadMaps", "sourceMapDirectories", "cappedFindings"],
+          "additionalProperties": false,
+          "properties": {
+            "artifacts": {
+              "description": "Every artifact is counted once: with a verified source map, without one, or with only broken (`stale`) ones.",
+              "type": "object",
+              "required": ["withMap", "withoutMap", "withBrokenMap"],
+              "additionalProperties": false,
+              "properties": {
+                "withMap": { "$ref": "#/$defs/count" },
+                "withoutMap": { "$ref": "#/$defs/count" },
+                "withBrokenMap": { "$ref": "#/$defs/count" }
+              }
+            },
+            "pairings": {
+              "description": "The artifacts with a source map, by the method that paired it (§2 Source maps).",
+              "type": "object",
+              "required": ["header", "annotation", "sidecar", "debug-id", "external-debug-id", "external-annotation", "external-sidecar"],
+              "additionalProperties": false,
+              "properties": {
+                "header": { "$ref": "#/$defs/count" },
+                "annotation": { "$ref": "#/$defs/count" },
+                "sidecar": { "$ref": "#/$defs/count" },
+                "debug-id": { "$ref": "#/$defs/count" },
+                "external-debug-id": { "$ref": "#/$defs/count" },
+                "external-annotation": { "$ref": "#/$defs/count" },
+                "external-sidecar": { "$ref": "#/$defs/count" }
+              }
+            },
+            "staleCandidates": {
+              "description": "Every candidate source map that failed verification (§2 Source maps), counted once for each artifact it was tried for: those a later method's verified map replaced, and those of an artifact with only broken maps.",
+              "$ref": "#/$defs/count"
+            },
+            "unreadMaps": {
+              "description": "The source maps a remote artifact's `SourceMap` header or `sourceMappingURL` annotation names that weren't read, counted once for each artifact that names them, by why: the safety floor refused the fetch, it failed, or the map is a build file that exists but can't be read. They change these counters only, never completeness (§17).",
+              "type": "object",
+              "required": ["refused", "failed", "unreadable"],
+              "additionalProperties": false,
+              "properties": {
+                "refused": { "$ref": "#/$defs/count" },
+                "failed": { "$ref": "#/$defs/count" },
+                "unreadable": { "$ref": "#/$defs/count" }
+              }
+            },
+            "sourceMapDirectories": {
+              "description": "What became of each source-map directory's maps (§2 Source maps), in the order the directories were declared. A directory's maps are its `.map` files, in any case, and any other file a mirrored annotation named.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["path", "found", "paired", "stale", "orphaned", "orphanedMaps"],
+                "additionalProperties": false,
+                "properties": {
+                  "path": { "description": "The directory, as declared.", "type": "string" },
+                  "found": { "description": "Its maps.", "$ref": "#/$defs/count" },
+                  "paired": {
+                    "description": "Its maps that verified against an artifact through an external method, even one an earlier map had already paired.",
+                    "$ref": "#/$defs/count"
+                  },
+                  "stale": {
+                    "description": "Its orphaned maps that failed verification against an artifact a method paired them with.",
+                    "$ref": "#/$defs/count"
+                  },
+                  "orphaned": { "description": "Its maps that verified against no artifact.", "$ref": "#/$defs/count" },
+                  "orphanedMaps": {
+                    "description": "The orphaned maps' paths, relative to the directory, sorted.",
+                    "type": "array",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "cappedFindings": {
+              "description": "The findings whose attribution confidence is capped below high (§9, §13), by the level it is capped at.",
+              "type": "object",
+              "required": ["medium", "low"],
+              "additionalProperties": false,
+              "properties": {
+                "medium": { "$ref": "#/$defs/count" },
+                "low": { "$ref": "#/$defs/count" }
+              }
+            },
+            "introducers": {
+              "description": "Why introducers are unknown (§10 Unknown is not empty, §13): `reason` is null with a usable lockfile; otherwise `no-lockfile` (none given, or none usable, with its format version as evidence), `importer-unresolved` or `lockfile-stale`. `evidence` says what made it so. `confidence`, present with a usable lockfile, is how certain its introducers are: `medium` from yarn.lock, whose derived facts are capped there, and `high` otherwise (§10 Formats).",
+              "type": "object",
+              "required": ["reason", "evidence"],
+              "additionalProperties": false,
+              "properties": {
+                "reason": { "enum": [null, "no-lockfile", "importer-unresolved", "lockfile-stale"] },
+                "evidence": { "type": ["string", "null"] },
+                "confidence": { "enum": ["high", "medium"] }
+              }
+            }
+          }
+        }
+      }
+    },
+    "baseline": {
+      "description": "The baseline the scan was compared with (§11, §15): its path as given, its header, and scan-level notes such as version skew (§4). Null without a baseline.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["path", "header", "notes"],
+          "additionalProperties": false,
+          "properties": {
+            "path": { "type": "string" },
+            "header": {
+              "description": "The baseline's header as this monkeypatchlist reads it: an older formatVersion or fingerprint scheme has been migrated in memory, and a version-skew note names the versions the file was written with.",
+              "type": "object",
+              "required": [
+                "formatVersion",
+                "scanConfigId",
+                "fingerprintScheme",
+                "catalogVersion",
+                "monkeypatchlistVersion",
+                "completeness",
+                "surface",
+                "packages"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "formatVersion": { "type": "integer", "minimum": 1 },
+                "scanConfigId": { "type": "string" },
+                "fingerprintScheme": { "type": "integer", "minimum": 1 },
+                "catalogVersion": { "type": "integer", "minimum": 1 },
+                "monkeypatchlistVersion": { "type": "string" },
+                "completeness": {
+                  "description": "The completeness level the baseline was written under (§13).",
+                  "enum": ["complete", "complete-with-limitations", "incomplete"]
+                },
+                "surface": { "enum": ["protected", "all"] },
+                "packages": {
+                  "description": "Name → version and version source, strong versions only (§10).",
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "required": ["version", "versionSource"],
+                    "additionalProperties": false,
+                    "properties": { "version": { "type": "string" }, "versionSource": { "type": "string" } }
+                  }
+                }
+              }
+            },
+            "notes": {
+              "description": "Scan-level notes on the baseline. `version-skew` (§4): the baseline was written with another monkeypatchlist version, catalog version, formatVersion or fingerprint scheme.",
+              "type": "array",
+              "items": { "$ref": "#/$defs/versionSkew" }
+            }
+          }
+        }
+      ]
+    },
+    "packages": {
+      "description": "The same map the baseline stores (§11, §15): each finding's containing package, by name, with its strong version and that version's source (§10 Version: `store-path`, or `lockfile`). A name with no strong version, or with more than one strong version in the scan, has no entry.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["version", "versionSource"],
+        "additionalProperties": false,
+        "properties": { "version": { "type": "string" }, "versionSource": { "enum": ["store-path", "lockfile"] } }
+      }
+    },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+    "ineffectiveWrites": { "type": "array", "items": { "$ref": "#/$defs/ineffectiveWrite" } },
+    "artifacts": { "type": "array", "items": { "$ref": "#/$defs/artifact" } },
+    "run": {
+      "description": "All wall-clock data. Nothing outside this block varies between runs over the same inputs.",
+      "type": "object",
+      "required": ["startedAt", "durationMs", "retrievals"],
+      "additionalProperties": false,
+      "properties": {
+        "startedAt": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$" },
+        "durationMs": { "type": "integer", "minimum": 0 },
+        "retrievals": {
+          "description": "The wall-clock facts of each fetch, by requested URL (§17 What is recorded). A URL skipped offline was never fetched, so it has none, and nor has one the safety floor refused before any response.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["fetchedAt", "etag", "lastModified"],
+            "additionalProperties": false,
+            "properties": {
+              "fetchedAt": {
+                "description": "When the fetch finished.",
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$"
+              },
+              "etag": { "description": "The final response's ETag, or null without one.", "type": ["string", "null"] },
+              "lastModified": {
+                "description": "The final response's Last-Modified, or null without one.",
+                "type": ["string", "null"]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "failOn": {
+      "description": "The baseline states the gate fails on (--fail-on), in the order added, changed. removed and unconfirmed can't gate.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "enum": ["added", "changed"] }
+    },
+    "realm": { "enum": ["window", "dedicated-worker", "shared-worker", "service-worker"] },
+    "realmInstance": { "enum": ["current", "other", "unknown"] },
+    "reachability": {
+      "description": "Whether a platform mutation happens, judged by the guards on its path (§7 Values): `unconditional` (no guard that matters), `guarded-native-absence` (it runs only when some native, not necessarily the target, is missing), `conditional` (a recognized guard that can't be decided statically) or `unknown` (control flow the analyzer couldn't model). Not identity, and in R1 it doesn't make a finding `changed` (§11).",
+      "enum": ["unconditional", "guarded-native-absence", "conditional", "unknown"]
+    },
+    "reachabilityBasis": {
+      "description": "How an occurrence's reachability was judged (§7 Where reachability is judged from): `call-path`, along resolved calls out to its install entry, or `creation-site`, from where a function no resolved call reaches was created. Evidence: it decides nothing in R1.",
+      "enum": ["call-path", "creation-site"]
+    },
+    "installContext": {
+      "description": "Whether a mutation runs at load or later (§7 Install context): `load` when a resolved synchronous chain reaches top-level code, `deferred` when only a later call of its install entry reaches it. Not identity, and in R1 it doesn't make a finding `changed` (§11).",
+      "enum": ["load", "deferred"]
+    },
+    "installEntry": {
+      "description": "The name of the install entry a `deferred` occurrence waits on, e.g. `init` (§7 Install context): the function's own name, else the variable, member, property or method it is bound to where it is created. Null for a `load` occurrence, and for an entry with no name, such as an anonymous callback.",
+      "oneOf": [{ "type": "null" }, { "type": "string" }]
+    },
+    "origin": { "enum": ["local-build", "same-origin", "cross-origin", "inline"] },
+    "changeRecord": {
+      "description": "A catalog changelog record (§4 Catalog versions). `target`: a target added, or dropped (deliberately, or by an exclusion). `protected-entry`: a protected-surface entry gained or lost, with the targets it names. `member-data`: a target's descriptor or assign kind changed (a member entering or leaving an enumeration is one of these or a `target` record). `holder`: a holder added, dropped or re-chained, with its prototype on each side. `immutable-prototype`: a holder's immutablePrototype flag flipped. `framework-path-rule` (§10) and `url-normalization` (§11): a rule added, removed or changed, by id; a URL normalization step that is no path rule has the id `scheme`, `host` or `drop`.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "change",
+            "realm",
+            "name"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "target"
+            },
+            "change": {
+              "enum": [
+                "added",
+                "dropped"
+              ]
+            },
+            "realm": {
+              "$ref": "#/$defs/realm"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "change",
+            "surface",
+            "entry"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "protected-entry"
+            },
+            "change": {
+              "enum": [
+                "gained",
+                "lost"
+              ]
+            },
+            "surface": {
+              "enum": [
+                "networking",
+                "events",
+                "scheduling",
+                "navigation",
+                "storage",
+                "crypto",
+                "DOM",
+                "ECMAScript",
+                "diagnostics",
+                "workers",
+                "other"
+              ]
+            },
+            "entry": {
+              "type": "object",
+              "required": [
+                "interface",
+                "targets"
+              ],
+              "properties": {
+                "interface": {
+                  "type": "string"
+                },
+                "member": {
+                  "type": "string"
+                },
+                "workerEquivalent": {
+                  "type": "string"
+                },
+                "targets": {
+                  "type": "object"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "realm",
+            "name",
+            "before",
+            "after"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "member-data"
+            },
+            "realm": {
+              "$ref": "#/$defs/realm"
+            },
+            "name": {
+              "type": "string"
+            },
+            "before": {
+              "type": "object",
+              "required": [
+                "descriptor"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "descriptor": {
+                  "type": "object"
+                },
+                "assign": {
+                  "enum": [
+                    "setter",
+                    "put-forwards",
+                    "event-handler",
+                    "replaceable",
+                    "lenient-setter",
+                    "readonly"
+                  ]
+                }
+              }
+            },
+            "after": {
+              "type": "object",
+              "required": [
+                "descriptor"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "descriptor": {
+                  "type": "object"
+                },
+                "assign": {
+                  "enum": [
+                    "setter",
+                    "put-forwards",
+                    "event-handler",
+                    "replaceable",
+                    "lenient-setter",
+                    "readonly"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "change",
+            "realm",
+            "holder"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "holder"
+            },
+            "change": {
+              "enum": [
+                "added",
+                "dropped",
+                "rechained"
+              ]
+            },
+            "realm": {
+              "$ref": "#/$defs/realm"
+            },
+            "holder": {
+              "type": "string"
+            },
+            "before": {
+              "type": "object",
+              "required": [
+                "proto"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "proto": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "after": {
+              "type": "object",
+              "required": [
+                "proto"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "proto": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "realm",
+            "holder",
+            "before",
+            "after"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "immutable-prototype"
+            },
+            "realm": {
+              "$ref": "#/$defs/realm"
+            },
+            "holder": {
+              "type": "string"
+            },
+            "before": {
+              "type": "boolean"
+            },
+            "after": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "change",
+            "id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "framework-path-rule"
+            },
+            "change": {
+              "enum": [
+                "added",
+                "removed",
+                "changed"
+              ]
+            },
+            "id": {
+              "type": "string"
+            },
+            "before": {
+              "type": "object"
+            },
+            "after": {
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "catalogVersion",
+            "kind",
+            "change",
+            "id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "catalogVersion": {
+              "type": "integer",
+              "minimum": 2
+            },
+            "kind": {
+              "const": "url-normalization"
+            },
+            "change": {
+              "enum": [
+                "added",
+                "removed",
+                "changed"
+              ]
+            },
+            "id": {
+              "type": "string"
+            },
+            "before": {},
+            "after": {}
+          }
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "required": [
+        "fingerprint",
+        "targetKey",
+        "target",
+        "surface",
+        "effect",
+        "locks",
+        "attribution",
+        "reachability",
+        "reachabilityBasis",
+        "installContext",
+        "confidence",
+        "baselineState",
+        "matchedBy",
+        "changedReasons",
+        "notes",
+        "policy",
+        "occurrences"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "fingerprint": { "type": "string", "description": "realm|target|effect|attribution key (§11)" },
+        "targetKey": { "type": "string", "description": "realm|target|effect (§11)" },
+        "target": {
+          "type": "object",
+          "required": ["realm", "holder", "name"],
+          "additionalProperties": false,
+          "properties": {
+            "realm": { "$ref": "#/$defs/realm" },
+            "holder": { "enum": ["global", "constructor", "prototype", "instance", "namespace"] },
+            "name": { "type": "string" },
+            "shadows": {
+              "description": "For a shadowing write, the inherited member the written object's new own property shadows (§3, ADR 0002). Derived from the catalog; not identity.",
+              "type": "string"
+            }
+          }
+        },
+        "surface": {
+          "enum": [
+            "networking",
+            "events",
+            "scheduling",
+            "navigation",
+            "storage",
+            "crypto",
+            "DOM",
+            "ECMAScript",
+            "diagnostics",
+            "workers",
+            "other"
+          ]
+        },
+        "effect": { "enum": ["replace", "wrap", "add", "delete", "descriptor-change", "prototype-change"] },
+        "locks": {
+          "description": "Whether the mutation leaves the target non-configurable or non-writable (§8): `unknown` when the resolver can't tell. A finding takes its most-locking occurrence's: `true` over `unknown` over `false`.",
+          "enum": [true, false, "unknown"]
+        },
+        "attribution": {
+          "description": "The attribution key (§11) and the provenance that follows from it (§10). `package` is the containing package's name, for a `pkg:` key. `vendoredBy` is the vendoring package (`name@version`) when every occurrence is vendored code by that one package (a store-name mismatch, or a package the lockfile says isn't installed, §10 Provenance): evidence only, never in the fingerprint, the baseline or `changed`. `workspace` is the lockfile workspace (`name@version`) of first-party code, when every occurrence names that one (§10 Provenance, ADR 0006): evidence only, given only with --lockfile.",
+          "type": "object",
+          "required": ["key", "provenance"],
+          "additionalProperties": false,
+          "properties": {
+            "key": { "type": "string" },
+            "provenance": { "enum": ["first-party", "bundled-dependency", "remote", "inline", "unknown"] },
+            "package": { "type": "string" },
+            "vendoredBy": { "type": "string" },
+            "workspace": { "type": "string" }
+          }
+        },
+        "introducedBy": {
+          "description": "The union of the occurrences' introducing dependencies (§10), `name@version`, sorted; absent when no occurrence has them. Evidence only: never in the fingerprint, the baseline or `changed`.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "reachability": {
+          "description": "The most-reaching over the finding's occurrences (§7): `unconditional` over `conditional` over `unknown` over `guarded-native-absence`. Null for a `removed` or `unconfirmed` baseline entry, which has no occurrences.",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/reachability" }]
+        },
+        "reachabilityBasis": {
+          "description": "The basis of the occurrences that give the finding's reachability (§7): `call-path` when any of them is `call-path`, otherwise `creation-site`. Evidence: it decides nothing in R1. Null for a `removed` or `unconfirmed` baseline entry, which has no occurrences.",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/reachabilityBasis" }]
+          },
+        "installContext": {
+          "description": "`load` if any of the finding's occurrences is `load`, else `deferred` (§7). Null for a `removed` or `unconfirmed` baseline entry, which has no occurrences.",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/installContext" }]
+        },
+        "confidence": {
+          "description": "The highest level per dimension across the finding's occurrences, with the reasons of the occurrences at that level (§9). Null for a `removed` or `unconfirmed` baseline entry, which has no occurrences.",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/confidence" }]
+        },
+        "baselineState": {
+          "description": "How the finding compares with the baseline (§11). Null without a baseline. A `removed` or `unconfirmed` finding is a baseline entry the scan didn't find: it carries the entry's readable context and no occurrences.",
+          "enum": ["added", "existing", "changed", "removed", "unconfirmed", null]
+        },
+        "matchedBy": {
+          "description": "The matching pass that paired the finding with a baseline entry (§11), or null when none did.",
+          "enum": ["fingerprint", "effect", "target-key", null]
+        },
+        "changedReasons": {
+          "description": "Before (the baseline entry's value) → after (the finding's) for each reason the finding is `changed` (§11). Empty unless it is `changed`.",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["reason", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "reason": { "const": "attribution" },
+                  "before": { "type": "string", "description": "The baseline entry's attribution key." },
+                  "after": { "type": "string", "description": "The finding's attribution key." }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["reason", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "reason": { "const": "effect" },
+                  "before": { "$ref": "#/$defs/finding/properties/effect" },
+                  "after": { "$ref": "#/$defs/finding/properties/effect" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["reason", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "reason": { "const": "locks" },
+                  "before": { "type": "boolean" },
+                  "after": { "type": "boolean" }
+                }
+              }
+            ]
+          }
+        },
+        "notes": {
+          "description": "Notes on how the finding was matched (§11). `rekeyed`: the target-key pass paired it across `unknown`, from the paired baseline entries' attribution keys to its own. `shared-target-key`: it stays `added` or `removed` because its target-key group is ambiguous; `fingerprints` are the other side's known keys it could have paired with. `previous-version` (§11 `previousVersion`): the containing package has a strong version in both the baseline's and the scan's `packages` map and they differ, from the baseline's (`before`) to the scan's (`after`), in any state. `reachability-change` and `install-context-change` (§11 Never `changed`): on an `existing` or `changed` finding, the previous scan (--previous, or a full report as --baseline) gave a baseline entry it paired with another value, from that value (`before`) to the finding's (`after`), one note per distinct previous value. They never decide a state or trip the gate.",
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": ["kind", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "rekeyed" },
+                  "before": { "type": "array", "items": { "type": "string" } },
+                  "after": { "type": "string" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "fingerprints"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "shared-target-key" },
+                  "fingerprints": { "type": "array", "items": { "type": "string" } }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "package", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "previous-version" },
+                  "package": { "type": "string" },
+                  "before": { "type": "string" },
+                  "after": { "type": "string" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "reachability-change" },
+                  "before": { "$ref": "#/$defs/reachability" },
+                  "after": { "$ref": "#/$defs/reachability" }
+                }
+              },
+              {
+                "type": "object",
+                "required": ["kind", "before", "after"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "const": "install-context-change" },
+                  "before": { "$ref": "#/$defs/installContext" },
+                  "after": { "$ref": "#/$defs/installContext" }
+                }
+              }
+            ]
+          }
+        },
+        "catalogStatus": {
+          "description": "Set on a finding whose target, or the member it shadows, is a retained target (§4 Catalog versions): one upstream removed that the catalog keeps. Information only.",
+          "const": "retained"
+        },
+        "explainedBy": {
+          "description": "The catalog changelog's records that could explain this delta (§4 Catalog versions): changes between the baseline's catalogVersion and the scan's that name its target, the member it shadows on either side, or a wildcard's holder, as the §4 table matches them. Each record carries the catalog version that made the change. Only an offered explanation: it never decides a state. Absent when no record applies, and never set on `unconfirmed` or on `existing` without a `rekeyed` note. Never baselined.",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/changeRecord"
+          }
+        },
+        "policy": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["outcome", "by"],
+              "additionalProperties": false,
+              "properties": {
+                "outcome": { "const": "fail" },
+                "by": { "description": "The --fail-on state the finding is in.", "enum": ["fail-on:added", "fail-on:changed"] }
+              }
+            }
+          ]
+        },
+        "occurrences": { "type": "array", "items": { "$ref": "#/$defs/occurrence" } }
+      }
+    },
+    "occurrence": {
+      "type": "object",
+      "required": [
+        "artifact",
+        "generated",
+        "original",
+        "mechanism",
+        "reachability",
+        "reachabilityBasis",
+        "installContext",
+        "installEntry",
+        "realmInstance",
+        "evidence",
+        "confidence",
+        "trace"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "artifact": {
+          "type": "object",
+          "required": ["url", "hash", "origin"],
+          "additionalProperties": false,
+          "properties": {
+            "url": { "type": "string" },
+            "hash": { "type": "string" },
+            "origin": { "$ref": "#/$defs/origin" }
+          }
+        },
+        "generated": {
+          "description": "The write site in the artifact (§5).",
+          "$ref": "#/$defs/location"
+        },
+        "original": {
+          "description": "The original location the artifact's source map resolves for the write's lookup point (§10), or null when there is none: no map, an unmapped position, a synthetic or bundler-runtime source, or a position a failed token check discarded.",
+          "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/originalLocation" }]
+        },
+        "mechanism": {
+          "enum": [
+            "assign",
+            "define-property",
+            "define-properties",
+            "reflect-define",
+            "bulk-assign",
+            "delete",
+            "set-prototype",
+            "declare"
+          ]
+        },
+        "reachability": { "$ref": "#/$defs/reachability" },
+        "reachabilityBasis": { "$ref": "#/$defs/reachabilityBasis" },
+        "installContext": { "$ref": "#/$defs/installContext" },
+        "installEntry": { "$ref": "#/$defs/installEntry" },
+        "realmInstance": {
+          "description": "Whether the write reaches the artifact's own global object (`current`), another window's (`other`), or one the analyzer can't tell (`unknown`) (§4 Other windows). Evidence, never identity.",
+          "$ref": "#/$defs/realmInstance"
+        },
+        "evidence": {
+          "description": "The occurrence's attribution evidence (§8, §10), each field only when it applies: `source`, the raw `sources` entry of a synthetic or bundler-runtime source the lookup reached (null for a null entry); `rejected`, the lookup candidate a failed token check discarded; `slug`, the lossy slug that names a scoped package under Yarn's pnpm linker; `pathRule`, the id of the framework path rule that named the package of an escaped source; `package`, the package a remote artifact's source map names at the occurrence, which is evidence only, as remote code keys url: (§9, §10); `vendoredBy`, the vendoring package (`name@version`) when the containing package's path lies inside another package's store entry (a store-name mismatch), or inside an installed package when the lockfile says it isn't installed itself (§10 Provenance), evidence only; `version`, the containing package's version (§10 Version); `workspace`, the lockfile workspace (`name@version`) that holds first-party code, which only a lockfile gives (§10 Provenance).",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source": { "type": ["string", "null"] },
+            "rejected": { "$ref": "#/$defs/originalLocation" },
+            "slug": { "type": "string" },
+            "pathRule": { "type": "string" },
+            "package": { "type": "string" },
+            "vendoredBy": { "type": "string" },
+            "version": {
+              "description": "The containing package's version, from its strongest source (§10 Version), evidence only: `store-path` and `lockfile` are strong; `package-json` (its package.json in sourcesContent), `version-constant` (an in-package VERSION constant) and `banner` are weak content signals, which never reach `packages` or `previousVersion`.",
+              "type": "object",
+              "required": ["version", "versionSource"],
+              "additionalProperties": false,
+              "properties": {
+                "version": { "type": "string" },
+                "versionSource": { "enum": ["store-path", "lockfile", "package-json", "version-constant", "banner"] }
+              }
+            },
+            "workspace": { "type": "string" }
+          }
+        },
+        "introducedBy": {
+          "description": "The occurrence's introducing dependencies (§10): the direct dependencies of the scanned application whose installed tree includes the containing package, `name@version`, sorted. Present only for bundled-dependency code a usable lockfile places; absent when they are unknown.",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "trace": { "type": "array", "items": { "$ref": "#/$defs/traceStep" } }
+      }
+    },
+    "ineffectiveWrite": {
+      "description": "The writes that can't change one target, for one reason (§3 Record): one record per (realm, target, reason). Never a finding: no fingerprint, baseline state or effect of its own. `surface` is the target's, as a finding's.",
+      "type": "object",
+      "required": ["target", "surface", "reason", "occurrences"],
+      "additionalProperties": false,
+      "properties": {
+        "target": { "$ref": "#/$defs/finding/properties/target" },
+        "surface": { "$ref": "#/$defs/finding/properties/surface" },
+        "reason": { "enum": ["readonly", "lenient-setter", "non-writable", "non-configurable", "immutable-prototype"] },
+        "occurrences": { "type": "array", "items": { "$ref": "#/$defs/ineffectiveOccurrence" } }
+      }
+    },
+    "ineffectiveOccurrence": {
+      "description": "An occurrence of an ineffective write (§3 Record): its location and attribution, as a finding's occurrence has them, with the effect it intended, its mechanism, the strictness of its code, and `throws`: `always` in sloppy and strict code alike, `strict-only`, or `never`.",
+      "type": "object",
+      "required": [
+        "artifact",
+        "generated",
+        "original",
+        "effect",
+        "mechanism",
+        "reachability",
+        "reachabilityBasis",
+        "installContext",
+        "installEntry",
+        "strictness",
+        "throws",
+        "realmInstance",
+        "attribution",
+        "evidence",
+        "trace"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "artifact": { "$ref": "#/$defs/occurrence/properties/artifact" },
+        "generated": { "$ref": "#/$defs/location" },
+        "original": { "$ref": "#/$defs/occurrence/properties/original" },
+        "effect": { "$ref": "#/$defs/finding/properties/effect" },
+        "mechanism": { "$ref": "#/$defs/occurrence/properties/mechanism" },
+        "reachability": { "$ref": "#/$defs/reachability" },
+        "reachabilityBasis": { "$ref": "#/$defs/reachabilityBasis" },
+        "installContext": { "$ref": "#/$defs/installContext" },
+        "installEntry": { "$ref": "#/$defs/installEntry" },
+        "strictness": { "enum": ["sloppy", "strict"] },
+        "throws": { "enum": ["always", "strict-only", "never"] },
+        "realmInstance": { "$ref": "#/$defs/realmInstance" },
+        "attribution": { "$ref": "#/$defs/finding/properties/attribution" },
+        "evidence": { "$ref": "#/$defs/occurrence/properties/evidence" },
+        "trace": { "type": "array", "items": { "$ref": "#/$defs/traceStep" } }
+      }
+    },
+    "confidence": {
+      "description": "Analytical certainty, never risk, for each of three dimensions (§9). A level below high carries its reasons from the dimension's closed list; the level is the lowest among them.",
+      "type": "object",
+      "required": ["target", "mutation", "attribution"],
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/dimension",
+          "type": "object",
+          "properties": {
+            "reasons": {
+              "type": "array",
+              "items": {
+                "enum": ["realm-assumed", "holder-alternatives", "member-alternatives", "direct-eval-scope", "with-scope"]
+              }
+            }
+          }
+        },
+        "mutation": {
+          "$ref": "#/$defs/dimension",
+          "type": "object",
+          "properties": {
+            "reasons": {
+              "type": "array",
+              "items": { "enum": ["outcome-undecidable", "wildcard-outcome-mixed", "const-collision"] }
+            }
+          }
+        },
+        "attribution": {
+          "$ref": "#/$defs/dimension",
+          "type": "object",
+          "properties": {
+            "reasons": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "token-check-n/a",
+                  "sidecar-not-token-verified",
+                  "framework-path-rule",
+                  "first-party-inferred",
+                  "prebundled-dist",
+                  "yarn-slug",
+                  "line-separator",
+                  "no-map",
+                  "escaped-source",
+                  "token-check-failed",
+                  "vendored",
+                  "foreign-scheme",
+                  "ignore-list-demoted"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "dimension": {
+      "description": "One dimension's level, and the reasons that hold it below high: none at high, at least one otherwise.",
+      "type": "object",
+      "required": ["level", "reasons"],
+      "unevaluatedProperties": false,
+      "properties": {
+        "level": { "enum": ["high", "medium", "low"] },
+        "reasons": { "type": "array", "uniqueItems": true }
+      },
+      "if": { "properties": { "level": { "const": "high" } } },
+      "then": { "properties": { "reasons": { "type": "array", "maxItems": 0 } } },
+      "else": { "properties": { "reasons": { "type": "array", "minItems": 1 } } }
+    },
+    "originalLocation": {
+      "description": "A position in an original source (§10): the raw `sources` entry of the artifact's source map, a 1-based line and a 0-based column.",
+      "type": "object",
+      "required": ["source", "line", "column"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "location": {
+      "description": "A position in an artifact's generated code: a UTF-16 range [start, end), and its start as a 1-based line and 0-based column (§5).",
+      "type": "object",
+      "required": ["start", "end", "line", "column"],
+      "additionalProperties": false,
+      "properties": {
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 0 },
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "traceStep": {
+      "description": "One step of a resolution trace (§14). `kind` comes from a closed list; each kind carries its own fields and no others, and `text` is a rendered sentence.",
+      "type": "object",
+      "required": ["kind", "text"],
+      "unevaluatedProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "binding",
+            "alias",
+            "fold",
+            "call",
+            "module-link",
+            "catalog-holder",
+            "enumeration",
+            "guard",
+            "prune",
+            "creation-site",
+            "outcome",
+            "restore",
+            "token-check",
+            "path-rule",
+            "confidence-reason",
+            "note"
+          ]
+        },
+        "artifact": {
+          "description": "The URL of the artifact the step's `generated` location (for a `token-check` step, its `lookup`) is in, when it isn't the occurrence's own: another member of the occurrence's link group (§6 Link groups). A `module-link` step always names its artifact.",
+          "type": "string"
+        },
+        "text": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "binding" } } },
+          "then": {
+            "description": "How a name resolved: `global` (no declaration: the global object's property), `alias` (no declaration, and the name is an alias of the holder in `aliasOf`), or `declaration` (a declaration that binds the global object's property). `form` is the syntactic form the global object was recognized in (§5 Global resolution): `global-property` (a bare global, constructor, namespace or platform singleton; `holds` names the native holder its value is: the catalog's, or the singleton), `global-name` (`window`, `self`, `globalThis`, and a window's `frames`), `guarded-global` (a `typeof`-guarded `global`), `top-level-this`, `function-return-this`, `sloppy-this` (`this` in a sloppy function a call the analyzer evaluates calls without a `this`, or with `null` or `undefined`), `other-window` (a window reached from another value: `parent`, `top` or `opener` of a window, a child window read from a window by a constant index (`window[0]`) or, from a window spelled as the frames collection, by any index (`frames[i]`), named by the index in brackets (`[0]`, `[i]`), or `defaultView` or `contentWindow` of any object; this window's `document.defaultView` and a child's `parent` of this window are this window; `aliasOf` is the realm's global interface) or `singleton` (a platform singleton read through the access `path` its alias group lists; `aliasOf` is its canonical path). `realmInstance` is the window the name's value belongs to (§4 Other windows). `chain` locates the outermost `?:`, `||`, `&&` or `??` chain it was selected through.",
+            "required": ["name", "resolution", "form", "realm", "realmInstance"],
+            "properties": {
+              "name": { "type": "string" },
+              "resolution": { "enum": ["global", "alias", "declaration"] },
+              "form": {
+                "enum": [
+                  "global-property",
+                  "global-name",
+                  "guarded-global",
+                  "top-level-this",
+                  "function-return-this",
+                  "sloppy-this",
+                  "other-window",
+                  "singleton"
+                ]
+              },
+              "aliasOf": { "type": "string" },
+              "holds": { "type": "string" },
+              "path": { "type": "string" },
+              "chain": { "$ref": "#/$defs/location" },
+              "declaration": {
+                "type": "object",
+                "required": ["kind", "generated"],
+                "additionalProperties": false,
+                "properties": {
+                  "kind": { "enum": ["var", "function", "block-function", "let", "const", "class"] },
+                  "generated": { "$ref": "#/$defs/location" }
+                }
+              },
+              "realm": { "$ref": "#/$defs/realm" },
+              "realmInstance": { "$ref": "#/$defs/realmInstance" }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "resolution": { "const": "alias" } } },
+                "then": { "properties": { "aliasOf": true }, "required": ["aliasOf"] }
+              },
+              {
+                "if": { "properties": { "resolution": { "const": "declaration" } } },
+                "then": { "properties": { "declaration": true }, "required": ["declaration"] },
+                "else": { "not": { "properties": { "declaration": true }, "required": ["declaration"] } }
+              },
+              {
+                "if": { "properties": { "resolution": { "const": "global" } } },
+                "then": { "not": { "properties": { "aliasOf": true }, "required": ["aliasOf"] } }
+              },
+              {
+                "if": { "properties": { "form": { "const": "global-property" } } },
+                "then": { "not": { "properties": { "aliasOf": true }, "required": ["aliasOf"] } },
+                "else": {
+                  "properties": { "aliasOf": true },
+                  "required": ["aliasOf"],
+                  "not": { "properties": { "holds": true }, "required": ["holds"] }
+                }
+              },
+              {
+                "if": { "properties": { "form": { "enum": ["guarded-global", "top-level-this", "sloppy-this", "singleton"] } } },
+                "then": { "properties": { "resolution": { "const": "alias" } } }
+              },
+              {
+                "if": { "properties": { "form": { "const": "singleton" } } },
+                "then": { "properties": { "path": true }, "required": ["path"] },
+                "else": { "not": { "properties": { "path": true }, "required": ["path"] } }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "confidence-reason" } } },
+          "then": {
+            "description": "The evidence behind a target or mutation confidence reason the occurrence carries (§9). For `with-scope` and `direct-eval-scope`: the name whose resolution path it is on, and the sites there, in document order. For `outcome-undecidable`: the sites of what the outcome depends on and the analyzer can't see or decide (§3 Undecidable outcomes), in document order: the parts of a define's descriptor, or the object a `Reflect.set` looks its member up on. For `holder-alternatives` and `member-alternatives` (§5 Candidate sets): the branch the candidate holders or members come from, and in `alternatives` the site's other candidate targets, by name.",
+            "required": ["dimension", "reason", "level"],
+            "properties": {
+              "dimension": { "enum": ["target", "mutation"] },
+              "reason": { "type": "string" },
+              "level": { "enum": ["medium", "low"] },
+              "name": { "type": "string" },
+              "sites": { "type": "array", "items": { "$ref": "#/$defs/location" } },
+              "alternatives": { "type": "array", "items": { "type": "string" } }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "dimension": { "const": "target" } } },
+                "then": {
+                  "properties": {
+                    "reason": {
+                      "enum": ["realm-assumed", "holder-alternatives", "member-alternatives", "direct-eval-scope", "with-scope"]
+                    }
+                  }
+                },
+                "else": {
+                  "properties": { "reason": { "enum": ["outcome-undecidable", "wildcard-outcome-mixed", "const-collision"] } }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "note" } } },
+          "then": {
+            "description": "Anything else a rule requires the trace to say. `about` names the rule. `nested-code` (§2): the write is in code the native `callee` compiles from a string literal in the call at `call`, or, for `script`, in the literal text of a script element the code inserts with the call at `call`, whose names resolve in the caller's scope (a direct eval) or the global scope (`scope`). `rewritten-delete` (§3 A delete that is always rewritten): the delete of the same slot at `delete`, which the same function follows on every path with this write, gives no finding of its own. `lexical-collision` (§3 Declarations in classic scripts): another classic script in the realm, at URL `artifact`, declares the bare name `name` the write reads with a top-level `declaration` (`let`, `const` or `class`), bound at `generated` there; the name is the one written, or the one the write's holder chain starts at.",
+            "required": ["about"],
+            "properties": {
+              "about": { "enum": ["nested-code", "rewritten-delete", "lexical-collision"] },
+              "callee": { "enum": ["eval", "Function", "setTimeout", "setInterval", "script"] },
+              "scope": { "enum": ["caller", "global"] },
+              "call": { "$ref": "#/$defs/location" },
+              "delete": { "$ref": "#/$defs/location" }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "about": { "const": "nested-code" } } },
+                "then": { "properties": { "callee": true, "scope": true, "call": true }, "required": ["callee", "scope", "call"] }
+              },
+              {
+                "if": { "properties": { "about": { "const": "rewritten-delete" } } },
+                "then": { "properties": { "delete": true }, "required": ["delete"] }
+              },
+              {
+                "if": { "properties": { "about": { "const": "lexical-collision" } } },
+                "then": {
+                  "properties": {
+                    "name": { "type": "string" },
+                    "declaration": { "enum": ["let", "const", "class"] },
+                    "artifact": { "type": "string" },
+                    "generated": { "$ref": "#/$defs/location" }
+                  },
+                  "required": ["name", "declaration", "artifact", "generated"]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "fold" } } },
+          "then": {
+            "description": "A constant or string fold (§5 Resolver capabilities 1): the `expression` at `generated` folds to the constant `value`, as `\"add\" + \"EventListener\"` folds to `\"addEventListener\"`, or to the well-known `symbol` it reads from `Symbol` (§4 Property keys), spelt as the catalog spells its members: `Symbol.iterator` folds to `@@iterator`. For a `const` read through its name, `name` is the name, and the expression is the one its value comes from: its initializer, the element or property it destructures, or its default. `expression` is printed from the syntax and cut at 120 characters.",
+            "required": ["expression", "generated"],
+            "properties": {
+              "name": { "type": "string" },
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" }
+            },
+            "oneOf": [
+              {
+                "required": ["value"],
+                "properties": {
+                  "value": {
+                    "anyOf": [{ "type": "string" }, { "type": "number" }, { "type": "boolean" }, { "type": "null" }]
+                  }
+                }
+              },
+              {
+                "required": ["symbol"],
+                "properties": { "symbol": { "type": "string", "pattern": "^@@" } }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "guard" } } },
+          "then": {
+            "description": "A guard on the write's path (§7, §14): the `expression` at `generated`, printed from the syntax and cut at 120 characters; its `class`: `transparent` (the written target's own presence, a once-flag, a writability check, a test decided as a constant), `absence` (a native is missing), `broken-native` (a native judged broken rather than missing: core-js `FORCED`, a brand check, `isNativeFunction`), `config` (a config or option flag), `other-target` (the presence of a native other than the target), `unknown` (a guard the analyzer doesn't recognize, an unresolved call, `with` or direct-`eval` taint) or `undecided` (a recognized guard that can't be decided statically: sampling, `document.readyState`, `typeof global`); `tested`, the native it tests, by catalog name, when it tests one; and `result`, the reachability it gives on its own.",
+            "required": ["expression", "generated", "class", "result"],
+            "properties": {
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" },
+              "class": { "enum": ["transparent", "absence", "broken-native", "config", "other-target", "unknown", "undecided"] },
+              "tested": { "type": "string" },
+              "result": { "$ref": "#/$defs/reachability" }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "class": { "const": "absence" } } },
+                "then": { "required": ["tested"], "properties": { "tested": true, "result": { "const": "guarded-native-absence" } } }
+              },
+              {
+                "if": { "properties": { "class": { "const": "transparent" } } },
+                "then": { "properties": { "result": { "const": "unconditional" } } }
+              },
+              {
+                "if": { "properties": { "class": { "const": "unknown" } } },
+                "then": { "properties": { "result": { "const": "unknown" } } }
+              },
+              {
+                "if": { "properties": { "class": { "enum": ["broken-native", "config", "other-target", "undecided"] } } },
+                "then": { "properties": { "result": { "const": "conditional" } } }
+              },
+              {
+                "if": { "properties": { "class": { "const": "other-target" } } },
+                "then": { "required": ["tested"], "properties": { "tested": true } }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "prune" } } },
+          "then": {
+            "description": "Finding occurrences a statically false catalog check pruned (§7 Checking guards against the catalog, §14): `count` of them, and the guard, the test `expression` at `generated`, printed from the syntax and cut at 120 characters. It follows that guard's `guard` step on each surviving occurrence the same guard is on. With `judgement` `try-cannot-throw`, a `try` block judged unable to throw kept its `catch` arm from running (§5 Resolver capabilities 9): `count` writes in that arm were pruned, `expression` and `generated` are the `try`'s, and the step follows the guards of each surviving occurrence in that `try` block. With `judgement` `argument-literal`, a call argument object literal's field settled the test `expression` at `generated` so that an arm it guards never runs (§5 Resolver capabilities 5): `count` writes only that arm reaches were pruned, and `literal` is that object literal, printed and cut at 120 characters, with its location. The step follows the test's `guard` step on each surviving occurrence on the arm the test lets through, and the guards of each surviving occurrence whose write's values the test decided.",
+            "required": ["count", "expression", "generated"],
+            "properties": {
+              "count": { "type": "integer", "minimum": 1 },
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" },
+              "judgement": { "enum": ["try-cannot-throw", "argument-literal"] },
+              "literal": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["expression", "generated"],
+                "properties": {
+                  "expression": { "type": "string" },
+                  "generated": { "$ref": "#/$defs/location" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "restore" } } },
+          "then": {
+            "description": "A proven restore in the install occurrence's chain (§3 Restores): a write at `generated` that puts back the unmutated native of the same object and member. `guard` is `identity` when it runs only while the slot still holds the code's own value, and `none` otherwise. `leavesOwnShadow` is true when it writes the native back into an own property the install created. It is evidence, never identity.",
+            "required": ["generated", "guard", "leavesOwnShadow"],
+            "properties": {
+              "generated": { "$ref": "#/$defs/location" },
+              "guard": { "enum": ["identity", "none"] },
+              "leavesOwnShadow": { "type": "boolean" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "alias" } } },
+          "then": {
+            "description": "An alias or reaching definition followed (§5 Resolver capabilities 2): the value was read through the variable `name`, from its definition that reaches the read, the `expression` at `generated`: a declarator, an assignment, an update or a loop head, as `p = XMLHttpRequest.prototype` in `var p = XMLHttpRequest.prototype`. `expression` is printed from the syntax and cut at 120 characters.",
+            "required": ["name", "expression", "generated"],
+            "properties": {
+              "name": { "type": "string" },
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "module-link" } } },
+          "then": {
+            "description": "A module-link hop the value came through (§6): `factory-table`, a require call at `generated` that runs module `module`'s factory from its table; `lazy-thunk` and `memoized-getter`, a call at `generated` of module `module`'s thunk or memoized getter, which runs it; `interop`, an interop wrapper's call at `generated` over such a call; `getter-export`, the export `export` of module `module`, which a getter export definer defines, at its getter or value. `module` is a factory table's id, or the name of the variable a module's thunk, getter or exports object is held in. `artifact` is the URL of the artifact the module is in. Module ids are build-local, so they appear here and never in identity.",
+            "required": ["idiom", "module", "artifact", "generated"],
+            "properties": {
+              "idiom": { "enum": ["factory-table", "getter-export", "interop", "lazy-thunk", "memoized-getter"] },
+              "module": { "type": "string" },
+              "export": { "type": "string" },
+              "artifact": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "call" } } },
+          "then": {
+            "description": "A summarized call (§5 Resolver capabilities 3): a value came into the function at `function` through the call at `generated`, as a parameter bound to an argument, as its `this`, or as what the function returns. `callee` is the call's callee, and `bindings` pairs each parameter with the argument the call passes it, or null when it passes none. `this` is the receiver the call dispatches through, when it passes one: the object a method is read from, or a `thisArg`. Printed expressions are cut at 120 characters.",
+            "required": ["callee", "generated", "function", "bindings"],
+            "properties": {
+              "callee": { "type": "string" },
+              "this": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" },
+              "function": { "$ref": "#/$defs/location" },
+              "bindings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["parameter", "argument"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "parameter": { "type": "string" },
+                    "argument": { "type": ["string", "null"] }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "creation-site" } } },
+          "then": {
+            "description": "A function object that no resolved call reaches, judged from where it was created (§5 Resolver capabilities 3, §7): the function at `function`, made at `generated`, or assumed to run with the object made there as its `this`, printed in `this`. Its creation bindings are in the `call` steps of the calls that made it. Printed expressions are cut at 120 characters.",
+            "required": ["function", "generated"],
+            "properties": {
+              "function": { "$ref": "#/$defs/location" },
+              "generated": { "$ref": "#/$defs/location" },
+              "this": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "token-check" } } },
+          "then": {
+            "description": "The token check at the write's lookup point (§10): `passed` when `token` appears as a whole identifier within one line of the mapped original position `candidate`, `failed` when it doesn't, so the position is discarded, and `n/a` when the site has no token (`token` null) or the map has no source content for the candidate's source. `lookup` is the generated position looked up.",
+            "required": ["result", "token", "lookup", "candidate"],
+            "properties": {
+              "result": { "enum": ["passed", "failed", "n/a"] },
+              "token": { "type": ["string", "null"] },
+              "lookup": { "$ref": "#/$defs/location" },
+              "candidate": { "$ref": "#/$defs/originalLocation" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "path-rule" } } },
+          "then": {
+            "description": "The framework path rule (§10) that named the package of an escaped source: the rule's catalog id `rule`, the `package` it named, and the raw `source` it matched.",
+            "required": ["rule", "package", "source"],
+            "properties": {
+              "rule": { "type": "string" },
+              "package": { "type": "string" },
+              "source": { "type": "string" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "enumeration" } } },
+          "then": {
+            "description": "One of two shapes. A member sweep the catalog expanded (§5 Resolver capabilities 9): the enumeration `expression` at `generated` (the call, or a `for…in` loop's object), printed from the syntax and cut at 120 characters, swept the native `holder` by `enumeration` and gave the catalog `member`. `filters` are the filters the key went through, in order: `kept` when the filter keeps the member, `undecided` when the analyzer can't tell, which makes reachability `conditional`. Or a configurable wildcard prefix (§5 Pattern wildcards): the key `expression` at `generated`, written on `holder`, starts with a prefix whose other alternatives the analyzer can't resolve, which give nothing; `prefix` is its default, the literal alternative the wildcard comes from.",
+            "required": ["expression", "generated", "holder"],
+            "properties": {
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" },
+              "holder": { "type": "string" }
+            },
+            "oneOf": [
+              {
+                "required": ["enumeration", "member", "filters"],
+                "properties": {
+                  "enumeration": {
+                    "enum": [
+                      "for-in",
+                      "Object.keys",
+                      "Object.getOwnPropertyNames",
+                      "Object.entries",
+                      "Object.getOwnPropertyDescriptors",
+                      "Reflect.ownKeys",
+                      "Object.getOwnPropertySymbols"
+                    ]
+                  },
+                  "member": { "type": "string" },
+                  "filters": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["expression", "generated", "result"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "expression": { "type": "string" },
+                        "generated": { "$ref": "#/$defs/location" },
+                        "result": { "enum": ["kept", "undecided"] }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "required": ["prefix", "configurable"],
+                "properties": { "prefix": { "type": "string", "minLength": 1 }, "configurable": { "const": true } }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "catalog-holder" } } },
+          "then": {
+            "description": "A holder the unmutated catalog chose (§4), by the `expression` at `generated`, printed from the syntax and cut at 120 characters. It is one of: a prototype step, where `Object.getPrototypeOf(h)` (or `h.__proto__`) of the native holder `prototypeOf` is `holder`, its prototype in the unmutated catalog, as `Object.getPrototypeOf(console)` is `console.[[Prototype]]`; an own-property test, whether the native holder `tested` `owns` the catalog `member`, which chose the holder a runtime choice takes (with no `member`, the key didn't fold and `tested` owns only the structural `constructor`, `@@toStringTag` and `prototype`, so it owns none that counts); or a prototype walk to the first owner, the holders `walk` visits from its start value, in order, and `holder`, the first that owns `member` (with no `member`, the key didn't fold and `holder` is one holder that may own it).",
+            "required": ["expression", "generated"],
+            "properties": {
+              "expression": { "type": "string" },
+              "generated": { "$ref": "#/$defs/location" }
+            },
+            "oneOf": [
+              {
+                "required": ["prototypeOf", "holder"],
+                "properties": { "prototypeOf": { "type": "string" }, "holder": { "type": "string" } }
+              },
+              {
+                "required": ["tested", "owns"],
+                "properties": { "tested": { "type": "string" }, "member": { "type": "string" }, "owns": { "type": "boolean" } }
+              },
+              {
+                "required": ["walk", "holder"],
+                "properties": {
+                  "walk": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+                  "member": { "type": "string" },
+                  "holder": { "type": "string" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "outcome" } } },
+          "then": {
+            "description": "The outcome table's decision on an ineffective write (§3): its `reason`, whether it `throws`, and `mayChangeNothing`, which says that on a value the analyzer can't see the write could instead change nothing (§3 No-op or ineffective).",
+            "required": ["result", "reason", "throws", "mayChangeNothing"],
+            "properties": {
+              "result": { "const": "ineffective" },
+              "reason": { "$ref": "#/$defs/ineffectiveWrite/properties/reason" },
+              "throws": { "$ref": "#/$defs/ineffectiveOccurrence/properties/throws" },
+              "mayChangeNothing": { "type": "boolean" }
+            }
+          }
+        }
+      ]
+    },
+    "artifact": {
+      "type": "object",
+      "required": ["url", "path", "hash", "origin", "discovery", "sourceType", "realm", "realmBasis", "parent", "sourceMap", "retrieval", "moduleLinking"],
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string" },
+        "path": { "type": ["string", "null"], "description": "Build-relative POSIX path of a local artifact; null otherwise." },
+        "hash": {
+          "description": "The content hash of the artifact's bytes; null when they were never read, or were fetched but withheld because they don't match their integrity value (`retrieval.status` `sri-mismatch`, §17 Integrity).",
+          "type": ["string", "null"],
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "origin": { "$ref": "#/$defs/origin" },
+        "discovery": {
+          "description": "How it was found (§2): by following a reference, or only by the build-directory sweep (`sweep`).",
+          "enum": ["reference", "injected", "sweep"]
+        },
+        "sourceType": { "enum": ["script", "module"] },
+        "realm": {
+          "description": "The realm it runs in, from how it was referenced (§2 Realm). A URL referenced in two realms is an artifact in each, and a URL a page runs both as a classic script and as a module is an artifact each way.",
+          "$ref": "#/$defs/realm"
+        },
+        "realmBasis": {
+          "description": "How its realm is known (§2 Realm): from how it was referenced, or assumed to be `window` because only the sweep found it, or only a `<link rel=preload as=script>` names it, or only the imports of code whose realm is assumed name it (§2 Files that don't run as referenced).",
+          "enum": ["reference", "assumed"]
+        },
+        "parent": {
+          "description": "The URL of what first references it in its realm (§2 parent or importer): the entry document whose element names it, or the script or module that imports it, creates its worker or loads it with `importScripts`. Null for an artifact only the sweep found.",
+          "type": ["string", "null"]
+        },
+        "sourceMap": {
+          "description": "Its source map (§2 Source maps): the method that paired the first candidate that verified, and the map's path: build-relative, or for a source-map directory's map, the directory as declared joined with its path there (null for a `data:` URL or a fetched map). Without one, `method` is `none`, and `status` says whether every candidate failed verification (`stale`, with the first one's path) or none was found (`none`).",
+          "type": "object",
+          "required": ["method", "path", "status"],
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "enum": ["header", "annotation", "sidecar", "debug-id", "external-debug-id", "external-annotation", "external-sidecar", "none"]
+            },
+            "path": { "type": ["string", "null"] },
+            "status": { "enum": ["verified", "stale", "none"] }
+          },
+          "allOf": [
+            {
+              "if": { "properties": { "status": { "const": "verified" } } },
+              "then": { "properties": { "method": { "not": { "const": "none" } } } },
+              "else": { "properties": { "method": { "const": "none" } } }
+            },
+            {
+              "if": { "properties": { "status": { "const": "none" } } },
+              "then": { "properties": { "path": { "type": "null" } } }
+            }
+          ]
+        },
+        "moduleLinking": {
+          "description": "The artifact's module linking (§6): the module-linking idioms it uses (`chunk-loader`, `factory-table`, `getter-export`, `interop`, `lazy-thunk`, `memoized-getter`), in code-unit order, as a best-effort report that is never identity; how many modules its factory tables, chunk-registry pushes, lazy module thunks and memoized getters hold; how many broken links it has (a require call whose id isn't a constant or names no factory in the table), each counted whether or not it raised `unlinked-module-call`; and how many link groups it was analyzed in, 0 when it wasn't analyzed.",
+          "type": "object",
+          "required": ["idioms", "modules", "unlinked", "linkGroups"],
+          "additionalProperties": false,
+          "properties": {
+            "idioms": { "type": "array", "items": { "enum": ["chunk-loader", "factory-table", "getter-export", "interop", "lazy-thunk", "memoized-getter"] } },
+            "modules": { "type": "integer", "minimum": 0 },
+            "unlinked": { "type": "integer", "minimum": 0 },
+            "linkGroups": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "retrieval": {
+          "description": "How the artifact's bytes were retrieved (§17 What is recorded). Wall-clock facts of a fetch are in run.retrievals.",
+          "type": "object",
+          "required": ["status", "requestedUrl", "finalUrl", "contentType", "sri"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {
+              "description": "Whether the artifact's bytes were read (`ok`), or why not: a local file can't be read (`unreadable`), a remote one isn't fetched offline (`offline-skipped`), the safety floor refused its fetch (`remote-refused`, §17), its fetch failed (`fetch-failed`), or the fetched bytes don't match their integrity value (`sri-mismatch`), so they are not analyzed.",
+              "enum": ["ok", "unreadable", "offline-skipped", "remote-refused", "fetch-failed", "sri-mismatch"]
+            },
+            "requestedUrl": {
+              "description": "The URL the reference requested, which the artifact's URL, origin and attribution key come from: for a `data:` URL, that URL, whose code is `inline` (§2 Other script URLs). Code a redirected script references is requested against the script's final URL, but its artifact's URL, origin and attribution key come from the URL resolved against the script's own requested URL (§11, §17). Null for an inline script, which is never requested.",
+              "type": ["string", "null"]
+            },
+            "finalUrl": {
+              "description": "The URL the retrieval ended at, after any redirects. A build file's or a `data:` URL's is the requested URL. Null when nothing answered: offline, a fetch that got no response, and an inline script.",
+              "type": ["string", "null"]
+            },
+            "contentType": {
+              "description": "The Content-Type of the response, as served, or the MIME type of a `data:` URL (`text/plain;charset=US-ASCII` when it names none that parses). Null for a build file, an inline script, and a fetch with no response or no such header.",
+              "type": ["string", "null"]
+            },
+            "sri": {
+              "description": "The Subresource Integrity check of the fetched bytes (§17 Integrity). `none` when no integrity value was checked: the reference carries none (or none in a supported algorithm), the bytes are a build file's or an inline script's, which are never fetched, or the check never ran: the script was skipped offline, its fetch failed, or the safety floor refused it before the check (every refusal but the one after it, below; §17 Content types). Otherwise the check, which a `remote-refused` artifact carries only when its bytes matched and were then refused for lacking the JavaScript MIME type its destination needs: whether the bytes `match`, `expected`, the integrity value's digests in the strongest algorithm it names, which is the one used, and `actual`, the bytes' digest in that algorithm, each as `<algorithm>-<base64>`.",
+              "oneOf": [
+                { "const": "none" },
+                {
+                  "type": "object",
+                  "required": ["result", "expected", "actual"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "result": { "enum": ["match", "mismatch"] },
+                    "expected": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": { "$ref": "#/$defs/sriDigest" }
+                    },
+                    "actual": { "$ref": "#/$defs/sriDigest" }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "count": { "type": "integer", "minimum": 0 },
+    "sriDigest": {
+      "description": "A digest as Subresource Integrity writes it: the algorithm, `-`, and the base64 value.",
+      "type": "string",
+      "pattern": "^sha(256|384|512)-"
+    },
+    "versionSkew": {
+      "description": "The baseline was written by another version (§4 Version skew): each version the baseline file was written with, and the scan's. An older baseline scans normally, and a delta without explainedBy may come from analyzer changes. A newer one (a stale install) scans with a warning and no explainedBy, and baseline update refuses to rewrite it without --allow-downgrade. An older formatVersion or fingerprint scheme has been migrated in memory, and baseline update rewrites it.",
+      "type": "object",
+      "required": ["kind", "newer", "formatVersion", "fingerprintScheme", "catalogVersion", "monkeypatchlistVersion"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "version-skew" },
+        "newer": {
+          "description": "The side written by the newer version: `baseline` when any of the baseline's versions is newer than the scan's, otherwise `scan`.",
+          "enum": ["baseline", "scan"]
+        },
+        "formatVersion": { "$ref": "#/$defs/versionPair" },
+        "fingerprintScheme": { "$ref": "#/$defs/versionPair" },
+        "catalogVersion": { "$ref": "#/$defs/versionPair" },
+        "monkeypatchlistVersion": {
+          "type": "object",
+          "required": ["baseline", "scan"],
+          "additionalProperties": false,
+          "properties": { "baseline": { "type": "string" }, "scan": { "type": "string" } }
+        }
+      }
+    },
+    "versionPair": {
+      "type": "object",
+      "required": ["baseline", "scan"],
+      "additionalProperties": false,
+      "properties": { "baseline": { "type": "integer" }, "scan": { "type": "integer" } }
+    },
+    "limitation": {
+      "description": "A limitation record (§13). `artifact` holds what is known of it: its URL or path, and its hash.",
+      "type": "object",
+      "required": ["kind", "artifact", "detail"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "parse-failure",
+            "unreadable",
+            "source-maps-unpaired",
+            "fetch-failed",
+            "sri-mismatch",
+            "remote-refused",
+            "offline-skipped",
+            "dynamic-code",
+            "unresolved-reference",
+            "realm-uncertain",
+            "unresolved-holder",
+            "unlinked-module-call",
+            "analysis-budget"
+          ]
+        },
+        "artifact": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "url": { "type": "string" },
+            "path": { "type": "string" },
+            "hash": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+          }
+        },
+        "location": { "$ref": "#/$defs/location" },
+        "detail": { "type": "string" }
+      }
+    }
+  }
+}

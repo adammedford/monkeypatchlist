@@ -1,0 +1,14 @@
+{
+  "next-webpack-client": {
+    "source": "Next 16.3.6 webpack builds compose next's shipped maps to webpack://_N_E/../../src/client/…, 231 of 426 sources (spec §10).",
+    "namespace": "webpack:_N_E",
+    "up": 2,
+    "segments": ["src", "client"],
+    "package": "next"
+  },
+  "angular-bazel": {
+    "source": "@angular/* packages built with Bazel ship maps into their Bazel output, <platform>-fastbuild-ST-<hash>/bin/packages/<pkg>/… (k8, darwin_arm64, …), which composes anywhere in a build's paths (spec §10).",
+    "segments": ["<platform>-fastbuild-ST-*", "bin", "packages", "<pkg>"],
+    "package": "@angular/<pkg>"
+  }
+}

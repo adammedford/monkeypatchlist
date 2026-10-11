@@ -1,0 +1,14 @@
+# gitleaks: the default rules, with one file allowed.
+#
+# test/support/fake-network.ts holds the P-256 private key of the test certificate for CN=cdn.example, which the
+# fake network's in-process HTTPS server presents in the resolve-fetcher tests. A test certificate authority that only
+# those tests trust issued it, so the key guards nothing. Any other file, or a copy of the key elsewhere, is still
+# flagged.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "The fake network's test TLS key, used only by the tests"
+# Anchored at a path separator as well as the start: `gitleaks dir <path>` reports paths with the directory prefixed.
+paths = ['''(?:^|/)test/support/fake-network\.ts$''']

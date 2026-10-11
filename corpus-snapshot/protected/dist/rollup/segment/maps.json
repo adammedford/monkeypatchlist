@@ -1,0 +1,539 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 11,
+        "analyzed": 11,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 12
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 1,
+        "realmUncertain": 0,
+        "unresolvedHolder": 1
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 6458500,
+        "stepBudget": 598032384,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 1544,
+          "contexts": 1096,
+          "flagDepth": 2,
+          "nesting": 9,
+          "recursion": 16382
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "analysis-budget",
+        "artifact": {
+          "url": "https://app.corpus.test/index-A9IYgB0D.js",
+          "path": "index-A9IYgB0D.js",
+          "hash": "sha256:dc1a6fdfdee48f5fdf10b0224bf3494ed987faff645cc176d8957a78119baa71"
+        },
+        "location": {
+          "start": 199,
+          "end": 205,
+          "line": 1,
+          "column": 199
+        },
+        "detail": "the call `t(…)` at 1:199 carries a native, and it recurses or lies past the call-depth cap, so its function ran in a widened frame"
+      },
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/index-A9IYgB0D.js",
+          "path": "index-A9IYgB0D.js",
+          "hash": "sha256:dc1a6fdfdee48f5fdf10b0224bf3494ed987faff645cc176d8957a78119baa71"
+        },
+        "location": {
+          "start": 72883,
+          "end": 72896,
+          "line": 2,
+          "column": 42466
+        },
+        "detail": "`e` at 2:42466 doesn't resolve, and the patch-shaped delete there could write Array.from"
+      },
+      {
+        "kind": "unresolved-reference",
+        "artifact": {
+          "url": "https://app.corpus.test/index-A9IYgB0D.js",
+          "path": "index-A9IYgB0D.js",
+          "hash": "sha256:dc1a6fdfdee48f5fdf10b0224bf3494ed987faff645cc176d8957a78119baa71"
+        },
+        "location": {
+          "start": 88473,
+          "end": 88474,
+          "line": 2,
+          "column": 58056
+        },
+        "detail": "an injected script whose `src` is not a constant"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 11,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 11,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/auto-track-xe2JRMHY.js",
+      "path": "auto-track-xe2JRMHY.js",
+      "hash": "sha256:3a091ca121ad1d631cb684b53268cd049ca96ecbf6033db529a942388768861b",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "auto-track-xe2JRMHY.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/auto-track-xe2JRMHY.js",
+        "finalUrl": "https://app.corpus.test/auto-track-xe2JRMHY.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-A9IYgB0D.js",
+      "path": "index-A9IYgB0D.js",
+      "hash": "sha256:dc1a6fdfdee48f5fdf10b0224bf3494ed987faff645cc176d8957a78119baa71",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/main-BpubHKet.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-A9IYgB0D.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-A9IYgB0D.js",
+        "finalUrl": "https://app.corpus.test/index-A9IYgB0D.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "memoized-getter"
+        ],
+        "modules": 12,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-BQmD7Fs0.js",
+      "path": "index-BQmD7Fs0.js",
+      "hash": "sha256:432191b546b1d0992cc4dc957388f09b24cc149fa1968da7333fdffae11de38d",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-BQmD7Fs0.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-BQmD7Fs0.js",
+        "finalUrl": "https://app.corpus.test/index-BQmD7Fs0.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "factory-table",
+          "getter-export",
+          "memoized-getter"
+        ],
+        "modules": 102,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-BdGW3cRj.js",
+      "path": "index-BdGW3cRj.js",
+      "hash": "sha256:50308b9312f9fa1ec0c243b275802a8d9cdef2e951fd5e2b8276da938b2fda08",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-BdGW3cRj.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-BdGW3cRj.js",
+        "finalUrl": "https://app.corpus.test/index-BdGW3cRj.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-CkNIm9_Z.js",
+      "path": "index-CkNIm9_Z.js",
+      "hash": "sha256:f6e0976787ebe6d5cc98c4769215031f02577cc0268ee8afeb7b8c1dcfaf8f4f",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-CkNIm9_Z.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-CkNIm9_Z.js",
+        "finalUrl": "https://app.corpus.test/index-CkNIm9_Z.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-CrWOQm8c.js",
+      "path": "index-CrWOQm8c.js",
+      "hash": "sha256:ba10590c8d18264095042e143235e9ab629162ac4bfc3243bfa6984d7645db51",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-CrWOQm8c.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-CrWOQm8c.js",
+        "finalUrl": "https://app.corpus.test/index-CrWOQm8c.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-DS_hmEkM.js",
+      "path": "index-DS_hmEkM.js",
+      "hash": "sha256:f1eeb805004eb6d5a7527275625664c268a799a185a8d90feaa2a0ca2bda7785",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-DS_hmEkM.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-DS_hmEkM.js",
+        "finalUrl": "https://app.corpus.test/index-DS_hmEkM.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index-tTxuiYn9.js",
+      "path": "index-tTxuiYn9.js",
+      "hash": "sha256:3b3c8d5de823ea847e60c5f1021c67ce6d5f47ff4dc421f83fc2aa34784449a8",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-A9IYgB0D.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index-tTxuiYn9.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index-tTxuiYn9.js",
+        "finalUrl": "https://app.corpus.test/index-tTxuiYn9.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/index.umd-QgNIzDI9.js",
+      "path": "index.umd-QgNIzDI9.js",
+      "hash": "sha256:2fdcb3e986813ab9cb2f8ac8cae425e02aca8489dde84231bb11a1b144c84677",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-CrWOQm8c.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "index.umd-QgNIzDI9.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/index.umd-QgNIzDI9.js",
+        "finalUrl": "https://app.corpus.test/index.umd-QgNIzDI9.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "factory-table",
+          "getter-export",
+          "interop"
+        ],
+        "modules": 5,
+        "unlinked": 1,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/is-plan-event-enabled-CTGFxau4.js",
+      "path": "is-plan-event-enabled-CTGFxau4.js",
+      "hash": "sha256:5fe8e1e71449a67605b69be839c9bd205b8d8c58f5d1057811d95ca28a12cd65",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/index-tTxuiYn9.js",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "is-plan-event-enabled-CTGFxau4.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/is-plan-event-enabled-CTGFxau4.js",
+        "finalUrl": "https://app.corpus.test/is-plan-event-enabled-CTGFxau4.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    },
+    {
+      "url": "https://app.corpus.test/main-BpubHKet.js",
+      "path": "main-BpubHKet.js",
+      "hash": "sha256:77e7a1e615e73431ecd6405815cd97f255e6036a58fa3384e012c54d13d6f6b4",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "main-BpubHKet.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main-BpubHKet.js",
+        "finalUrl": "https://app.corpus.test/main-BpubHKet.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

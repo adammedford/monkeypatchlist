@@ -1,0 +1,4697 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 1
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 287758,
+        "stepBudget": 268660736,
+        "budgetExhausted": 0,
+        "caps": {
+          "recursion": 10
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "unresolved-holder",
+        "artifact": {
+          "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+          "path": "assets/index-C9toOccF.js",
+          "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742"
+        },
+        "location": {
+          "start": 18255,
+          "end": 18266,
+          "line": 1,
+          "column": 18255
+        },
+        "detail": "`e` at 1:18255 doesn't resolve, and the patch-shaped delete there could write Crypto.prototype.@@toStringTag, EventSource.prototype.@@toStringTag, Headers.prototype.@@toStringTag, History.prototype.@@toStringTag, JSON.@@toStringTag, Map.prototype.@@toStringTag, Promise.prototype.@@toStringTag, Request.prototype.@@toStringTag, Response.prototype.@@toStringTag, ServiceWorkerContainer.prototype.@@toStringTag, Set.prototype.@@toStringTag, SharedWorker.prototype.@@toStringTag, Storage.prototype.@@toStringTag, SubtleCrypto.prototype.@@toStringTag, WebSocket.prototype.@@toStringTag, Worker.prototype.@@toStringTag, XMLHttpRequest.prototype.@@toStringTag, console.@@toStringTag"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 14
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|EventTarget.prototype.addEventListener|wrap|unknown",
+      "targetKey": "window|EventTarget.prototype.addEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "EventTarget.prototype.addEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "EventTarget",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "EventTarget",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`EventTarget` resolves to no declaration, so it is the global property Window.EventTarget, which holds the native `EventTarget` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[0]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[0]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65266,
+                "end": 65328,
+                "line": 1,
+                "column": 65266
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`addEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchAddEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65266 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``addEventListener``, `n` = `this._patchAddEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65277,
+                "end": 65278,
+                "line": 1,
+                "column": 65277
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65277 is transparent on `EventTarget.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchAddEventListener()",
+              "generated": {
+                "start": 65298,
+                "end": 65327,
+                "line": 1,
+                "column": 65298
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchAddEventListener()` at 1:65298 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 1:44409 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|EventTarget.prototype.removeEventListener|wrap|unknown",
+      "targetKey": "window|EventTarget.prototype.removeEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "EventTarget.prototype.removeEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "EventTarget",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "EventTarget",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`EventTarget` resolves to no declaration, so it is the global property Window.EventTarget, which holds the native `EventTarget` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[0]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[0]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65329,
+                "end": 65397,
+                "line": 1,
+                "column": 65329
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`removeEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchRemoveEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65329 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``removeEventListener``, `n` = `this._patchRemoveEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65340,
+                "end": 65341,
+                "line": 1,
+                "column": 65340
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65340 is transparent on `EventTarget.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchRemoveEventListener()",
+              "generated": {
+                "start": 65364,
+                "end": 65396,
+                "line": 1,
+                "column": 65364
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchRemoveEventListener()` at 1:65364 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 1:44409 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Node.prototype.addEventListener|wrap|unknown",
+      "targetKey": "window|Node.prototype.addEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Node.prototype.addEventListener",
+        "shadows": "EventTarget.prototype.addEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Node",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Node",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Node` resolves to no declaration, so it is the global property Window.Node, which holds the native `Node` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[0]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[0]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65266,
+                "end": 65328,
+                "line": 1,
+                "column": 65266
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`addEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchAddEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65266 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``addEventListener``, `n` = `this._patchAddEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65277,
+                "end": 65278,
+                "line": 1,
+                "column": 65277
+              },
+              "class": "transparent",
+              "tested": "Node.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65277 is transparent on `Node.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchAddEventListener()",
+              "generated": {
+                "start": 65298,
+                "end": 65327,
+                "line": 1,
+                "column": 65298
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchAddEventListener()` at 1:65298 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "window.EventTarget",
+              "generated": {
+                "start": 62872,
+                "end": 62890,
+                "line": 1,
+                "column": 62872
+              },
+              "class": "absence",
+              "tested": "Window.EventTarget",
+              "result": "guarded-native-absence",
+              "text": "the guard `window.EventTarget` at 1:62872 is an absence test on `Window.EventTarget`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Node.prototype.removeEventListener|wrap|unknown",
+      "targetKey": "window|Node.prototype.removeEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Node.prototype.removeEventListener",
+        "shadows": "EventTarget.prototype.removeEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Node",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Node",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Node` resolves to no declaration, so it is the global property Window.Node, which holds the native `Node` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[0]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[0]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65329,
+                "end": 65397,
+                "line": 1,
+                "column": 65329
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`removeEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchRemoveEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65329 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``removeEventListener``, `n` = `this._patchRemoveEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65340,
+                "end": 65341,
+                "line": 1,
+                "column": 65340
+              },
+              "class": "transparent",
+              "tested": "Node.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65340 is transparent on `Node.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchRemoveEventListener()",
+              "generated": {
+                "start": 65364,
+                "end": 65396,
+                "line": 1,
+                "column": 65364
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchRemoveEventListener()` at 1:65364 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "window.EventTarget",
+              "generated": {
+                "start": 62872,
+                "end": 62890,
+                "line": 1,
+                "column": 62872
+              },
+              "class": "absence",
+              "tested": "Window.EventTarget",
+              "result": "guarded-native-absence",
+              "text": "the guard `window.EventTarget` at 1:62872 is an absence test on `Window.EventTarget`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.fetch|wrap|unknown",
+      "targetKey": "window|Window.fetch|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.fetch"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 52984,
+                "end": 53039,
+                "line": 1,
+                "column": 52984
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "globalThis"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`fetch`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchConstructor()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:52984 runs the function with `this` = `this`, and its arguments bound as `e` = `globalThis`, `t` = ``fetch``, `n` = `this._patchConstructor()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 52721,
+                "end": 53261,
+                "line": 1,
+                "column": 52721
+              },
+              "generated": {
+                "start": 65543,
+                "end": 65549,
+                "line": 1,
+                "column": 65543
+              },
+              "this": "new wi()",
+              "text": "no resolved call reaches the function at 1:52721 made at 1:65543, so it is judged from where it was made, with `this` = `new wi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "!Ci",
+              "generated": {
+                "start": 52727,
+                "end": 52730,
+                "line": 1,
+                "column": 52727
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!Ci` at 1:52727 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!this._isEnabled",
+              "generated": {
+                "start": 52857,
+                "end": 52873,
+                "line": 1,
+                "column": 52857
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!this._isEnabled` at 1:52857 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isFetchPatched",
+              "generated": {
+                "start": 52878,
+                "end": 52898,
+                "line": 1,
+                "column": 52878
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isFetchPatched` at 1:52878 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "globalThis",
+              "generated": {
+                "start": 52995,
+                "end": 53005,
+                "line": 1,
+                "column": 52995
+              },
+              "class": "transparent",
+              "tested": "Window",
+              "result": "unconditional",
+              "text": "the guard `globalThis` at 1:52995 is transparent on `Window`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "Window.fetch",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `Window.fetch`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchConstructor()",
+              "generated": {
+                "start": 53014,
+                "end": 53038,
+                "line": 1,
+                "column": 53014
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchConstructor()` at 1:53014 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "Window.fetch",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `Window.fetch`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 1:44409 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.prototype.addEventListener|wrap|unknown",
+      "targetKey": "window|Window.prototype.addEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Window.prototype.addEventListener",
+        "shadows": "EventTarget.prototype.addEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Window",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Window.Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Window` resolves to no declaration, so it is the global property Window.Window, which holds the native `Window.Window` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[1]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[1]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65266,
+                "end": 65328,
+                "line": 1,
+                "column": 65266
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`addEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchAddEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65266 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``addEventListener``, `n` = `this._patchAddEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65277,
+                "end": 65278,
+                "line": 1,
+                "column": 65277
+              },
+              "class": "transparent",
+              "tested": "Window.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65277 is transparent on `Window.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchAddEventListener()",
+              "generated": {
+                "start": 65298,
+                "end": 65327,
+                "line": 1,
+                "column": 65298
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchAddEventListener()` at 1:65298 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.addEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.addEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "window.EventTarget",
+              "generated": {
+                "start": 62872,
+                "end": 62890,
+                "line": 1,
+                "column": 62872
+              },
+              "class": "absence",
+              "tested": "Window.EventTarget",
+              "result": "guarded-native-absence",
+              "text": "the guard `window.EventTarget` at 1:62872 is an absence test on `Window.EventTarget`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.prototype.removeEventListener|wrap|unknown",
+      "targetKey": "window|Window.prototype.removeEventListener|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Window.prototype.removeEventListener",
+        "shadows": "EventTarget.prototype.removeEventListener"
+      },
+      "surface": "events",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Window",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Window.Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Window` resolves to no declaration, so it is the global property Window.Window, which holds the native `Window.Window` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets",
+              "generated": {
+                "start": 65221,
+                "end": 65253,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 62862,
+                "end": 62949,
+                "line": 1,
+                "column": 62862
+              },
+              "bindings": [],
+              "this": "this",
+              "text": "the call `this._getPatchableEventTargets(…)` at 1:65221 runs the function with `this` = `this`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._getPatchableEventTargets().forEach",
+              "generated": {
+                "start": 65221,
+                "end": 65399,
+                "line": 1,
+                "column": 65221
+              },
+              "function": {
+                "start": 65262,
+                "end": 65398,
+                "line": 1,
+                "column": 65262
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "this._getPatchableEventTargets()[1]"
+                }
+              ],
+              "text": "the call `this._getPatchableEventTargets().forEach(…)` at 1:65221 runs the function with its arguments bound as `e` = `this._getPatchableEventTargets()[1]`"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 65329,
+                "end": 65397,
+                "line": 1,
+                "column": 65329
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`removeEventListener`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchRemoveEventListener()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:65329 runs the function with `this` = `this`, and its arguments bound as `e` = `e`, `t` = ``removeEventListener``, `n` = `this._patchRemoveEventListener()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 64981,
+                "end": 64982,
+                "line": 1,
+                "column": 64981
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `e` at 1:64981 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 65340,
+                "end": 65341,
+                "line": 1,
+                "column": 65340
+              },
+              "class": "transparent",
+              "tested": "Window.prototype",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:65340 is transparent on `Window.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchRemoveEventListener()",
+              "generated": {
+                "start": 65364,
+                "end": 65396,
+                "line": 1,
+                "column": 65364
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchRemoveEventListener()` at 1:65364 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "EventTarget.prototype.removeEventListener",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `EventTarget.prototype.removeEventListener`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "window.EventTarget",
+              "generated": {
+                "start": 62872,
+                "end": 62890,
+                "line": 1,
+                "column": 62872
+              },
+              "class": "absence",
+              "tested": "Window.EventTarget",
+              "result": "guarded-native-absence",
+              "text": "the guard `window.EventTarget` at 1:62872 is an absence test on `Window.EventTarget`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.open|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.open|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.open"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 59337,
+                "end": 59398,
+                "line": 1,
+                "column": 59337
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest.prototype"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`open`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchOpen()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:59337 runs the function with `this` = `this`, and its arguments bound as `e` = `XMLHttpRequest.prototype`, `t` = ``open``, `n` = `this._patchOpen()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 59113,
+                "end": 59790,
+                "line": 1,
+                "column": 59113
+              },
+              "generated": {
+                "start": 65550,
+                "end": 65556,
+                "line": 1,
+                "column": 65550
+              },
+              "this": "new Bi()",
+              "text": "no resolved call reaches the function at 1:59113 made at 1:65550, so it is judged from where it was made, with `this` = `new Bi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "!this._isEnabled",
+              "generated": {
+                "start": 59119,
+                "end": 59135,
+                "line": 1,
+                "column": 59119
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!this._isEnabled` at 1:59119 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isXhrPatched",
+              "generated": {
+                "start": 59140,
+                "end": 59158,
+                "line": 1,
+                "column": 59140
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isXhrPatched` at 1:59140 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest.prototype",
+              "generated": {
+                "start": 59348,
+                "end": 59372,
+                "line": 1,
+                "column": 59348
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest.prototype` at 1:59348 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.open",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `XMLHttpRequest.prototype.open`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchOpen()",
+              "generated": {
+                "start": 59380,
+                "end": 59397,
+                "line": 1,
+                "column": 59380
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchOpen()` at 1:59380 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.open",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `XMLHttpRequest.prototype.open`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 1:44409 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|XMLHttpRequest.prototype.send|wrap|unknown",
+      "targetKey": "window|XMLHttpRequest.prototype.send|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "XMLHttpRequest.prototype.send"
+      },
+      "surface": "networking",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "XMLHttpRequest",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "XMLHttpRequest",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`XMLHttpRequest` resolves to no declaration, so it is the global property Window.XMLHttpRequest, which holds the native `XMLHttpRequest` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 59399,
+                "end": 59460,
+                "line": 1,
+                "column": 59399
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "XMLHttpRequest.prototype"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`send`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchSend()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:59399 runs the function with `this` = `this`, and its arguments bound as `e` = `XMLHttpRequest.prototype`, `t` = ``send``, `n` = `this._patchSend()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 59113,
+                "end": 59790,
+                "line": 1,
+                "column": 59113
+              },
+              "generated": {
+                "start": 65550,
+                "end": 65556,
+                "line": 1,
+                "column": 65550
+              },
+              "this": "new Bi()",
+              "text": "no resolved call reaches the function at 1:59113 made at 1:65550, so it is judged from where it was made, with `this` = `new Bi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "!this._isEnabled",
+              "generated": {
+                "start": 59119,
+                "end": 59135,
+                "line": 1,
+                "column": 59119
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `!this._isEnabled` at 1:59119 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isXhrPatched",
+              "generated": {
+                "start": 59140,
+                "end": 59158,
+                "line": 1,
+                "column": 59140
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isXhrPatched` at 1:59140 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "XMLHttpRequest.prototype",
+              "generated": {
+                "start": 59410,
+                "end": 59434,
+                "line": 1,
+                "column": 59410
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype",
+              "result": "unconditional",
+              "text": "the guard `XMLHttpRequest.prototype` at 1:59410 is transparent on `XMLHttpRequest.prototype`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchSend()",
+              "generated": {
+                "start": 59442,
+                "end": 59459,
+                "line": 1,
+                "column": 59442
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchSend()` at 1:59442 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "XMLHttpRequest.prototype.send",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `XMLHttpRequest.prototype.send`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": false,
+              "text": "the restore at 1:44409 writes the native back"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.back|wrap|unknown",
+      "targetKey": "window|history.back|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.back",
+        "shadows": "History.prototype.back"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 63107,
+                "end": 63160,
+                "line": 1,
+                "column": 63107
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "history"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`back`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchHistoryMethod()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:63107 runs the function with `this` = `this`, and its arguments bound as `e` = `history`, `t` = ``back``, `n` = `this._patchHistoryMethod()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 62968,
+                "end": 62983,
+                "line": 1,
+                "column": 62968
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:62968 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "history",
+              "generated": {
+                "start": 63118,
+                "end": 63125,
+                "line": 1,
+                "column": 63118
+              },
+              "class": "transparent",
+              "tested": "Window.history",
+              "result": "unconditional",
+              "text": "the guard `history` at 1:63118 is transparent on `Window.history`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "History.prototype.back",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `History.prototype.back`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchHistoryMethod()",
+              "generated": {
+                "start": 63133,
+                "end": 63159,
+                "line": 1,
+                "column": 63133
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchHistoryMethod()` at 1:63133 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "History.prototype.back",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `History.prototype.back`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.forward|wrap|unknown",
+      "targetKey": "window|history.forward|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.forward",
+        "shadows": "History.prototype.forward"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 63161,
+                "end": 63217,
+                "line": 1,
+                "column": 63161
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "history"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`forward`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchHistoryMethod()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:63161 runs the function with `this` = `this`, and its arguments bound as `e` = `history`, `t` = ``forward``, `n` = `this._patchHistoryMethod()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 62968,
+                "end": 62983,
+                "line": 1,
+                "column": 62968
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:62968 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "history",
+              "generated": {
+                "start": 63172,
+                "end": 63179,
+                "line": 1,
+                "column": 63172
+              },
+              "class": "transparent",
+              "tested": "Window.history",
+              "result": "unconditional",
+              "text": "the guard `history` at 1:63172 is transparent on `Window.history`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "History.prototype.forward",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `History.prototype.forward`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchHistoryMethod()",
+              "generated": {
+                "start": 63190,
+                "end": 63216,
+                "line": 1,
+                "column": 63190
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchHistoryMethod()` at 1:63190 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "History.prototype.forward",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `History.prototype.forward`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.go|wrap|unknown",
+      "targetKey": "window|history.go|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.go",
+        "shadows": "History.prototype.go"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 63218,
+                "end": 63269,
+                "line": 1,
+                "column": 63218
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "history"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`go`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchHistoryMethod()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:63218 runs the function with `this` = `this`, and its arguments bound as `e` = `history`, `t` = ``go``, `n` = `this._patchHistoryMethod()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 62968,
+                "end": 62983,
+                "line": 1,
+                "column": 62968
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:62968 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "history",
+              "generated": {
+                "start": 63229,
+                "end": 63236,
+                "line": 1,
+                "column": 63229
+              },
+              "class": "transparent",
+              "tested": "Window.history",
+              "result": "unconditional",
+              "text": "the guard `history` at 1:63229 is transparent on `Window.history`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "History.prototype.go",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `History.prototype.go`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchHistoryMethod()",
+              "generated": {
+                "start": 63242,
+                "end": 63268,
+                "line": 1,
+                "column": 63242
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchHistoryMethod()` at 1:63242 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "History.prototype.go",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `History.prototype.go`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.pushState|wrap|unknown",
+      "targetKey": "window|history.pushState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.pushState",
+        "shadows": "History.prototype.pushState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 63048,
+                "end": 63106,
+                "line": 1,
+                "column": 63048
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "history"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`pushState`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchHistoryMethod()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:63048 runs the function with `this` = `this`, and its arguments bound as `e` = `history`, `t` = ``pushState``, `n` = `this._patchHistoryMethod()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 62968,
+                "end": 62983,
+                "line": 1,
+                "column": 62968
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:62968 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "history",
+              "generated": {
+                "start": 63059,
+                "end": 63066,
+                "line": 1,
+                "column": 63059
+              },
+              "class": "transparent",
+              "tested": "Window.history",
+              "result": "unconditional",
+              "text": "the guard `history` at 1:63059 is transparent on `Window.history`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "History.prototype.pushState",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `History.prototype.pushState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchHistoryMethod()",
+              "generated": {
+                "start": 63079,
+                "end": 63105,
+                "line": 1,
+                "column": 63079
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchHistoryMethod()` at 1:63079 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "History.prototype.pushState",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `History.prototype.pushState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.replaceState|wrap|unknown",
+      "targetKey": "window|history.replaceState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.replaceState",
+        "shadows": "History.prototype.replaceState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+            "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 44409,
+            "end": 44486,
+            "line": 1,
+            "column": 44409
+          },
+          "original": null,
+          "mechanism": "define-property",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "enable",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "Object",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "Object",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Object` resolves to no declaration, so it is the global property Window.Object, which holds the native `Object` (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "this._wrap",
+              "generated": {
+                "start": 62986,
+                "end": 63047,
+                "line": 1,
+                "column": 62986
+              },
+              "function": {
+                "start": 44494,
+                "end": 44857,
+                "line": 1,
+                "column": 44494
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "history"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "`replaceState`"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "this._patchHistoryMethod()"
+                }
+              ],
+              "this": "this",
+              "text": "the call `this._wrap(…)` at 1:62986 runs the function with `this` = `this`, and its arguments bound as `e` = `history`, `t` = ``replaceState``, `n` = `this._patchHistoryMethod()`"
+            },
+            {
+              "kind": "call",
+              "callee": "Z",
+              "generated": {
+                "start": 44846,
+                "end": 44854,
+                "line": 1,
+                "column": 44846
+              },
+              "function": {
+                "start": 44329,
+                "end": 44487,
+                "line": 1,
+                "column": 44329
+              },
+              "bindings": [
+                {
+                  "parameter": "e",
+                  "argument": "e"
+                },
+                {
+                  "parameter": "t",
+                  "argument": "t"
+                },
+                {
+                  "parameter": "n",
+                  "argument": "i"
+                }
+              ],
+              "text": "the call `Z(…)` at 1:44846 runs the function with its arguments bound as `e` = `e`, `t` = `t`, `n` = `i`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 64780,
+                "end": 65425,
+                "line": 1,
+                "column": 64780
+              },
+              "generated": {
+                "start": 65557,
+                "end": 65563,
+                "line": 1,
+                "column": 65557
+              },
+              "this": "new Yi()",
+              "text": "no resolved call reaches the function at 1:64780 made at 1:65557, so it is judged from where it was made, with `this` = `new Yi()`, the object it is held on"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 64786,
+                "end": 64801,
+                "line": 1,
+                "column": 64786
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:64786 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "(this._isEnabled = !0, typeof this._zonePatched == `boolean`)",
+              "generated": {
+                "start": 64804,
+                "end": 64858,
+                "line": 1,
+                "column": 64804
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `(this._isEnabled = !0, typeof this._zonePatched == `boolean`)` at 1:64804 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._isEnabled",
+              "generated": {
+                "start": 62968,
+                "end": 62983,
+                "line": 1,
+                "column": 62968
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._isEnabled` at 1:62968 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "history",
+              "generated": {
+                "start": 62997,
+                "end": 63004,
+                "line": 1,
+                "column": 62997
+              },
+              "class": "transparent",
+              "tested": "Window.history",
+              "result": "unconditional",
+              "text": "the guard `history` at 1:62997 is transparent on `Window.history`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "!e[t]",
+              "generated": {
+                "start": 44511,
+                "end": 44516,
+                "line": 1,
+                "column": 44511
+              },
+              "class": "transparent",
+              "tested": "History.prototype.replaceState",
+              "result": "unconditional",
+              "text": "the guard `!e[t]` at 1:44511 is transparent on `History.prototype.replaceState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "this._patchHistoryMethod()",
+              "generated": {
+                "start": 63020,
+                "end": 63046,
+                "line": 1,
+                "column": 63020
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `this._patchHistoryMethod()` at 1:63020 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof r != `function`",
+              "generated": {
+                "start": 44643,
+                "end": 44663,
+                "line": 1,
+                "column": 44643
+              },
+              "class": "transparent",
+              "tested": "History.prototype.replaceState",
+              "result": "unconditional",
+              "text": "the guard `typeof r != `function`` at 1:44643 is transparent on `History.prototype.replaceState`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof n != `function`",
+              "generated": {
+                "start": 44665,
+                "end": 44685,
+                "line": 1,
+                "column": 44665
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `typeof n != `function`` at 1:44665 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "restore",
+              "generated": {
+                "start": 44409,
+                "end": 44486,
+                "line": 1,
+                "column": 44409
+              },
+              "guard": "none",
+              "leavesOwnShadow": true,
+              "text": "the restore at 1:44409 writes the native back, and leaves the own property the install created"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/assets/index-C9toOccF.js",
+      "path": "assets/index-C9toOccF.js",
+      "hash": "sha256:e6e68bcecf0ef84348fa7dacab5c6c601b2ffcf98a6fa501d1b043f39dcf7742",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "module",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/assets/index-C9toOccF.js",
+        "finalUrl": "https://app.corpus.test/assets/index-C9toOccF.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

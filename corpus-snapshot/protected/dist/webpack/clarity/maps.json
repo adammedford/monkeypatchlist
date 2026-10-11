@@ -1,0 +1,629 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 21,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete-with-limitations",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 1,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 867287,
+        "stepBudget": 307429376,
+        "budgetExhausted": 0,
+        "caps": {
+          "flagDepth": 56,
+          "recursion": 1
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [
+      {
+        "kind": "unresolved-reference",
+        "artifact": {
+          "url": "https://app.corpus.test/main.0f7a5f5a.js",
+          "path": "main.0f7a5f5a.js",
+          "hash": "sha256:eb400bdb0d9edff426a5226c6d54c3b30062eba1b6d72847ba1d0bfd345414ac"
+        },
+        "location": {
+          "start": 53393,
+          "end": 53394,
+          "line": 1,
+          "column": 53393
+        },
+        "detail": "an injected script whose `src` is not a constant"
+      }
+    ],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 1,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 1,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 2,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|history.pushState|wrap|pkg:clarity-js",
+      "targetKey": "window|history.pushState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.pushState",
+        "shadows": "History.prototype.pushState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:clarity-js",
+        "provenance": "bundled-dependency",
+        "package": "clarity-js"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "medium",
+          "reasons": [
+            "token-check-n/a"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.0f7a5f5a.js",
+            "hash": "sha256:eb400bdb0d9edff426a5226c6d54c3b30062eba1b6d72847ba1d0bfd345414ac",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 67637,
+            "end": 67740,
+            "line": 1,
+            "column": 67637
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js",
+            "line": 5826,
+            "column": 0
+          },
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "Qe",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "medium",
+              "reasons": [
+                "token-check-n/a"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "io",
+              "generated": {
+                "start": 74215,
+                "end": 74233,
+                "line": 1,
+                "column": 74215
+              },
+              "function": {
+                "start": 67591,
+                "end": 67766,
+                "line": 1,
+                "column": 67591
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "eo"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"pushState\""
+                }
+              ],
+              "text": "the call `io(…)` at 1:74215 runs the function with its arguments bound as `t` = `eo`, `e` = `\"pushState\"`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 24526,
+                "end": 24573,
+                "line": 1,
+                "column": 24526
+              },
+              "generated": {
+                "start": 24526,
+                "end": 24573,
+                "line": 1,
+                "column": 24526
+              },
+              "text": "no resolved call reaches the function at 1:24526 made at 1:24526, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "t",
+              "generated": {
+                "start": 24541,
+                "end": 24542,
+                "line": 1,
+                "column": 24541
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t` at 1:24541 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.persisted",
+              "generated": {
+                "start": 24544,
+                "end": 24555,
+                "line": 1,
+                "column": 24544
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.persisted` at 1:24544 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(t)",
+              "generated": {
+                "start": 73739,
+                "end": 74068,
+                "line": 1,
+                "column": 73739
+              },
+              "class": "other-target",
+              "tested": "Document.prototype.createTreeWalker",
+              "result": "conditional",
+              "text": "the guard `…(t)` at 1:73739 is a presence test of another native on `Document.prototype.createTreeWalker`, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "null === t",
+              "generated": {
+                "start": 67611,
+                "end": 67619,
+                "line": 1,
+                "column": 67611
+              },
+              "class": "transparent",
+              "tested": "History.prototype.pushState",
+              "result": "unconditional",
+              "text": "the guard `null === t` at 1:67611 is transparent on `History.prototype.pushState`, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "n/a",
+              "token": null,
+              "lookup": {
+                "start": 67637,
+                "end": 67644,
+                "line": 1,
+                "column": 67637
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js",
+                "line": 5826,
+                "column": 0
+              },
+              "text": "the write has no token at its site, so the token check does not apply to webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js:5826:0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|history.replaceState|wrap|pkg:clarity-js",
+      "targetKey": "window|history.replaceState|wrap",
+      "target": {
+        "realm": "window",
+        "holder": "instance",
+        "name": "history.replaceState",
+        "shadows": "History.prototype.replaceState"
+      },
+      "surface": "navigation",
+      "effect": "wrap",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:clarity-js",
+        "provenance": "bundled-dependency",
+        "package": "clarity-js"
+      },
+      "reachability": "conditional",
+      "reachabilityBasis": "creation-site",
+      "installContext": "deferred",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "medium",
+          "reasons": [
+            "token-check-n/a"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.0f7a5f5a.js",
+            "hash": "sha256:eb400bdb0d9edff426a5226c6d54c3b30062eba1b6d72847ba1d0bfd345414ac",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 67637,
+            "end": 67740,
+            "line": 1,
+            "column": 67637
+          },
+          "original": {
+            "source": "webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js",
+            "line": 5826,
+            "column": 0
+          },
+          "mechanism": "assign",
+          "reachability": "conditional",
+          "reachabilityBasis": "creation-site",
+          "installContext": "deferred",
+          "installEntry": "Qe",
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "medium",
+              "reasons": [
+                "token-check-n/a"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "history",
+              "resolution": "global",
+              "form": "global-property",
+              "holds": "history",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`history` resolves to no declaration, so it is the global property Window.history, which holds the native `history` (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "io",
+              "generated": {
+                "start": 74237,
+                "end": 74258,
+                "line": 1,
+                "column": 74237
+              },
+              "function": {
+                "start": 67591,
+                "end": 67766,
+                "line": 1,
+                "column": 67591
+              },
+              "bindings": [
+                {
+                  "parameter": "t",
+                  "argument": "no"
+                },
+                {
+                  "parameter": "e",
+                  "argument": "\"replaceState\""
+                }
+              ],
+              "text": "the call `io(…)` at 1:74237 runs the function with its arguments bound as `t` = `no`, `e` = `\"replaceState\"`"
+            },
+            {
+              "kind": "creation-site",
+              "function": {
+                "start": 24526,
+                "end": 24573,
+                "line": 1,
+                "column": 24526
+              },
+              "generated": {
+                "start": 24526,
+                "end": 24573,
+                "line": 1,
+                "column": 24526
+              },
+              "text": "no resolved call reaches the function at 1:24526 made at 1:24526, so it is judged from where it was made"
+            },
+            {
+              "kind": "guard",
+              "expression": "t",
+              "generated": {
+                "start": 24541,
+                "end": 24542,
+                "line": 1,
+                "column": 24541
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t` at 1:24541 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "t.persisted",
+              "generated": {
+                "start": 24544,
+                "end": 24555,
+                "line": 1,
+                "column": 24544
+              },
+              "class": "config",
+              "result": "conditional",
+              "text": "the guard `t.persisted` at 1:24544 is a config or option flag, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "…(t)",
+              "generated": {
+                "start": 73739,
+                "end": 74068,
+                "line": 1,
+                "column": 73739
+              },
+              "class": "other-target",
+              "tested": "Document.prototype.createTreeWalker",
+              "result": "conditional",
+              "text": "the guard `…(t)` at 1:73739 is a presence test of another native on `Document.prototype.createTreeWalker`, so it gives conditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "null === t",
+              "generated": {
+                "start": 67611,
+                "end": 67619,
+                "line": 1,
+                "column": 67611
+              },
+              "class": "transparent",
+              "tested": "History.prototype.replaceState",
+              "result": "unconditional",
+              "text": "the guard `null === t` at 1:67611 is transparent on `History.prototype.replaceState`, so it gives unconditional"
+            },
+            {
+              "kind": "token-check",
+              "result": "n/a",
+              "token": null,
+              "lookup": {
+                "start": 67637,
+                "end": 67644,
+                "line": 1,
+                "column": 67637
+              },
+              "candidate": {
+                "source": "webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js",
+                "line": 5826,
+                "column": 0
+              },
+              "text": "the write has no token at its site, so the token check does not apply to webpack://patchline-validation-corpus/./node_modules/clarity-js/build/clarity.module.js:5826:0"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main.0f7a5f5a.js",
+      "path": "main.0f7a5f5a.js",
+      "hash": "sha256:eb400bdb0d9edff426a5226c6d54c3b30062eba1b6d72847ba1d0bfd345414ac",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "main.0f7a5f5a.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main.0f7a5f5a.js",
+        "finalUrl": "https://app.corpus.test/main.0f7a5f5a.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

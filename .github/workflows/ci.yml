@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # catalog:check finds the catalog the target diff names in the history, to rebuild the diff from it.
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      # The validation corpus lives in its own repository; corpus.lock.json pins the commit this runs against.
+      - run: npm run corpus:fetch
+      # The vendor copies the corpus CDN sites load (test/remote-chunks-in-their-loaders-group.test.ts scans them; the
+      # tests skip without them): the CDN ones are downloaded and checked against vendor/sources.json, and the rest are
+      # extracted from the corpus's own packages.
+      - run: npm ci
+        working-directory: corpus
+      - name: Fetch the vendor copies
+        working-directory: corpus
+        run: npm run vendor
+      - run: npm run typecheck
+      - run: npm run lint
+      # Packages under src/packages are imported only through their entry points (src/packages/README.md).
+      - run: npm run lint:boundaries
+      - run: npm run build
+      - run: npm test
+      # Fails when the committed catalog differs from a fresh generation or loses a target the diff's base had, when the
+      # target diff is not the one from its base, when a line it marks lacks a sign-off in catalog/sign-off.json, or
+      # when catalog/cross-check.md (the check against SES permits and BCD) is stale.
+      - run: npm run catalog:check
+      # Fails when docs/spec.md differs from a fresh generation from the working spec (where the repository has it), or
+      # when docs/spec.md, CONTEXT.md or an ADR links into the private process record or carries a provenance tag.
+      - run: npm run spec:check
+      # §20 fixture bar: scans every Chromium fixture page (write outcomes, restores) with `--surface all`, and compares
+      # its findings, ineffective-write records and restores with the page's expectation. A page marked in
+      # tools/fixture-pages/expected-to-fail.ts must fail until the ticket that implements its feature removes the mark.
+      - run: npm run fixtures:check
+
+  # §4 release promise: a patch release reproduces byte-identical output on the whole validation corpus.
+  # CONTRIBUTING.md says when the snapshot is refreshed.
+  corpus-snapshot:
+    runs-on: ubuntu-latest
+    env:
+      CORPUS: corpus
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          # The Node the corpus manifests record (`node` in each manifest.json), so the corpus build can reproduce them.
+          node-version: 26.8.1
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            corpus/package-lock.json
+      - run: npm ci
+      - run: npm run corpus:fetch
+      - run: npm ci
+        working-directory: ${{ env.CORPUS }}
+      # The CDN copies the static sites load are not committed: the CDN ones are downloaded and checked against the
+      # sha256 in vendor/sources.json, and the rest are extracted from the packages `npm ci` just installed.
+      - name: Fetch the vendor copies
+        working-directory: ${{ env.CORPUS }}
+        run: npm run vendor
+      # Builds every build directory, and rewrites each manifest.json from what it built: the base builds, then each
+      # exercise variant with builds of its own (one with a manifest.json).
+      - name: Build the corpus
+        working-directory: ${{ env.CORPUS }}
+        run: |
+          npm run build
+          for manifest in variants/*/manifest.json; do node scripts/build.mjs --root "$(dirname "$manifest")"; done
+      # The corpus build is byte-identical: the rewritten manifests (every file's sha256, the Node and bundler versions)
+      # are the committed ones, and the build changed no other committed file. The corpus is a checkout of its own
+      # repository, so this asks that checkout, not this repository, whether the build changed it.
+      - name: Verify the corpus build is byte-identical
+        run: git -C "$CORPUS" diff --exit-code -- .
+      # Checks every build directory against its manifest again, scans every site, and fails on any byte difference
+      # from corpus-snapshot/. It scans in a pool of worker processes, one per CPU but one and no more than memory holds
+      # (`--jobs` or MONKEYPATCHLIST_CORPUS_JOBS set another number), and its output is byte-identical to a one-job run.
+      - run: npm run corpus:check

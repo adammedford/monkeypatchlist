@@ -1,0 +1,11 @@
+{
+  "HTMLDocument.prototype": {
+    "engine": "blink",
+    "source": "Chromium, as every engine ships it: Object.getPrototypeOf(document) is HTMLDocument.prototype, whose prototype is Document.prototype; window.HTMLDocument is its own interface object, whose prototype is Document; HTMLDocument.prototype has its own constructor (HTMLDocument) and @@toStringTag (\"HTMLDocument\", non-writable, configurable). @webref/idl has no HTMLDocument (HTML makes window.HTMLDocument an alias of Document). Spec §4.",
+    "realms": ["window"],
+    "owner": "HTMLDocument",
+    "proto": "Document.prototype",
+    "prototypeOf": ["document"],
+    "interfaceObject": { "proto": "Document" }
+  }
+}

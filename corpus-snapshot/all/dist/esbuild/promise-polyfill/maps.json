@@ -1,0 +1,885 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "maps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.5cf7504d9781.6e07b84df65c",
+    "surface": "all",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 2
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 1914439,
+        "stepBudget": 17571840,
+        "budgetExhausted": 0,
+        "caps": {
+          "flagDepth": 1,
+          "recursion": 6
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 1,
+        "withoutMap": 0,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 1,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 0
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|Promise.allSettled|replace|pkg:promise-polyfill",
+      "targetKey": "window|Promise.allSettled|replace",
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "Promise.allSettled"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:promise-polyfill",
+        "provenance": "bundled-dependency",
+        "package": "promise-polyfill"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-5YEQTGMN.js",
+            "hash": "sha256:8dcd85343d651bf533e708573b9a7eb180eef1999abe606307af37e52242bcec",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4160,
+            "end": 4182,
+            "line": 1,
+            "column": 4160
+          },
+          "original": {
+            "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+            "line": 396,
+            "column": 21
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 3867,
+                "end": 4033,
+                "line": 1,
+                "column": 3867
+              },
+              "function": {
+                "start": 3868,
+                "end": 4030,
+                "line": 1,
+                "column": 3868
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:3867 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "l",
+              "expression": "l = …()",
+              "generated": {
+                "start": 3865,
+                "end": 4033,
+                "line": 1,
+                "column": 3865
+              },
+              "text": "`l` is read from its definition `l = …()` at 1:3865"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof l.Promise != \"function\"",
+              "generated": {
+                "start": 4034,
+                "end": 4062,
+                "line": 1,
+                "column": 4034
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `typeof l.Promise != \"function\"` at 1:4034 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "l.Promise.allSettled",
+              "generated": {
+                "start": 4137,
+                "end": 4157,
+                "line": 1,
+                "column": 4137
+              },
+              "class": "absence",
+              "tested": "Promise.allSettled",
+              "result": "guarded-native-absence",
+              "text": "the guard `l.Promise.allSettled` at 1:4137 is an absence test on `Promise.allSettled`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "allSettled",
+              "lookup": {
+                "start": 4170,
+                "end": 4180,
+                "line": 1,
+                "column": 4170
+              },
+              "candidate": {
+                "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+                "line": 396,
+                "column": 21
+              },
+              "text": "`allSettled` appears within one line of ../../../../node_modules/promise-polyfill/lib/polyfill.js:396:21, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Promise.any|replace|pkg:promise-polyfill",
+      "targetKey": "window|Promise.any|replace",
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "Promise.any"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:promise-polyfill",
+        "provenance": "bundled-dependency",
+        "package": "promise-polyfill"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-5YEQTGMN.js",
+            "hash": "sha256:8dcd85343d651bf533e708573b9a7eb180eef1999abe606307af37e52242bcec",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4200,
+            "end": 4215,
+            "line": 1,
+            "column": 4200
+          },
+          "original": {
+            "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+            "line": 399,
+            "column": 21
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 3867,
+                "end": 4033,
+                "line": 1,
+                "column": 3867
+              },
+              "function": {
+                "start": 3868,
+                "end": 4030,
+                "line": 1,
+                "column": 3868
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:3867 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "l",
+              "expression": "l = …()",
+              "generated": {
+                "start": 3865,
+                "end": 4033,
+                "line": 1,
+                "column": 3865
+              },
+              "text": "`l` is read from its definition `l = …()` at 1:3865"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof l.Promise != \"function\"",
+              "generated": {
+                "start": 4034,
+                "end": 4062,
+                "line": 1,
+                "column": 4034
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `typeof l.Promise != \"function\"` at 1:4034 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "l.Promise.any",
+              "generated": {
+                "start": 4184,
+                "end": 4197,
+                "line": 1,
+                "column": 4184
+              },
+              "class": "absence",
+              "tested": "Promise.any",
+              "result": "guarded-native-absence",
+              "text": "the guard `l.Promise.any` at 1:4184 is an absence test on `Promise.any`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "any",
+              "lookup": {
+                "start": 4210,
+                "end": 4213,
+                "line": 1,
+                "column": 4210
+              },
+              "candidate": {
+                "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+                "line": 399,
+                "column": 21
+              },
+              "text": "`any` appears within one line of ../../../../node_modules/promise-polyfill/lib/polyfill.js:399:21, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Promise.prototype.finally|replace|pkg:promise-polyfill",
+      "targetKey": "window|Promise.prototype.finally|replace",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Promise.prototype.finally"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:promise-polyfill",
+        "provenance": "bundled-dependency",
+        "package": "promise-polyfill"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-5YEQTGMN.js",
+            "hash": "sha256:8dcd85343d651bf533e708573b9a7eb180eef1999abe606307af37e52242bcec",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4106,
+            "end": 4135,
+            "line": 1,
+            "column": 4106
+          },
+          "original": {
+            "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+            "line": 393,
+            "column": 31
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 3867,
+                "end": 4033,
+                "line": 1,
+                "column": 3867
+              },
+              "function": {
+                "start": 3868,
+                "end": 4030,
+                "line": 1,
+                "column": 3868
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:3867 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "l",
+              "expression": "l = …()",
+              "generated": {
+                "start": 3865,
+                "end": 4033,
+                "line": 1,
+                "column": 3865
+              },
+              "text": "`l` is read from its definition `l = …()` at 1:3865"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof l.Promise != \"function\"",
+              "generated": {
+                "start": 4034,
+                "end": 4062,
+                "line": 1,
+                "column": 4034
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `typeof l.Promise != \"function\"` at 1:4034 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "l.Promise.prototype.finally",
+              "generated": {
+                "start": 4076,
+                "end": 4103,
+                "line": 1,
+                "column": 4076
+              },
+              "class": "absence",
+              "tested": "Promise.prototype.finally",
+              "result": "guarded-native-absence",
+              "text": "the guard `l.Promise.prototype.finally` at 1:4076 is an absence test on `Promise.prototype.finally`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "finally",
+              "lookup": {
+                "start": 4126,
+                "end": 4133,
+                "line": 1,
+                "column": 4126
+              },
+              "candidate": {
+                "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+                "line": 393,
+                "column": 31
+              },
+              "text": "`finally` appears within one line of ../../../../node_modules/promise-polyfill/lib/polyfill.js:393:31, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Promise|replace|pkg:promise-polyfill",
+      "targetKey": "window|Window.Promise|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Promise"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "pkg:promise-polyfill",
+        "provenance": "bundled-dependency",
+        "package": "promise-polyfill"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "high",
+          "reasons": []
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main-5YEQTGMN.js",
+            "hash": "sha256:8dcd85343d651bf533e708573b9a7eb180eef1999abe606307af37e52242bcec",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4063,
+            "end": 4074,
+            "line": 1,
+            "column": 4063
+          },
+          "original": {
+            "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+            "line": 390,
+            "column": 11
+          },
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "high",
+              "reasons": []
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 3867,
+                "end": 4033,
+                "line": 1,
+                "column": 3867
+              },
+              "function": {
+                "start": 3868,
+                "end": 4030,
+                "line": 1,
+                "column": 3868
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:3867 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "l",
+              "expression": "l = …()",
+              "generated": {
+                "start": 3865,
+                "end": 4033,
+                "line": 1,
+                "column": 3865
+              },
+              "text": "`l` is read from its definition `l = …()` at 1:3865"
+            },
+            {
+              "kind": "guard",
+              "expression": "typeof l.Promise != \"function\"",
+              "generated": {
+                "start": 4034,
+                "end": 4062,
+                "line": 1,
+                "column": 4034
+              },
+              "class": "absence",
+              "tested": "Window.Promise",
+              "result": "guarded-native-absence",
+              "text": "the guard `typeof l.Promise != \"function\"` at 1:4034 is an absence test on `Window.Promise`, so it gives guarded-native-absence"
+            },
+            {
+              "kind": "token-check",
+              "result": "passed",
+              "token": "Promise",
+              "lookup": {
+                "start": 4065,
+                "end": 4072,
+                "line": 1,
+                "column": 4065
+              },
+              "candidate": {
+                "source": "../../../../node_modules/promise-polyfill/lib/polyfill.js",
+                "line": 390,
+                "column": 11
+              },
+              "text": "`Promise` appears within one line of ../../../../node_modules/promise-polyfill/lib/polyfill.js:390:11, where the map puts the write"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main-5YEQTGMN.js",
+      "path": "main-5YEQTGMN.js",
+      "hash": "sha256:8dcd85343d651bf533e708573b9a7eb180eef1999abe606307af37e52242bcec",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "annotation",
+        "path": "main-5YEQTGMN.js.map",
+        "status": "verified"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main-5YEQTGMN.js",
+        "finalUrl": "https://app.corpus.test/main-5YEQTGMN.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

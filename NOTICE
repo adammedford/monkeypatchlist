@@ -1,0 +1,61 @@
+monkeypatchlist
+Copyright 2026 Adam Medford
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+
+Catalog data sources
+--------------------
+
+monkeypatchlist's runtime catalog (catalog/catalog.json) is generated from the
+upstream packages below, at the exact versions recorded in the catalog's
+metadata.upstream, together with curated overlays that are part of monkeypatchlist.
+The catalog records the names, owners and shapes of web platform and
+ECMAScript APIs that these sources define.
+
+  @webref/idl (W3C webref)
+    https://github.com/w3c/webref
+    Web IDL extracted from the specifications of the web platform.
+    Package license: MIT.
+    The IDL comes from specifications published by the W3C, the WHATWG and
+    other groups, each under its own license. WHATWG Living Standards are
+    licensed under the Creative Commons Attribution 4.0 International License
+    (CC BY 4.0), copyright WHATWG (Apple, Google, Mozilla, Microsoft). W3C
+    specifications are copyright World Wide Web Consortium; code components
+    such as IDL are available under the W3C Software and Document License.
+
+  webidl2
+    https://github.com/w3c/webidl2.js
+    The Web IDL parser the generator reads @webref/idl with.
+    License: MIT (its LICENSE file; its package.json declares W3C, the W3C
+    Software and Document License). Copyright (c) 2014 Robin Berjon.
+
+  @tc39/ecma262-biblio and @tc39/ecma402-biblio
+    https://github.com/tc39/ecma262 and https://github.com/tc39/ecma402
+    The ECMA-262 (ECMAScript) and ECMA-402 (Internationalization API)
+    specification biblios, for the ECMAScript intrinsics.
+    Licensed under Ecma International TC39's Intellectual Property Policy:
+    natural language text under the alternative copyright notice of the Ecma
+    text copyright policy, and source code under the Ecma International Policy
+    on Submission, Inclusion and Licensing of Software. Copyright Ecma
+    International.
+
+The catalog generator also cross-checks the catalog against two sources that
+never change it, at exact-pinned versions:
+
+  ses (Endo) src/permits.js
+    https://github.com/endojs/endo
+    License: Apache-2.0. Copyright Endo Contributors.
+
+  @mdn/browser-compat-data
+    https://github.com/mdn/browser-compat-data
+    License: CC0-1.0. Data from MDN Web Docs and its contributors.
+
+
+Runtime dependencies
+--------------------
+
+monkeypatchlist's runtime dependencies are installed separately by the package
+manager, under their own licenses (MIT, BSD-2-Clause and BSD-3-Clause), and
+none of their code is bundled into this package. In the source repository,
+`npm run licenses:check` lists them.

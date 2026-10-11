@@ -1,0 +1,1085 @@
+{
+  "reportVersion": 1,
+  "tool": {
+    "monkeypatchlistVersion": "0.0",
+    "catalogVersion": 1,
+    "analyzerVersion": "js-98",
+    "fingerprintScheme": 1
+  },
+  "application": {
+    "name": "nomaps"
+  },
+  "config": {
+    "scanConfigId": "b155b96fe8f2.47546be3c50d.1fa71a962f33.6e07b84df65c",
+    "surface": "protected",
+    "mode": "offline",
+    "entries": [
+      {
+        "file": "index.html",
+        "url": "https://app.corpus.test/"
+      }
+    ],
+    "mappings": [
+      {
+        "url": "https://app.corpus.test/",
+        "dir": "."
+      }
+    ],
+    "sourceMaps": [],
+    "lockfile": null,
+    "failOn": []
+  },
+  "summary": {
+    "added": 0,
+    "changed": 0,
+    "existing": 0,
+    "removed": 0,
+    "unconfirmed": 0,
+    "outOfScopeBySurface": {
+      "networking": 0,
+      "events": 0,
+      "scheduling": 0,
+      "navigation": 0,
+      "storage": 0,
+      "crypto": 0,
+      "DOM": 0,
+      "ECMAScript": 0,
+      "diagnostics": 0,
+      "workers": 0,
+      "other": 0
+    },
+    "ineffectiveWrites": 0
+  },
+  "gate": {
+    "failOn": [],
+    "result": "not-run",
+    "exitCode": 0
+  },
+  "completeness": {
+    "level": "complete",
+    "counters": {
+      "artifacts": {
+        "known": 1,
+        "analyzed": 1,
+        "failed": {
+          "parse-failure": 0,
+          "unreadable": 0,
+          "fetch-failed": 0,
+          "sri-mismatch": 0,
+          "crash-guard": 0
+        },
+        "skipped": {
+          "offline": 0,
+          "refused": 0,
+          "excluded": 0,
+          "nonJs": 0
+        },
+        "sweepOnly": 0,
+        "otherFiles": 1
+      },
+      "blindSpots": {
+        "dynamicCode": 0,
+        "unresolvedReference": 0,
+        "realmUncertain": 0,
+        "unresolvedHolder": 0
+      },
+      "html": {
+        "nomodule": 0,
+        "inlineHandlers": 0
+      },
+      "statistics": {
+        "steps": 14354156,
+        "stepBudget": 18661376,
+        "budgetExhausted": 0,
+        "caps": {
+          "alternatives": 261,
+          "contexts": 13560,
+          "flagDepth": 1,
+          "recursion": 8
+        },
+        "pruned": 0,
+        "limits": {
+          "stepsPerByte": 4096,
+          "caps": {
+            "aliasDepth": 8,
+            "alternatives": 16,
+            "candidateRuns": 256,
+            "contexts": 256,
+            "depth": 24,
+            "descriptorAlternatives": 64,
+            "flagDepth": 4,
+            "foldLength": 1048576,
+            "heapDepth": 8,
+            "indexRounds": 3,
+            "iterations": 256,
+            "nesting": 64,
+            "testReads": 64,
+            "throwDepth": 4
+          }
+        },
+        "crashGuard": "not-fired"
+      }
+    },
+    "limitations": [],
+    "excluded": [],
+    "attribution": {
+      "artifacts": {
+        "withMap": 0,
+        "withoutMap": 1,
+        "withBrokenMap": 0
+      },
+      "pairings": {
+        "header": 0,
+        "annotation": 0,
+        "sidecar": 0,
+        "debug-id": 0,
+        "external-debug-id": 0,
+        "external-annotation": 0,
+        "external-sidecar": 0
+      },
+      "staleCandidates": 0,
+      "unreadMaps": {
+        "refused": 0,
+        "failed": 0,
+        "unreadable": 0
+      },
+      "sourceMapDirectories": [],
+      "cappedFindings": {
+        "medium": 0,
+        "low": 4
+      },
+      "introducers": {
+        "reason": "no-lockfile",
+        "evidence": null
+      }
+    }
+  },
+  "baseline": null,
+  "packages": {},
+  "findings": [
+    {
+      "fingerprint": "window|Promise.allSettled|replace|unknown",
+      "targetKey": "window|Promise.allSettled|replace",
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "Promise.allSettled"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.bd01b774.js",
+            "hash": "sha256:735761b98a49acfa10f3784ae3b8e49e2c6a4e668c46d008c513291e0aa71ac5",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4466,
+            "end": 4488,
+            "line": 1,
+            "column": 4466
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "alias",
+              "form": "function-return-this",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 210,
+                "end": 245,
+                "line": 1,
+                "column": 210
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, and `Function('return this')()` through it calls a new sloppy function without a `this`, which returns the global object Window, selected through the `||` chain at 1:210 (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 139,
+                "end": 299,
+                "line": 1,
+                "column": 139
+              },
+              "function": {
+                "start": 139,
+                "end": 297,
+                "line": 1,
+                "column": 139
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:139 runs the function with its arguments"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 4165,
+                "end": 4339,
+                "line": 1,
+                "column": 4165
+              },
+              "function": {
+                "start": 4165,
+                "end": 4337,
+                "line": 1,
+                "column": 4165
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:4165 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "w",
+              "expression": "w = …()",
+              "generated": {
+                "start": 4163,
+                "end": 4339,
+                "line": 1,
+                "column": 4163
+              },
+              "text": "`w` is read from its definition `w = …()` at 1:4163"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 55,
+                "end": 56,
+                "line": 1,
+                "column": 55
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:55 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"function\" != typeof w.Promise",
+              "generated": {
+                "start": 4340,
+                "end": 4368,
+                "line": 1,
+                "column": 4340
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `\"function\" != typeof w.Promise` at 1:4340 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "w.Promise.allSettled",
+              "generated": {
+                "start": 4443,
+                "end": 4463,
+                "line": 1,
+                "column": 4443
+              },
+              "class": "absence",
+              "tested": "Promise.allSettled",
+              "result": "guarded-native-absence",
+              "text": "the guard `w.Promise.allSettled` at 1:4443 is an absence test on `Promise.allSettled`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Promise.any|replace|unknown",
+      "targetKey": "window|Promise.any|replace",
+      "target": {
+        "realm": "window",
+        "holder": "constructor",
+        "name": "Promise.any"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.bd01b774.js",
+            "hash": "sha256:735761b98a49acfa10f3784ae3b8e49e2c6a4e668c46d008c513291e0aa71ac5",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4506,
+            "end": 4521,
+            "line": 1,
+            "column": 4506
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "alias",
+              "form": "function-return-this",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 210,
+                "end": 245,
+                "line": 1,
+                "column": 210
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, and `Function('return this')()` through it calls a new sloppy function without a `this`, which returns the global object Window, selected through the `||` chain at 1:210 (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 139,
+                "end": 299,
+                "line": 1,
+                "column": 139
+              },
+              "function": {
+                "start": 139,
+                "end": 297,
+                "line": 1,
+                "column": 139
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:139 runs the function with its arguments"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 4165,
+                "end": 4339,
+                "line": 1,
+                "column": 4165
+              },
+              "function": {
+                "start": 4165,
+                "end": 4337,
+                "line": 1,
+                "column": 4165
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:4165 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "w",
+              "expression": "w = …()",
+              "generated": {
+                "start": 4163,
+                "end": 4339,
+                "line": 1,
+                "column": 4163
+              },
+              "text": "`w` is read from its definition `w = …()` at 1:4163"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 55,
+                "end": 56,
+                "line": 1,
+                "column": 55
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:55 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"function\" != typeof w.Promise",
+              "generated": {
+                "start": 4340,
+                "end": 4368,
+                "line": 1,
+                "column": 4340
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `\"function\" != typeof w.Promise` at 1:4340 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "w.Promise.any",
+              "generated": {
+                "start": 4490,
+                "end": 4503,
+                "line": 1,
+                "column": 4490
+              },
+              "class": "absence",
+              "tested": "Promise.any",
+              "result": "guarded-native-absence",
+              "text": "the guard `w.Promise.any` at 1:4490 is an absence test on `Promise.any`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Promise.prototype.finally|replace|unknown",
+      "targetKey": "window|Promise.prototype.finally|replace",
+      "target": {
+        "realm": "window",
+        "holder": "prototype",
+        "name": "Promise.prototype.finally"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.bd01b774.js",
+            "hash": "sha256:735761b98a49acfa10f3784ae3b8e49e2c6a4e668c46d008c513291e0aa71ac5",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4412,
+            "end": 4441,
+            "line": 1,
+            "column": 4412
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "alias",
+              "form": "function-return-this",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 210,
+                "end": 245,
+                "line": 1,
+                "column": 210
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, and `Function('return this')()` through it calls a new sloppy function without a `this`, which returns the global object Window, selected through the `||` chain at 1:210 (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 139,
+                "end": 299,
+                "line": 1,
+                "column": 139
+              },
+              "function": {
+                "start": 139,
+                "end": 297,
+                "line": 1,
+                "column": 139
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:139 runs the function with its arguments"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 4165,
+                "end": 4339,
+                "line": 1,
+                "column": 4165
+              },
+              "function": {
+                "start": 4165,
+                "end": 4337,
+                "line": 1,
+                "column": 4165
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:4165 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "w",
+              "expression": "w = …()",
+              "generated": {
+                "start": 4163,
+                "end": 4339,
+                "line": 1,
+                "column": 4163
+              },
+              "text": "`w` is read from its definition `w = …()` at 1:4163"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 55,
+                "end": 56,
+                "line": 1,
+                "column": 55
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:55 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"function\" != typeof w.Promise",
+              "generated": {
+                "start": 4340,
+                "end": 4368,
+                "line": 1,
+                "column": 4340
+              },
+              "class": "transparent",
+              "tested": "Window.Promise",
+              "result": "unconditional",
+              "text": "the guard `\"function\" != typeof w.Promise` at 1:4340 is transparent on `Window.Promise`, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "w.Promise.prototype.finally",
+              "generated": {
+                "start": 4382,
+                "end": 4409,
+                "line": 1,
+                "column": 4382
+              },
+              "class": "absence",
+              "tested": "Promise.prototype.finally",
+              "result": "guarded-native-absence",
+              "text": "the guard `w.Promise.prototype.finally` at 1:4382 is an absence test on `Promise.prototype.finally`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fingerprint": "window|Window.Promise|replace|unknown",
+      "targetKey": "window|Window.Promise|replace",
+      "target": {
+        "realm": "window",
+        "holder": "global",
+        "name": "Window.Promise"
+      },
+      "surface": "ECMAScript",
+      "effect": "replace",
+      "locks": false,
+      "attribution": {
+        "key": "unknown",
+        "provenance": "unknown"
+      },
+      "reachability": "guarded-native-absence",
+      "reachabilityBasis": "call-path",
+      "installContext": "load",
+      "confidence": {
+        "target": {
+          "level": "high",
+          "reasons": []
+        },
+        "mutation": {
+          "level": "high",
+          "reasons": []
+        },
+        "attribution": {
+          "level": "low",
+          "reasons": [
+            "no-map"
+          ]
+        }
+      },
+      "baselineState": null,
+      "matchedBy": null,
+      "changedReasons": [],
+      "notes": [],
+      "policy": null,
+      "occurrences": [
+        {
+          "artifact": {
+            "url": "https://app.corpus.test/main.bd01b774.js",
+            "hash": "sha256:735761b98a49acfa10f3784ae3b8e49e2c6a4e668c46d008c513291e0aa71ac5",
+            "origin": "local-build"
+          },
+          "generated": {
+            "start": 4369,
+            "end": 4380,
+            "line": 1,
+            "column": 4369
+          },
+          "original": null,
+          "mechanism": "assign",
+          "reachability": "guarded-native-absence",
+          "reachabilityBasis": "call-path",
+          "installContext": "load",
+          "installEntry": null,
+          "realmInstance": "current",
+          "evidence": {},
+          "confidence": {
+            "target": {
+              "level": "high",
+              "reasons": []
+            },
+            "mutation": {
+              "level": "high",
+              "reasons": []
+            },
+            "attribution": {
+              "level": "low",
+              "reasons": [
+                "no-map"
+              ]
+            }
+          },
+          "trace": [
+            {
+              "kind": "binding",
+              "name": "globalThis",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`globalThis` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "Function",
+              "resolution": "alias",
+              "form": "function-return-this",
+              "aliasOf": "Window",
+              "chain": {
+                "start": 210,
+                "end": 245,
+                "line": 1,
+                "column": 210
+              },
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`Function` resolves to no declaration, and `Function('return this')()` through it calls a new sloppy function without a `this`, which returns the global object Window, selected through the `||` chain at 1:210 (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "self",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`self` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "binding",
+              "name": "window",
+              "resolution": "alias",
+              "form": "global-name",
+              "aliasOf": "Window",
+              "realm": "window",
+              "realmInstance": "current",
+              "text": "`window` resolves to no declaration, so it is the global object Window (window realm, current instance)"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 139,
+                "end": 299,
+                "line": 1,
+                "column": 139
+              },
+              "function": {
+                "start": 139,
+                "end": 297,
+                "line": 1,
+                "column": 139
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:139 runs the function with its arguments"
+            },
+            {
+              "kind": "call",
+              "callee": "…",
+              "generated": {
+                "start": 4165,
+                "end": 4339,
+                "line": 1,
+                "column": 4165
+              },
+              "function": {
+                "start": 4165,
+                "end": 4337,
+                "line": 1,
+                "column": 4165
+              },
+              "bindings": [],
+              "text": "the call `…(…)` at 1:4165 runs the function with its arguments"
+            },
+            {
+              "kind": "alias",
+              "name": "w",
+              "expression": "w = …()",
+              "generated": {
+                "start": 4163,
+                "end": 4339,
+                "line": 1,
+                "column": 4163
+              },
+              "text": "`w` is read from its definition `w = …()` at 1:4163"
+            },
+            {
+              "kind": "guard",
+              "expression": "e",
+              "generated": {
+                "start": 55,
+                "end": 56,
+                "line": 1,
+                "column": 55
+              },
+              "class": "transparent",
+              "result": "unconditional",
+              "text": "the guard `e` at 1:55 is transparent, so it gives unconditional"
+            },
+            {
+              "kind": "guard",
+              "expression": "\"function\" != typeof w.Promise",
+              "generated": {
+                "start": 4340,
+                "end": 4368,
+                "line": 1,
+                "column": 4340
+              },
+              "class": "absence",
+              "tested": "Window.Promise",
+              "result": "guarded-native-absence",
+              "text": "the guard `\"function\" != typeof w.Promise` at 1:4340 is an absence test on `Window.Promise`, so it gives guarded-native-absence"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ineffectiveWrites": [],
+  "artifacts": [
+    {
+      "url": "https://app.corpus.test/main.bd01b774.js",
+      "path": "main.bd01b774.js",
+      "hash": "sha256:735761b98a49acfa10f3784ae3b8e49e2c6a4e668c46d008c513291e0aa71ac5",
+      "origin": "local-build",
+      "discovery": "reference",
+      "sourceType": "script",
+      "realm": "window",
+      "realmBasis": "reference",
+      "parent": "https://app.corpus.test/",
+      "sourceMap": {
+        "method": "none",
+        "path": null,
+        "status": "none"
+      },
+      "retrieval": {
+        "status": "ok",
+        "requestedUrl": "https://app.corpus.test/main.bd01b774.js",
+        "finalUrl": "https://app.corpus.test/main.bd01b774.js",
+        "contentType": null,
+        "sri": "none"
+      },
+      "moduleLinking": {
+        "idioms": [
+          "interop"
+        ],
+        "modules": 0,
+        "unlinked": 0,
+        "linkGroups": 1
+      }
+    }
+  ]
+}

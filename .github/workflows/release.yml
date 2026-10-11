@@ -1,0 +1,46 @@
+name: Release
+
+# Publishes the package to npm when a version tag (v1.2.3) is pushed. npm's trusted publishing authenticates this
+# workflow through OIDC (the id-token permission), with no stored token, and attaches a provenance attestation.
+# Configure it once on npmjs.com: package settings, Trusted Publisher, GitHub Actions, workflow filename release.yml.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # catalog:check finds the catalog the target diff names in the history.
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      # Trusted publishing needs npm 11.5.1 or later.
+      - run: npm install -g npm@11
+      - name: Check the tag matches package.json
+        run: test "v$(node -p "require('./package.json').version")" = "$GITHUB_REF_NAME"
+      # A version that is already on the registry (published by hand) is skipped instead of failing the run.
+      - name: Check whether this version is published
+        id: published
+        run: |
+          if npm view "monkeypatchlist@$(node -p "require('./package.json').version")" version >/dev/null 2>&1; then
+            echo "already=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.published.outputs.already != 'true'
+        run: npm ci
+      - if: steps.published.outputs.already != 'true'
+        run: npm run typecheck && npm run lint && npm run lint:boundaries && npm run build && npm test
+      - if: steps.published.outputs.already != 'true'
+        run: npm run catalog:check
+      - if: steps.published.outputs.already != 'true'
+        run: npm publish

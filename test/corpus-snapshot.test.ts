@@ -14,6 +14,14 @@ import { corpusDir } from '../tools/paths.ts'
 import { fixtureCorpus, scratchDir } from './support/fixture-corpus.ts'
 import { assertValidReport, runCli } from './support/fixture-build.ts'
 
+/** The package's version, its release line (`major.minor`), and versions in the same line and the next minor line. */
+const version: string = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8')).version
+const [major = 0, minor = 0] = version.split('.').map(Number)
+const line = `${major}.${minor}`
+const patchRelease = `${major}.${minor}.7`
+const nextLine = `${major}.${minor + 1}`
+const minorRelease = `${nextLine}.0`
+
 /**
  * A built fixture corpus: `files` (corpus-relative path → contents), plus the `manifest.json` the corpus build writes
  * beside each `dist/` (the corpus root's, and each variant's), with the sha256 of every file under it.
@@ -109,7 +117,7 @@ describe('refreshing the snapshot', () => {
     const direct = await scanDirectly(join(corpus, 'dist/webpack/otel/maps'))
     const expected = direct
       .replace(/,\n {2}"run": \{\n[\s\S]*\n {2}\}\n\}\n$/, '\n}\n')
-      .replace('\n    "monkeypatchlistVersion": "0.0.0",\n', '\n    "monkeypatchlistVersion": "0.0",\n')
+      .replace(`\n    "monkeypatchlistVersion": "${version}",\n`, `\n    "monkeypatchlistVersion": "${line}",\n`)
     expect(expected).not.toContain('"run"')
     expect(readFileSync(join(snapshot, 'protected/dist/webpack/otel/maps.json'), 'utf8')).toBe(expected)
     const all = JSON.parse(readFileSync(join(snapshot, 'all/dist/webpack/otel/maps.json'), 'utf8'))
@@ -285,11 +293,11 @@ describe('the check', () => {
 })
 
 describe('release lines', () => {
-  /** The real scanner, with the report saying it came from monkeypatchlist `version`. */
-  function scannerAt(version: string): Deps['scan'] {
+  /** The real scanner, with the report saying it came from monkeypatchlist `at`. */
+  function scannerAt(at: string): Deps['scan'] {
     const real = validatedScanner()
     return async (dir, surface) =>
-      (await real(dir, surface)).replace('"monkeypatchlistVersion": "0.0.0"', `"monkeypatchlistVersion": "${version}"`)
+      (await real(dir, surface)).replace(`"monkeypatchlistVersion": "${version}"`, `"monkeypatchlistVersion": "${at}"`)
   }
 
   test('a patch release reproduces the snapshot of its minor release', async () => {
@@ -297,7 +305,7 @@ describe('release lines', () => {
     const snapshot = scratchDir()
     expect((await snapshotCommand(['--update', '--corpus', corpus, '--snapshot', snapshot])).exitCode).toBe(0)
 
-    const check = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt('0.0.7') })
+    const check = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt(patchRelease) })
 
     expect(check.exitCode, check.stderr).toBe(0)
   })
@@ -307,14 +315,14 @@ describe('release lines', () => {
     const snapshot = scratchDir()
     expect((await snapshotCommand(['--update', '--corpus', corpus, '--snapshot', snapshot])).exitCode).toBe(0)
 
-    const check = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt('0.1.0') })
+    const check = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt(minorRelease) })
 
     expect(check.exitCode).toBe(1)
-    expect(check.stderr).toContain('"monkeypatchlistVersion": "0.1"')
-    expect(check.stderr).toContain('the snapshot is for monkeypatchlist 0.0, and this is 0.1')
+    expect(check.stderr).toContain(`"monkeypatchlistVersion": "${nextLine}"`)
+    expect(check.stderr).toContain(`the snapshot is for monkeypatchlist ${line}, and this is ${nextLine}`)
     const refresh = ['--update', '--corpus', corpus, '--snapshot', snapshot]
-    expect((await snapshotCommand(refresh, { scan: scannerAt('0.1.0') })).exitCode).toBe(0)
-    const again = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt('0.1.0') })
+    expect((await snapshotCommand(refresh, { scan: scannerAt(minorRelease) })).exitCode).toBe(0)
+    const again = await snapshotCommand(['--corpus', corpus, '--snapshot', snapshot], { scan: scannerAt(minorRelease) })
     expect(again.exitCode, again.stderr).toBe(0)
   })
 

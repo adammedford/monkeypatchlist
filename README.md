@@ -68,7 +68,7 @@ npx monkeypatchlist scan dist --fail-on added,changed   # exits 1
 
 <!-- docs-test: output -->
 ```text
-monkeypatchlist 0.0.0 · catalog 1 · Storefront · surface protected · offline
+monkeypatchlist 0.1.0 · catalog 1 · Storefront · surface protected · offline
 
 Change since baseline
   Added 1   Changed 0   Removed 0   Unconfirmed 0   Existing 2
@@ -116,7 +116,7 @@ npx monkeypatchlist scan dist/vite/whatwg-fetch/maps --map https://app.corpus.te
 
 <!-- docs-test: output -->
 ```text
-monkeypatchlist 0.0.0 · catalog 1 · maps · surface protected · offline
+monkeypatchlist 0.1.0 · catalog 1 · maps · surface protected · offline
 
 Findings 4   (no baseline: run with --baseline to see the change)
   Window.Headers                   replace

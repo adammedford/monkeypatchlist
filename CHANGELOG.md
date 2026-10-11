@@ -12,6 +12,8 @@ The catalog has its own version (`tool.catalogVersion` in the report), separate 
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-10-11
+
 Release 1, the first public release.
 
 Renamed from Patchline before the first release.

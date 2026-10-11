@@ -28,7 +28,7 @@ npx monkeypatchlist scan dist --map https://shop.example/=.
 
 <!-- docs-test: output -->
 ```text
-monkeypatchlist 0.0.0 · catalog 1 · dist · surface protected · offline
+monkeypatchlist 0.1.0 · catalog 1 · dist · surface protected · offline
 
 Findings 2   (no baseline: run with --baseline to see the change)
   Window.fetch                     wrap
@@ -65,7 +65,7 @@ npx monkeypatchlist scan dist --map https://shop.example/=. --source-maps maps -
 
 <!-- docs-test: output -->
 ```text
-monkeypatchlist 0.0.0 · catalog 1 · dist · surface protected · offline
+monkeypatchlist 0.1.0 · catalog 1 · dist · surface protected · offline
 
 Findings 2   (no baseline: run with --baseline to see the change)
   Window.fetch                     wrap

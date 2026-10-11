@@ -1,7 +1,7 @@
 {
   "reportVersion": 1,
   "tool": {
-    "monkeypatchlistVersion": "0.0",
+    "monkeypatchlistVersion": "0.1",
     "catalogVersion": 1,
     "analyzerVersion": "js-98",
     "fingerprintScheme": 1

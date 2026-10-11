@@ -1,6 +1,6 @@
 {
   "name": "monkeypatchlist",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Finds where your build mutates native browser and ECMAScript APIs.",
   "keywords": [
     "security",

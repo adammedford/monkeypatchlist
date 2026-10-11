@@ -108,7 +108,7 @@ npx monkeypatchlist --version
 
 <!-- docs-test: output -->
 ```text
-monkeypatchlist 0.0.0 · catalog 1 · analyzer js-98
+monkeypatchlist 0.1.0 · catalog 1 · analyzer js-98
 ```
 
 Name the entry document and its URL, and scan the whole native catalog rather than the protected surface:

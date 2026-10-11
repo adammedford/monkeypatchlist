@@ -1,0 +1,778 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Patchline native catalog",
+  "description": "The runtime catalog, generated from pinned upstreams by the catalog generator and committed as catalog/catalog.json (spec §4, §19). Each top-level property is a named section.",
+  "type": "object",
+  "required": [
+    "metadata",
+    "targets",
+    "holders",
+    "instanceMembers",
+    "instances",
+    "esAdditions",
+    "engineExtensions",
+    "esProseProperties",
+    "enginePrototypes",
+    "proseMembers",
+    "singletons",
+    "aliasGroups",
+    "exclusions",
+    "surfaceMap",
+    "protectedSurface",
+    "retained",
+    "remoteUrlNormalization",
+    "frameworkPathRules",
+    "escapeOnlyShapes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "description": "Catalog metadata: the catalog version and every upstream pin.",
+      "type": "object",
+      "required": ["catalogVersion", "upstream", "overlays"],
+      "additionalProperties": false,
+      "properties": {
+        "catalogVersion": {
+          "description": "The catalog version (spec §4 Catalog versions): one version for all of Patchline's curated data, separate from the Patchline version. It only ever grows, one bump per Patchline minor release.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "overlays": {
+          "description": "A pin of each curated overlay the catalog was generated from: the sha256 of the file's bytes, by file name.",
+          "type": "object",
+          "required": [
+            "es-additions.json",
+            "engine-extensions.json",
+            "es-prose-properties.json",
+            "prose-members.json",
+            "singletons.json",
+            "engine-prototypes.json",
+            "exclusions.json",
+            "surfaces.json",
+            "protected-surface.json",
+            "retained.json",
+            "remote-url-normalization.json",
+            "framework-path-rules.json",
+            "escape-only-shapes.json"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "es-additions.json": { "$ref": "#/$defs/sha256" },
+            "engine-extensions.json": { "$ref": "#/$defs/sha256" },
+            "es-prose-properties.json": { "$ref": "#/$defs/sha256" },
+            "prose-members.json": { "$ref": "#/$defs/sha256" },
+            "singletons.json": { "$ref": "#/$defs/sha256" },
+            "engine-prototypes.json": { "$ref": "#/$defs/sha256" },
+            "exclusions.json": { "$ref": "#/$defs/sha256" },
+            "framework-path-rules.json": { "$ref": "#/$defs/sha256" },
+            "escape-only-shapes.json": { "$ref": "#/$defs/sha256" },
+            "surfaces.json": { "$ref": "#/$defs/sha256" },
+            "protected-surface.json": { "$ref": "#/$defs/sha256" },
+            "retained.json": { "$ref": "#/$defs/sha256" },
+            "remote-url-normalization.json": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "upstream": {
+          "description": "The exact version of each upstream package the catalog was generated from.",
+          "type": "object",
+          "required": ["@webref/idl", "webidl2", "@tc39/ecma262-biblio", "@tc39/ecma402-biblio"],
+          "additionalProperties": false,
+          "properties": {
+            "@webref/idl": { "$ref": "#/$defs/exactVersion" },
+            "webidl2": { "$ref": "#/$defs/exactVersion" },
+            "@tc39/ecma262-biblio": { "$ref": "#/$defs/exactVersion" },
+            "@tc39/ecma402-biblio": { "$ref": "#/$defs/exactVersion" }
+          }
+        }
+      }
+    },
+    "targets": {
+      "description": "Targets and their member data, per realm. The same name in two realms is two targets.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmTargets" },
+        "dedicated-worker": { "$ref": "#/$defs/realmTargets" },
+        "shared-worker": { "$ref": "#/$defs/realmTargets" },
+        "service-worker": { "$ref": "#/$defs/realmTargets" }
+      }
+    },
+    "holders": {
+      "description": "The objects targets live on, per realm, keyed by holder name: the prefix of the names of the targets on it, e.g. `Window`, `EventTarget.prototype`, `XMLHttpRequest`, `console`, `Array.prototype`, `Math`, `%TypedArray%.prototype`.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmHolders" },
+        "dedicated-worker": { "$ref": "#/$defs/realmHolders" },
+        "shared-worker": { "$ref": "#/$defs/realmHolders" },
+        "service-worker": { "$ref": "#/$defs/realmHolders" }
+      }
+    },
+    "instanceMembers": {
+      "description": "Members the binding defines on each instance of an interface rather than on its prototype ([LegacyUnforgeable]), per realm, keyed by interface and then member. They are no targets of their own, except as a platform singleton's own members, which are instance targets named by its canonical path (`location.href`). Those of a realm's [Global] interface are left out: they are the global's own targets.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmInstanceMembers" },
+        "dedicated-worker": { "$ref": "#/$defs/realmInstanceMembers" },
+        "shared-worker": { "$ref": "#/$defs/realmInstanceMembers" },
+        "service-worker": { "$ref": "#/$defs/realmInstanceMembers" }
+      }
+    },
+    "instances": {
+      "description": "What each instance of a Web IDL interface carries itself, per realm, keyed by interface, for the holders that are such instances (the platform singletons). Only interfaces with data are listed.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmInstances" },
+        "dedicated-worker": { "$ref": "#/$defs/realmInstances" },
+        "shared-worker": { "$ref": "#/$defs/realmInstances" },
+        "service-worker": { "$ref": "#/$defs/realmInstances" }
+      }
+    },
+    "esAdditions": {
+      "description": "The curated overlay of small ES additions that ECMA-262 and ECMA-402 do not define yet, such as Temporal, by name.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/esAddition" }
+    },
+    "engineExtensions": {
+      "description": "The curated overlay of engine extensions (spec §4 Sources): own properties an engine defines on ECMAScript intrinsics outside ECMA-262, such as V8's `Error.stackTraceLimit`, by the path of each property. Each is a target in every realm.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/engineExtension" }
+    },
+    "esProseProperties": {
+      "description": "The curated overlay of ECMA-262 own properties that have no clause of their own (spec §4 Sources): `Function.prototype.caller` and `.arguments`, `Array.prototype.length` and `String.prototype.length`, by the path of each property. Each is a target in every realm, credited to ecma262.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/esProseProperty" }
+    },
+    "enginePrototypes": {
+      "description": "The curated overlay of engine prototypes (spec §4 Sources): prototype holders an engine puts on a platform singleton's chain where Web IDL has none, by holder name. `HTMLDocument.prototype` sits between `document` and `Document.prototype`, as Chromium has it. Each is a memberless prototype holder in the realms it lists.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/enginePrototype" }
+    },
+    "proseMembers": {
+      "description": "The curated overlay of own members a spec defines in prose on each instance of an interface rather than in IDL (spec §4 Sources), by interface and then member: `Location`'s `valueOf` and `@@toPrimitive`. Each is also one of its interface's instanceMembers, so a platform singleton of that interface has it as an instance target (`location.valueOf`).",
+      "type": "object",
+      "additionalProperties": { "type": "object", "additionalProperties": { "$ref": "#/$defs/proseMember" } }
+    },
+    "singletons": {
+      "description": "The platform singletons (spec §3), per realm, keyed by canonical path from the global without the global's prefix, e.g. `history`, `navigator.geolocation`, `crypto.subtle`. Each is the holder of that name. The curated singletons overlay, resolved against the IDL.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmSingletons" },
+        "dedicated-worker": { "$ref": "#/$defs/realmSingletons" },
+        "shared-worker": { "$ref": "#/$defs/realmSingletons" },
+        "service-worker": { "$ref": "#/$defs/realmSingletons" }
+      }
+    },
+    "aliasGroups": {
+      "description": "Each platform singleton's alias group, per realm, keyed by canonical path: every access path from the global that reaches it, the canonical path included, e.g. `window.history`, `self.history`, `document.location`.",
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmAliasGroups" },
+        "dedicated-worker": { "$ref": "#/$defs/realmAliasGroups" },
+        "shared-worker": { "$ref": "#/$defs/realmAliasGroups" },
+        "service-worker": { "$ref": "#/$defs/realmAliasGroups" }
+      }
+    },
+    "exclusions": {
+      "description": "The curated exclusions overlay: interfaces, namespaces or intrinsics upstream publishes that the catalog leaves out, keyed by owner, with the reason and the targets each leaves out.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/exclusion" }
+    },
+    "surfaceMap": {
+      "description": "The curated owner → surface map every member's surface comes from (spec §12), seeded once from spec shortname and HTML section page. It never says other, the surface of an owner nobody has reviewed, and never names an ECMAScript member, which is always ECMAScript.",
+      "type": "object",
+      "required": ["owners", "members"],
+      "additionalProperties": false,
+      "properties": {
+        "owners": {
+          "description": "The surface of each interface or namespace, and of an interface mixin, whose members take it on every interface that includes it, by name.",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/reviewedSurface" }
+        },
+        "members": {
+          "description": "Per-member overrides, by the interface, namespace or mixin that declares the member, and then by member.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": { "$ref": "#/$defs/reviewedSurface" }
+          }
+        }
+      }
+    },
+    "protectedSurface": {
+      "description": "The protected-surface list (spec §12), by surface: whole-interface or namespace entries and member entries, keyed on (interface, member) independent of realm and holder. Every target an entry names has the entry's surface.",
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/reviewedSurface" },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "$ref": "#/$defs/protectedEntry" }
+      }
+    },
+    "remoteUrlNormalization": {
+      "description": "The remote URL normalization rules (spec §11 Remote URL normalization), versioned data: a remote artifact's attribution key is url: and its URL normalized by them. Step 1 gives a URL whose scheme is in scheme.from the scheme scheme.to; step 2 lowercases the host and drops what drop names; steps 3 and 4 rewrite the path only, in order, replacing every match of each rule's pattern (a JavaScript regular expression, with the u flag) with its replacement.",
+      "type": "object",
+      "required": ["scheme", "host", "drop", "path"],
+      "additionalProperties": false,
+      "properties": {
+        "scheme": {
+          "type": "object",
+          "required": ["from", "to"],
+          "additionalProperties": false,
+          "properties": {
+            "from": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "to": { "type": "string", "minLength": 1 }
+          }
+        },
+        "host": { "const": "lowercase" },
+        "drop": { "type": "array", "items": { "enum": ["default-port", "query", "fragment"] } },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "step", "pattern", "replacement"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "step": { "enum": [3, 4] },
+              "pattern": { "type": "string", "minLength": 1 },
+              "replacement": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "retained": {
+      "description": "The retained overlay (spec §4 Catalog versions), per realm, by name. The catalog is monotonic: a target or holder upstream removes stays, as it was last generated, until a deliberate drop backed by BCD evidence.",
+      "type": "object",
+      "required": ["targets", "holders", "dropped", "droppedHolders"],
+      "additionalProperties": false,
+      "properties": {
+        "targets": {
+          "description": "The retained targets, each also in targets, flagged catalogStatus retained.",
+          "$ref": "#/$defs/perRealmRetention"
+        },
+        "holders": {
+          "description": "The holders upstream removed that the catalog keeps (holders are monotonic too), each also in holders.",
+          "$ref": "#/$defs/perRealmRetention"
+        },
+        "dropped": {
+          "description": "The targets deliberately dropped, none of them in targets.",
+          "$ref": "#/$defs/perRealmDrops"
+        },
+        "droppedHolders": {
+          "description": "The holders deliberately dropped, none of them in holders.",
+          "$ref": "#/$defs/perRealmDrops"
+        }
+      }
+    },
+    "frameworkPathRules": {
+      "description": "The curated framework path rules (spec §10 Framework path rules), by rule id: a shape of a source path with no node_modules segment, and the package it names. A rule only names a package: never first-party, never high, never a version.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "allOf": [{ "$ref": "#/$defs/pathShape" }],
+        "required": ["package"],
+        "properties": {
+          "package": {
+            "description": "The package the rule names, where <name> stands for what the shape captured as name: next, @angular/<pkg>.",
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "unevaluatedProperties": false
+      }
+    },
+    "escapeOnlyShapes": {
+      "description": "The curated escape-only shapes (spec §10 Escaped sources), by shape id: shapes of a source path with no node_modules segment that name no package. A source matching one is always escaped (unknown, escaped-source), wherever the inferred root is.",
+      "type": "object",
+      "additionalProperties": { "type": "object", "allOf": [{ "$ref": "#/$defs/pathShape" }], "unevaluatedProperties": false }
+    }
+  },
+  "$defs": {
+    "pathShape": {
+      "description": "A shape of a normalized source path (spec §10): scheme and namespace stripped, a relative sourceRoot joined, . and x/.. collapsed, leading .. kept.",
+      "type": "object",
+      "required": ["source", "segments"],
+      "properties": {
+        "source": { "description": "Where the shape was observed, and why it is curated.", "type": "string", "minLength": 1 },
+        "namespace": {
+          "description": "The bundler namespace the source must be in, as attribution names it: webpack:<ns> for webpack://<ns>/. Absent, any namespace.",
+          "type": "string",
+          "minLength": 1
+        },
+        "up": {
+          "description": "The fewest leading .. segments the path starts with, with segments right after them. Absent, the run may start at any segment.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "segments": {
+          "description": "The run of whole segments to match. In a segment, * matches any characters, possibly none, and <name> one or more, captured as name. At least one segment follows the run.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "captures": {
+          "description": "The whole values a placeholder may capture, by placeholder name. Absent, or for a placeholder it doesn't list, any value.",
+          "type": "object",
+          "additionalProperties": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+        }
+      }
+    },
+    "perRealmRetention": {
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmRetentions" },
+        "dedicated-worker": { "$ref": "#/$defs/realmRetentions" },
+        "shared-worker": { "$ref": "#/$defs/realmRetentions" },
+        "service-worker": { "$ref": "#/$defs/realmRetentions" }
+      }
+    },
+    "realmRetentions": {
+      "description": "Retained targets or holders in one realm, by name.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["lastUpstream", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "lastUpstream": {
+            "description": "The last upstream package and version that had it, e.g. `@webref/idl 3.84.0`.",
+            "type": "string",
+            "pattern": "^\\S+ [0-9]+\\.[0-9]+\\.[0-9]+$"
+          },
+          "reason": { "description": "Why upstream removed it, and why it stays.", "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "perRealmDrops": {
+      "type": "object",
+      "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+      "additionalProperties": false,
+      "properties": {
+        "window": { "$ref": "#/$defs/realmDrops" },
+        "dedicated-worker": { "$ref": "#/$defs/realmDrops" },
+        "shared-worker": { "$ref": "#/$defs/realmDrops" },
+        "service-worker": { "$ref": "#/$defs/realmDrops" }
+      }
+    },
+    "realmDrops": {
+      "description": "Deliberately dropped targets or holders in one realm, by name.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["bcd", "evidence"],
+        "additionalProperties": false,
+        "properties": {
+          "bcd": {
+            "description": "The BCD feature the evidence is about, e.g. `api.Navigator.joinAdInterestGroup`.",
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": { "description": "What BCD, at a version it names, shows.", "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "realmTargets": {
+      "description": "The targets exposed in one realm, keyed by realm-free target name, e.g. `EventTarget.prototype.addEventListener`.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/target" }
+    },
+    "realmHolders": {
+      "description": "The holders in one realm, keyed by holder name.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/holder" }
+    },
+    "realmInstanceMembers": {
+      "description": "The per-instance members in one realm, keyed by interface and then by member.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "$ref": "#/$defs/instanceMember" }
+      }
+    },
+    "realmInstances": {
+      "description": "What each instance of an interface carries, in one realm, keyed by interface.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties": false,
+        "properties": {
+          "immutablePrototype": {
+            "description": "Present when every instance is an immutable prototype exotic object, as Location instances are.",
+            "const": true
+          }
+        }
+      }
+    },
+    "realmSingletons": {
+      "description": "The platform singletons in one realm, keyed by canonical path.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/singleton" }
+    },
+    "singleton": {
+      "type": "object",
+      "required": ["via"],
+      "additionalProperties": false,
+      "properties": {
+        "via": {
+          "description": "The target its value is read from: a property of the global (`Window.history`), or of the singleton its path extends (`Navigator.prototype.geolocation`).",
+          "type": "string",
+          "minLength": 1
+        },
+        "interface": {
+          "description": "The interface it is an instance of: its holder is an instance holder on that interface's prototype.",
+          "type": "string",
+          "minLength": 1
+        },
+        "namespace": {
+          "description": "The namespace it is, for `console`: its holder is that namespace holder.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "oneOf": [
+        { "required": ["interface"], "properties": { "interface": true } },
+        { "required": ["namespace"], "properties": { "namespace": true } }
+      ]
+    },
+    "realmAliasGroups": {
+      "description": "The alias groups in one realm, keyed by canonical path.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": { "type": "string", "minLength": 1 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "required": ["reason", "targets"],
+      "additionalProperties": false,
+      "properties": {
+        "reason": { "description": "Why it is left out.", "type": "string", "minLength": 1 },
+        "targets": {
+          "description": "The targets it leaves out, per realm, by name.",
+          "type": "object",
+          "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+          "additionalProperties": false,
+          "properties": {
+            "window": { "$ref": "#/$defs/targetNames" },
+            "dedicated-worker": { "$ref": "#/$defs/targetNames" },
+            "shared-worker": { "$ref": "#/$defs/targetNames" },
+            "service-worker": { "$ref": "#/$defs/targetNames" }
+          }
+        }
+      }
+    },
+    "targetNames": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sha256": {
+      "description": "A sha256 digest, in lowercase hex.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "exactVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "target": {
+      "type": "object",
+      "required": ["owner", "member", "holder", "kind", "spec", "descriptor", "surface"],
+      "additionalProperties": false,
+      "properties": {
+        "owner": {
+          "description": "The interface, namespace or intrinsic whose holder the target is on. For Web IDL, its IDL identifier: the realm's [Global] interface for a property of the global, and `Memory` for `WebAssembly.Memory.prototype.grow`; a mixin member's owner is the interface that includes the mixin. For ECMAScript, the intrinsic's path: `Array` for `Array.prototype.map`, `Intl.DateTimeFormat` for `Intl.DateTimeFormat.prototype.format`.",
+          "type": "string",
+          "minLength": 1
+        },
+        "member": { "description": "The property key.", "type": "string", "minLength": 1 },
+        "holder": { "$ref": "#/$defs/holderKind" },
+        "kind": { "$ref": "#/$defs/memberKind" },
+        "spec": {
+          "description": "The shortname of the spec whose IDL declares the member, or, for a Web IDL `interface` or `namespace` target, the interface or namespace; ecma262 or ecma402 for an ECMAScript intrinsic; for an ES addition, the spec its overlay entry names; for an engine extension, the engine its overlay entry names.",
+          "type": "string",
+          "minLength": 1
+        },
+        "mixin": { "$ref": "#/$defs/mixin" },
+        "holds": {
+          "description": "For a data property whose value is itself a holder, that holder: `Window.XMLHttpRequest` holds `XMLHttpRequest`, `Window.Window` holds `Window.Window`, `WebAssembly.Module` holds `WebAssembly.Module`, `Window.console` holds `console`, `Window.Promise` holds `Promise`, and `Array.prototype.constructor` holds `Array`. An attribute never holds one: a platform singleton an attribute returns names that attribute as its `via` (`Window.history` for `history`).",
+          "type": "string",
+          "minLength": 1
+        },
+        "descriptor": { "$ref": "#/$defs/descriptor" },
+        "assign": { "$ref": "#/$defs/assignKind" },
+        "surface": { "$ref": "#/$defs/surface" },
+        "catalogStatus": {
+          "description": "Set on a retained target (spec §4 Catalog versions): one upstream removed that the catalog keeps as it was last generated. Findings on it carry catalogStatus retained, which is information only.",
+          "const": "retained"
+        }
+      },
+      "dependentSchemas": {
+        "holds": { "properties": { "kind": { "enum": ["interface", "namespace", "function", "value"] } } }
+      },
+      "allOf": [{ "$ref": "#/$defs/attributeData" }]
+    },
+    "attributeData": {
+      "description": "A Web IDL attribute has an assign kind and an accessor descriptor, whose setter is present unless the assign kind is readonly. Nothing else has an assign kind.",
+      "type": "object",
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "attribute" } } },
+          "then": {
+            "required": ["assign"],
+            "properties": {
+              "assign": true,
+              "descriptor": { "type": "object", "properties": { "type": { "const": "accessor" } } }
+            }
+          },
+          "else": { "not": { "required": ["assign"], "properties": { "assign": true } } }
+        },
+        {
+          "if": { "required": ["assign"], "properties": { "assign": { "const": "readonly" } } },
+          "then": { "properties": { "descriptor": { "type": "object", "properties": { "setter": { "const": false } } } } }
+        },
+        {
+          "if": { "required": ["assign"], "properties": { "assign": { "not": { "const": "readonly" } } } },
+          "then": { "properties": { "descriptor": { "type": "object", "properties": { "setter": { "const": true } } } } }
+        }
+      ]
+    },
+    "assignKind": {
+      "description": "What assigning a Web IDL attribute does, which its runtime descriptor can't tell: runs its setter, forwards to another attribute ([PutForwards]), sets an event handler, replaces it with a data property ([Replaceable]), does nothing ([LegacyLenientSetter]), or does nothing because it is readonly.",
+      "enum": ["setter", "put-forwards", "event-handler", "replaceable", "lenient-setter", "readonly"]
+    },
+    "descriptor": {
+      "description": "The property's descriptor in the unmutated platform.",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["type", "writable", "enumerable", "configurable"],
+          "additionalProperties": false,
+          "properties": {
+            "type": { "const": "data" },
+            "writable": { "type": "boolean" },
+            "enumerable": { "type": "boolean" },
+            "configurable": { "type": "boolean" }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["type", "setter", "enumerable", "configurable"],
+          "additionalProperties": false,
+          "properties": {
+            "type": { "const": "accessor" },
+            "setter": { "description": "Whether the accessor has a setter.", "type": "boolean" },
+            "enumerable": { "type": "boolean" },
+            "configurable": { "type": "boolean" }
+          }
+        }
+      ]
+    },
+    "esAddition": {
+      "type": "object",
+      "required": ["spec", "source", "namespaces", "properties"],
+      "additionalProperties": false,
+      "properties": {
+        "spec": { "description": "The spec that defines the addition.", "type": "string", "minLength": 1 },
+        "source": { "description": "Where the entry was curated from.", "type": "string", "minLength": 1 },
+        "namespaces": {
+          "description": "The objects the addition adds that are namespaces.",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "properties": {
+          "description": "Its properties, as the clause titles of its spec. A single name is a property of the global object.",
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "engineExtension": {
+      "type": "object",
+      "required": ["engine", "source", "kind", "descriptor"],
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "description": "The engine that defines the property, credited on its targets as their spec: `v8`.",
+          "type": "string",
+          "minLength": 1
+        },
+        "source": { "description": "Where the entry was curated from.", "type": "string", "minLength": 1 },
+        "kind": { "enum": ["function", "value", "accessor"] },
+        "descriptor": { "$ref": "#/$defs/descriptor" }
+      }
+    },
+    "enginePrototype": {
+      "type": "object",
+      "required": ["engine", "source", "realms", "owner", "proto", "prototypeOf"],
+      "additionalProperties": false,
+      "properties": {
+        "engine": { "description": "The engine whose chain it follows: `blink`.", "type": "string", "minLength": 1 },
+        "source": { "description": "Where the entry was curated from.", "type": "string", "minLength": 1 },
+        "realms": {
+          "description": "The realms it is in.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "enum": ["window", "dedicated-worker", "shared-worker", "service-worker"] }
+        },
+        "owner": { "description": "The interface it belongs to in the engine, the holder's owner: `HTMLDocument`.", "type": "string", "minLength": 1 },
+        "proto": { "description": "The holder it inherits from: `Document.prototype`.", "type": "string", "minLength": 1 },
+        "prototypeOf": {
+          "description": "The holders whose prototype it becomes: `document`.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "esProseProperty": {
+      "type": "object",
+      "required": ["source", "kind", "descriptor"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "description": "Where ECMA-262 defines the property: the clause, and what its prose says.", "type": "string", "minLength": 1 },
+        "kind": { "enum": ["function", "value", "accessor"] },
+        "descriptor": { "$ref": "#/$defs/descriptor" }
+      }
+    },
+    "proseMember": {
+      "type": "object",
+      "required": ["spec", "source", "kind", "descriptor"],
+      "additionalProperties": false,
+      "properties": {
+        "spec": { "description": "The spec whose prose defines the member, credited on it: `html`.", "type": "string", "minLength": 1 },
+        "source": { "description": "Where the entry was curated from: the spec's section, and what its prose says.", "type": "string", "minLength": 1 },
+        "kind": { "enum": ["function", "value", "accessor"] },
+        "descriptor": { "$ref": "#/$defs/descriptor" }
+      }
+    },
+    "instanceMember": {
+      "type": "object",
+      "required": ["owner", "member", "kind", "spec", "descriptor", "surface"],
+      "additionalProperties": false,
+      "properties": {
+        "owner": { "description": "The interface whose instances own the member.", "type": "string", "minLength": 1 },
+        "member": { "description": "The property key.", "type": "string", "minLength": 1 },
+        "kind": {
+          "description": "[LegacyUnforgeable] applies only to regular operations and attributes. A member a spec defines in prose on each instance (proseMembers) is a function, a value or an accessor, as an ECMAScript property is.",
+          "enum": ["operation", "attribute", "function", "value", "accessor"]
+        },
+        "spec": {
+          "description": "The shortname of the spec whose IDL declares the member, or whose prose defines it.",
+          "type": "string",
+          "minLength": 1
+        },
+        "mixin": { "$ref": "#/$defs/mixin" },
+        "descriptor": { "$ref": "#/$defs/descriptor" },
+        "assign": { "$ref": "#/$defs/assignKind" },
+        "surface": { "$ref": "#/$defs/surface" }
+      },
+      "allOf": [{ "$ref": "#/$defs/attributeData" }]
+    },
+    "holder": {
+      "type": "object",
+      "required": ["kind", "owner", "proto"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "$ref": "#/$defs/holderKind" },
+        "owner": {
+          "description": "The interface, namespace or intrinsic the holder belongs to. For Web IDL, its IDL identifier: `Memory` for `WebAssembly.Memory.prototype`. For ECMAScript, the intrinsic's path: `Array` for `Array.prototype`.",
+          "type": "string",
+          "minLength": 1
+        },
+        "proto": {
+          "description": "The next holder on the prototype chain, in the same realm; null where the chain ends, at `Object.prototype`. Web IDL chains end in the ECMAScript intrinsics: `EventTarget.prototype` → `Object.prototype`, and `console` → `console.[[Prototype]]` → `Object.prototype`.",
+          "type": ["string", "null"],
+          "minLength": 1
+        },
+        "immutablePrototype": {
+          "description": "Present when the holder is an immutable prototype exotic object, whose prototype cannot change.",
+          "const": true
+        }
+      }
+    },
+    "holderKind": {
+      "description": "The kind of object a target lives on.",
+      "enum": ["global", "constructor", "prototype", "instance", "namespace"]
+    },
+    "memberKind": {
+      "description": "A Web IDL operation, attribute or constant; the property of a global or namespace that holds an interface object (`interface`) or a namespace object (`namespace`), whether Web IDL or ECMAScript defines it; or another ECMAScript intrinsic's property, which holds a built-in `function`, another `value`, or is an `accessor`.",
+      "enum": ["operation", "attribute", "constant", "interface", "namespace", "function", "value", "accessor"]
+    },
+    "mixin": {
+      "description": "The interface mixin the member reached its owner through.",
+      "type": "string",
+      "minLength": 1
+    },
+    "surface": {
+      "description": "A member's functional category (spec §12): other is the surface of an owner nobody has reviewed yet.",
+      "enum": [
+        "networking",
+        "events",
+        "scheduling",
+        "navigation",
+        "storage",
+        "crypto",
+        "DOM",
+        "ECMAScript",
+        "diagnostics",
+        "workers",
+        "other"
+      ]
+    },
+    "reviewedSurface": {
+      "description": "A surface someone has reviewed: any but other.",
+      "allOf": [{ "$ref": "#/$defs/surface" }, { "not": { "const": "other" } }]
+    },
+    "protectedEntry": {
+      "description": "An entry of the protected-surface list: a whole interface or namespace without a member, or a member entry.",
+      "type": "object",
+      "required": ["interface", "targets"],
+      "dependentRequired": { "workerEquivalent": ["member"] },
+      "additionalProperties": false,
+      "properties": {
+        "interface": {
+          "description": "An interface, namespace or intrinsic; for a member entry, also an interface mixin.",
+          "type": "string",
+          "minLength": 1
+        },
+        "member": { "type": "string", "minLength": 1 },
+        "workerEquivalent": {
+          "description": "For a member entry, the interface that declares the member's worker-realm equivalent (spec §12 Matching): the entry also names that interface's member of the same name in each worker realm.",
+          "type": "string",
+          "minLength": 1
+        },
+        "targets": {
+          "description": "The catalog targets the entry names, per realm, by name. A whole entry names the properties holding its interface or namespace object and its static, prototype and namespace members, but no event-handler attribute. Shadowing writes and the other forms a scan matches are no catalog targets.",
+          "type": "object",
+          "required": ["window", "dedicated-worker", "shared-worker", "service-worker"],
+          "additionalProperties": false,
+          "properties": {
+            "window": { "$ref": "#/$defs/targetNames" },
+            "dedicated-worker": { "$ref": "#/$defs/targetNames" },
+            "shared-worker": { "$ref": "#/$defs/targetNames" },
+            "service-worker": { "$ref": "#/$defs/targetNames" }
+          }
+        }
+      }
+    }
+  }
+}

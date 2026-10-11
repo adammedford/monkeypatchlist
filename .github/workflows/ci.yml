@@ -6,7 +6,7 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
         with:
@@ -48,7 +48,7 @@ jobs:
   # §4 release promise: a patch release reproduces byte-identical output on the whole validation corpus.
   # CONTRIBUTING.md says when the snapshot is refreshed.
   corpus-snapshot:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # pinned, not ubuntu-latest: the byte-identical corpus build must not move with the runner's OS
     env:
       CORPUS: corpus
     steps:
